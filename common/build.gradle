@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        dataBinding.enabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    api 'androidx.navigation:navigation-fragment:2.2.2'
+    api 'androidx.navigation:navigation-ui:2.2.2'
+    api 'androidx.navigation:navigation-runtime:2.2.2'
+
+
+
+    //屏幕适配
+    api 'me.jessyan:autosize:1.2.1'
+    //阿里导航跳转其他库的activity
+    api 'com.alibaba:arouter-api:1.5.0'
+    //沉浸式状态栏
+    api 'com.jaeger.statusbarutil:library:1.5.1'
+
+    //网络请求
+    api 'com.github.liqinew:nohttprxutils:v.2.0.7'
+    //列表式布局
+    api 'com.github.jdsjlzx:LRecyclerView:1.5.4.3'
+
+    //自定义滑动菜单
+    api 'com.androidkun:XTabLayout:1.1.5'
+
+    //卡片布局
+    api 'io.github.meetsl:SCardView:1.0'
+
+
+
+}

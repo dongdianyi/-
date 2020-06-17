@@ -1,0 +1,36 @@
+<resources>
+    <string name="load">加载中…</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="home">首页</string>
+    <string name="chat">交流</string>
+    <string name="attendance">考勤</string>
+    <string name="distribution">分布</string>
+    <string name="mine">我的</string>
+
+    <string name="top_bg_description" >首页上部图片</string>
+    <string name="logo_description">智慧农业平台</string>
+    <string name="search_description">搜索园区</string>
+    <string name="search_product">搜索产品</string>
+    <string name="search_bg_description">searchBg</string>
+    <string name="weather_description">天气</string>
+    <string name="stock_description">库存汇总</string>
+    <string name="notice_description">系统通知</string>
+    <string name="retrospectname">追溯</string>
+    <string name="warning_message">预警消息</string>
+    <string name="monitor_equipment">在线监控设备</string>
+    <string name="equipment_warning">设备预警：%d</string>
+    <string name="farming_warning">农事预警：%d</string>
+    <string name="air_temperature">空气温度：%d</string>
+    <string name="air_humidity">空气湿度：%d</string>
+    <string name="soil_tension">土壤张力：%d</string>
+    <string name="more">更多</string>
+    <string name="area">种植面积：%d</string>
+    <string name="crop">作物：%d</string>
+    <string name="address">章丘</string>
+    <string name="cancle">取消</string>
+    <string name="sure">确定</string>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">SmartAgriculture</string>
+    <!--test-->
+
+    <string name="time">2020/5/23</string>
+    <string name="housekeeper">管家云</string>
+    <string name="monitor">监控云</string>
+    <string name="retrospect">追溯云</string>
+    <string name="report_form">报表云</string>
+    <string name="all_area">显示全部地块</string>
+    <string name="warning_area">仅显示有预警的地块</string>
+    <string name="task_area">仅显示有任务的地块</string>
+    <string name="seven_day">近7日</string>
+    <string name="fifteen_day">近15日</string>
+    <string name="thirty_day">近30日</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stock_manage">农资库存管理</string>
+    <string name="product_manage">产品库存管理</string>
+    <string name="add_product">增加产品</string>
+</resources>
