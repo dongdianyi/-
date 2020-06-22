@@ -38,12 +38,13 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
     }
 
     override fun initData() {
+        LogUtil("aaaaa","aaaaa")
         chatAdapter =
             ChatAdapter(requireContext(), R.layout.chatdetails_item, Identification.CHATDETAILS)
         mLRecycleViewAdapter = LRecyclerViewAdapter(chatAdapter)
-        dataList = mutableListOf<String>("一直小可爱", "两只小可爱")
-        chatAdapter.setDataList(dataList as Collection<Any?>?)
+        dataList = mutableListOf<String>("一直小可爱", "两只小可爱","一直小可爱", "两只小可爱","一直小可爱", "两只小可爱")
         chatdetails_recycler.adapter = mLRecycleViewAdapter
+        chatAdapter.setDataList(dataList as Collection<Any?>?)
         linearLayoutManager=LinearLayoutManager(context)
             //弹出软键盘recyclerview上移
         linearLayoutManager.stackFromEnd =true
@@ -60,6 +61,7 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
     override fun setListener() {
         super.setListener()
         chatdetails_recycler.setPullRefreshEnabled(false)
+        chatdetails_recycler.setLoadMoreEnabled(false)
 //        setSoftKeyBoardListener()
         send.setOnClickListener {
             if (null == editText_msg.text || TextUtils.isEmpty(editText_msg.text)) {
