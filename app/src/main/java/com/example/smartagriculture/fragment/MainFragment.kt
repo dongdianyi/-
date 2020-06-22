@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import com.example.common.BaseFragment
-import com.example.common.LogUtil
 import com.example.smartagriculture.R
-import com.example.smartagriculture.app.MyApplication
 import com.example.smartagriculture.databinding.FragmentMainBinding
 import com.example.smartagriculture.util.init
 import com.example.smartagriculture.viewmodel.MainViewModel

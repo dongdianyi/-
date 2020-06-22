@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".fragment.CreateChatFragment">
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_200"
+            android:background="@mipmap/top_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_60"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/back"
+            app:layout_constraintBottom_toBottomOf="@id/view2"
+            app:layout_constraintStart_toStartOf="@id/guideline39"
+            app:layout_constraintTop_toTopOf="@id/view2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_100"
+            android:padding="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_150"
+            android:background="@drawable/cycle_white_shadow"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/guideline40"
+            app:layout_constraintStart_toStartOf="@id/guideline39"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/search_iv"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginStart="@dimen/dp_10"
+                android:contentDescription="@string/search_description"
+                app:srcCompat="@mipmap/search_iv_black" />
+
+            <EditText
+                android:id="@+id/search_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_10"
+                android:background="@null"
+                android:hint="@string/search_maillist"
+                android:textColor="@color/title_gray"
+                android:textCursorDrawable="@drawable/textcursor"
+                android:textSize="@dimen/sp_28" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_chat"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_35"
+            app:layout_constraintBottom_toBottomOf="@id/view2"
+            app:layout_constraintEnd_toStartOf="@id/guideline40"
+            app:layout_constraintStart_toStartOf="@id/guideline39"
+            app:layout_constraintTop_toTopOf="@id/view2" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_60"
+            android:background="@mipmap/search_bg"
+            android:gravity="center"
+            android:text="@string/sure"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_30"
+            app:layout_constraintBottom_toBottomOf="@id/view2"
+            app:layout_constraintEnd_toStartOf="@id/guideline40"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.github.jdsjlzx.recyclerview.LRecyclerView
+            android:id="@+id/create_chat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

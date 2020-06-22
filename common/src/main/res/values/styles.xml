@@ -42,7 +42,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:drawablePadding">@dimen/dp_5</item>
-        <item name="android:textSize">@dimen/sp_21</item>
+        <item name="android:textSize">@dimen/sp_23</item>
         <item name="android:textColor">@color/title_gray</item>
     </style>
     //弹框的样式

@@ -15,6 +15,10 @@
     <string name="logo_description">智慧农业平台</string>
     <string name="search_description">搜索园区</string>
     <string name="search_product">搜索产品</string>
+    <string name="search_maillist">搜索通讯录人员</string>
+    <string name="search_chat">搜索我的群</string>
+    <string name="search">搜索结果</string>
+    <string name="search_message">请输入搜索内容</string>
     <string name="search_bg_description">searchBg</string>
     <string name="weather_description">天气</string>
     <string name="stock_description">库存汇总</string>
@@ -33,4 +37,16 @@
     <string name="address">章丘</string>
     <string name="cancle">取消</string>
     <string name="sure">确定</string>
+    <string name="send">发送</string>
+    <string name="input_msg">请输入聊天内容</string>
+    <string name="create_chat">创建群聊</string>
+    <string name="sorry_nomessage">抱歉，没有发现相关内容</string>
+    <string name="replace_word">换个关键词试试吧</string>
+    <string name="history_search">历史搜索</string>
+    <string name="revise_pwd">修改密码</string>
+    <string name="feedback">意见反馈</string>
+    <string name="about">关于我们</string>
+    <string name="problem">常见问题</string>
+    <string name="setting">系统设置</string>
+    <string name="update">版本升级</string>
 </resources>

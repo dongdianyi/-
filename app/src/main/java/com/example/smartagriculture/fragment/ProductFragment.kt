@@ -2,26 +2,22 @@ package com.example.smartagriculture.fragment
 
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartagriculture.R
-import com.example.smartagriculture.adapter.DataAdapter
+import com.example.smartagriculture.adapter.HomeAdapter
 import com.example.smartagriculture.adapter.DropDownAdapter
 import com.example.smartagriculture.databinding.FragmentProductBinding
 import com.example.smartagriculture.myview.TextDrawable
 import com.example.smartagriculture.util.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.DataViewModel
-import com.example.smartagriculture.viewmodel.MainViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
-import kotlinx.android.synthetic.main.fragment_home.drop_down_view
 import kotlinx.android.synthetic.main.fragment_product.*
-import kotlinx.android.synthetic.main.fragment_stock.*
 import kotlinx.android.synthetic.main.title_item.*
 
 /**
@@ -34,7 +30,7 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
     private lateinit var expandedView: View
     private lateinit var headerChevronTv: TextDrawable
 
-    private lateinit var productAdapter: DataAdapter
+    private lateinit var productAdapter: HomeAdapter
 
     override fun initLayout(): Int {
         return R.layout.fragment_product
@@ -81,7 +77,7 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
 
 
         productAdapter =
-            DataAdapter(requireContext(), R.layout.product_item, Identification.PRODUCT)
+            HomeAdapter(requireContext(), R.layout.product_item, Identification.PRODUCT)
         mLRecycleViewAdapter = LRecyclerViewAdapter(productAdapter)
         val dataList = listOf<String>("wwwwww", "dsds", "章丘大鱼合作社")
         productAdapter.setDataList(dataList)

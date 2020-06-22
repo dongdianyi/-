@@ -52,6 +52,7 @@ open class DropDownAdapter(
         fun bind(position: Int) {
             standTitleTV.text = actionViewDelegate.getStandTitle(position)
             itemView.isSelected = actionViewDelegate.selectedStand == position
+            standTitleTV.isEnabled = actionViewDelegate.selectedStand==position
         }
 
         private val standViewItemClickListener =

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@mipmap/start_bg1"
+        android:layout_height="match_parent"
+        tools:context=".fragment.StartFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="@dimen/dp_75"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:background="@mipmap/search_bg"
+            android:gravity="center"
+            android:focusable="false"
+            android:text="跳过"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline27" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:src="@mipmap/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="智慧农业"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="@dimen/dp_400"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@mipmap/start_bg10"
+            android:gravity="center"
+            android:text="综  合  管  理  平  台"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_35"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_87"
+            android:layout_marginStart="@dimen/dp_75"
+            android:layout_marginTop="@dimen/dp_10"
+            android:src="@mipmap/start_bg5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@mipmap/start_bg9"
+            app:layout_constraintBottom_toBottomOf="@id/guideline29"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="40dp"
+            android:src="@mipmap/start_bg2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_87"
+            android:layout_marginBottom="@dimen/dp_22"
+            android:src="@mipmap/start_bg6"
+            app:layout_constraintBottom_toTopOf="@+id/guideline29"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.example.smartagriculture.myview.TextDrawable
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dp_10"
+            android:text="扫码关注我们"
+            android:textSize="@dimen/sp_16"
+            android:layout_marginEnd="@dimen/dp_10"
+            app:layout_constraintBottom_toBottomOf="@id/guideline28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:topDrawable="@mipmap/start_bg4"
+            app:topDrawableHeight="@dimen/dp_100"
+            app:topDrawableWidth="@dimen/dp_100" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/start_bg3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

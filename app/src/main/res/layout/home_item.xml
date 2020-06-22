@@ -39,15 +39,14 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="@dimen/dp_150"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_87"
         android:layout_marginStart="@dimen/dp_10"
         android:layout_marginTop="@dimen/dp_22"
         android:background="@mipmap/task_bg"
         android:gravity="center"
-        android:padding="@dimen/dp_10"
         android:text="50\n待做"
         android:textSize="@dimen/sp_28"
-        android:lineSpacingMultiplier="1.5"
+        android:lineSpacingMultiplier="1.2"
         android:textColor="@color/title_color"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,14 +55,14 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:lineSpacingMultiplier="1.5"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:lineSpacingMultiplier="1.5"
         android:text="3\n施肥"
         app:layout_constraintBottom_toBottomOf="@id/textView4"
         app:layout_constraintEnd_toStartOf="@id/textView4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/textView2" />
+        app:layout_constraintStart_toEndOf="@id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView4"
@@ -74,7 +73,6 @@
         android:text="3\n施肥"
         app:layout_constraintBottom_toBottomOf="@id/textView5"
         app:layout_constraintEnd_toStartOf="@id/textView5"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/textView3"
         app:layout_constraintTop_toTopOf="@id/textView5" />
 
@@ -87,7 +85,6 @@
         android:text="3\n施肥"
         app:layout_constraintBottom_toBottomOf="@id/textView6"
         app:layout_constraintEnd_toStartOf="@id/textView6"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/textView4"
         app:layout_constraintTop_toTopOf="@id/textView6" />
 
@@ -100,10 +97,8 @@
         android:text="3\n施肥"
         app:layout_constraintBottom_toBottomOf="@id/textView7"
         app:layout_constraintEnd_toStartOf="@id/textView7"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/textView5"
-        app:layout_constraintTop_toTopOf="@id/textView7"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@id/textView7" />
 
     <TextView
         android:id="@+id/textView7"
@@ -114,7 +109,6 @@
         android:text="3\n施肥"
         app:layout_constraintBottom_toBottomOf="@id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/textView6"
         app:layout_constraintTop_toTopOf="@id/textView2" />
 
@@ -122,7 +116,7 @@
         android:id="@+id/divider"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:background="?android:attr/listDivider"
+        android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView5"
         app:layout_constraintEnd_toStartOf="@id/textView5"
         app:layout_constraintStart_toEndOf="@id/textView4"
@@ -132,7 +126,7 @@
         android:id="@+id/divider2"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:background="?android:attr/listDivider"
+        android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView6"
         app:layout_constraintEnd_toStartOf="@id/textView6"
         app:layout_constraintStart_toEndOf="@id/textView5"
@@ -142,7 +136,7 @@
         android:id="@+id/divider3"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:background="?android:attr/listDivider"
+        android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView7"
         app:layout_constraintEnd_toStartOf="@id/textView7"
         app:layout_constraintStart_toEndOf="@id/textView6"
@@ -152,7 +146,7 @@
         android:id="@+id/divider4"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:background="?android:attr/listDivider"
+        android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView4"
         app:layout_constraintEnd_toStartOf="@id/textView4"
         app:layout_constraintStart_toEndOf="@id/textView3"
@@ -163,7 +157,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/dp_10"
-        android:background="?android:attr/listDivider"
+        android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView2" />
@@ -289,7 +283,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
-        android:background="?android:attr/listDivider"
+        android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/relativeLayout2" />

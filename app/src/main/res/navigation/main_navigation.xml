@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/mainFragment"
-    tools:ignore="UnusedNavigation">
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -23,6 +23,27 @@
         <action
             android:id="@+id/action_mainFragment_to_productFragment"
             app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_chatDetailsFragment"
+            app:destination="@id/chatDetailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_createChatFragment"
+            app:destination="@id/createChatFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mailListFragment"
+            app:destination="@id/mailListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_attendanceDetailsFragment"
+            app:destination="@id/attendanceDetailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_leaveApplicationFragment"
+            app:destination="@id/leaveApplicationFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_leaveRecordFragment"
+            app:destination="@id/leaveRecordFragment" />
     </fragment>
     <fragment
         android:id="@+id/warningMessageFragment"
@@ -51,4 +72,36 @@
         android:id="@+id/addProductFragment"
         android:name="com.example.smartagriculture.fragment.AddProductFragment"
         android:label="AddProductFragment" />
+    <fragment
+        android:id="@+id/chatDetailsFragment"
+        android:name="com.example.smartagriculture.fragment.ChatDetailsFragment"
+        android:label="ChatDetailsFragment" />
+    <fragment
+        android:id="@+id/createChatFragment"
+        android:name="com.example.smartagriculture.fragment.CreateChatFragment"
+        android:label="CreateChatFragment" />
+    <fragment
+        android:id="@+id/mailListFragment"
+        android:name="com.example.smartagriculture.fragment.MailListFragment"
+        android:label="MailListFragment" >
+        <action
+            android:id="@+id/action_mailListFragment_to_chatDetailsFragment"
+            app:destination="@id/chatDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.smartagriculture.fragment.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/attendanceDetailsFragment"
+        android:name="com.example.smartagriculture.fragment.AttendanceDetailsFragment"
+        android:label="AttendanceDetailsFragment" />
+    <fragment
+        android:id="@+id/leaveRecordFragment"
+        android:name="com.example.smartagriculture.fragment.LeaveRecordFragment"
+        android:label="LeaveRecordFragment" />
+    <fragment
+        android:id="@+id/leaveApplicationFragment"
+        android:name="com.example.smartagriculture.fragment.LeaveApplicationFragment"
+        android:label="LeaveApplicationFragment" />
 </navigation>

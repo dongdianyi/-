@@ -5,20 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.common.BaseFragment
 
 import com.example.smartagriculture.R
+import com.example.smartagriculture.databinding.FragmentDistributionBinding
+import com.example.smartagriculture.viewmodel.DistributionViewModel
 
 /**
  * A simple [Fragment] subclass.
  */
-class DistributionFragment : Fragment() {
+class DistributionFragment : BaseFragment<DistributionViewModel,FragmentDistributionBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_distribution, container, false)
+
+    override fun initLayout(): Int {
+        return R.layout.fragment_distribution
+    }
+
+    override fun initView(view: View) {
+    }
+
+    override fun initData() {
     }
 
 }

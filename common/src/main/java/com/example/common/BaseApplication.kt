@@ -24,10 +24,8 @@ open class BaseApplication : Application() {
         private var height = 0
         private var walgreenWidth = 0
         private var screenHeight = 0
-        var context: BaseApplication? = null
-        fun getContext(): Context? {
-            return context
-        }
+        var application: BaseApplication? =null
+        var context: Context? = null
 
         fun getWidth(): Int {
             return width
@@ -48,6 +46,7 @@ open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         context = this
+        application=this
         screen()
         configUnits()
         //不同模块之间跳转使用

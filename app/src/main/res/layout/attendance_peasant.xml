@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@mipmap/top_bg"
+        app:layout_constraintBottom_toTopOf="@+id/guideline37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/attendance"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline38" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cycle_white_shadow"
+        android:padding="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_40"
+        app:layout_constraintEnd_toStartOf="@+id/guideline49"
+        app:layout_constraintStart_toStartOf="@+id/guideline48"
+        app:layout_constraintTop_toBottomOf="@id/textView62">
+
+
+        <com.example.smartagriculture.myview.TextDrawable
+            android:id="@+id/textDrawable10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dp_20"
+            android:text="今日未打卡"
+            android:textColor="@color/green"
+            android:textSize="@dimen/sp_28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view5"
+            app:leftDrawable="@mipmap/orange_cycle" />
+
+        <TextView
+            android:id="@+id/textView64"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_200"
+            android:background="@mipmap/attendance_bg1"
+            android:gravity="center"
+            android:text="打卡\n12:20:35"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_30"
+            app:layout_constraintEnd_toEndOf="@id/view5"
+            app:layout_constraintStart_toStartOf="@id/view5"
+            app:layout_constraintTop_toTopOf="@+id/textDrawable10" />
+
+        <com.example.smartagriculture.myview.TextDrawable
+            android:id="@+id/textDrawable11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:drawablePadding="@dimen/dp_20"
+            android:text="山东济南"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/sp_25"
+            app:layout_constraintEnd_toEndOf="@id/view5"
+            app:layout_constraintStart_toStartOf="@id/view5"
+            app:layout_constraintTop_toBottomOf="@+id/textView64"
+            app:leftDrawable="@mipmap/attendance_address" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/cycle_white_shadow"
+        android:paddingStart="@dimen/dp_40"
+        android:paddingEnd="@dimen/dp_40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline49"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline48"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.example.smartagriculture.myview.TextDrawable
+            android:id="@+id/textDrawable12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dp_20"
+            android:text="打卡记录"
+            android:textColor="@color/green"
+            android:textSize="@dimen/sp_23"
+            app:layout_constraintBottom_toTopOf="@+id/divider18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:leftDrawable="@mipmap/attendance_iv" />
+
+        <com.example.smartagriculture.myview.TextDrawable
+            android:id="@+id/textDrawable13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:drawablePadding="@dimen/dp_20"
+            android:text="2020/6/22"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/sp_23"
+            app:layout_constraintBottom_toTopOf="@+id/divider18"
+            app:layout_constraintStart_toEndOf="@+id/textDrawable12"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rightDrawable="@mipmap/pull_blue" />
+
+        <TextView
+            android:id="@+id/textView65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/warning_num_bg"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_20"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="查询详情"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_23"
+            app:layout_constraintBottom_toTopOf="@+id/divider18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="本月出勤率：d%"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/sp_23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider18" />
+
+        <View
+            android:id="@+id/divider18"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp_87"
+            android:background="@color/line_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cycle_blue_line"
+            android:gravity="center"
+            android:padding="@dimen/dp_40"
+            android:text="本月迟到：5"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/sp_25"
+            app:layout_constraintBottom_toBottomOf="@+id/textView68"
+            app:layout_constraintEnd_toStartOf="@+id/textView68"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView68"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView68"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:background="@drawable/cycle_blue_line"
+            android:gravity="center"
+            android:padding="@dimen/dp_40"
+            android:text="本月矿工：5"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/sp_25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView67"
+            app:layout_constraintTop_toBottomOf="@+id/textView66" />
+
+        <TextView
+            android:id="@+id/textView69"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cycle_blue_line"
+            android:gravity="center"
+            android:padding="@dimen/dp_40"
+            android:text="本月请假：5"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/sp_25"
+            app:layout_constraintBottom_toBottomOf="@+id/textView70"
+            app:layout_constraintEnd_toStartOf="@+id/textView70"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView70" />
+
+        <TextView
+            android:id="@+id/textView70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_40"
+            android:background="@drawable/cycle_blue_line"
+            android:gravity="center"
+            android:padding="@dimen/dp_40"
+            android:text="本月出差：5"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/sp_25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView69"
+            app:layout_constraintTop_toBottomOf="@+id/textView68" />
+
+        <View
+            android:id="@+id/divider19"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp_40"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView70" />
+
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/dp_60"
+            android:background="@mipmap/cancle_bg"
+            android:gravity="center"
+            android:text="请假申请"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_25"
+            app:layout_constraintBottom_toBottomOf="@+id/textView72"
+            app:layout_constraintEnd_toStartOf="@+id/textView72"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView72" />
+
+        <TextView
+            android:id="@+id/textView72"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="@dimen/sp_60"
+            android:layout_margin="@dimen/dp_40"
+            android:background="@mipmap/sure_bg"
+            android:gravity="center"
+            android:text="请假记录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_25"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView71"
+            app:layout_constraintTop_toBottomOf="@+id/divider19" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

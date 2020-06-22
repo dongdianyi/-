@@ -5,7 +5,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:drawablePadding">@dimen/dp_10</item>
-        <item name="android:textSize">@dimen/sp_28</item>
+        <item name="android:textSize">@dimen/sp_25</item>
         <item name="android:layout_weight">1</item>
     </style>
     <style name="radio_horizontal">

@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.navigation.Navigation
+import androidx.viewpager.widget.ViewPager
+import com.androidkun.xtablayout.XTabLayout
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+
 
 /**
  * A simple [Fragment] subclass.
@@ -17,6 +19,7 @@ import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 @Suppress("UNCHECKED_CAST")
 abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() {
 
+    lateinit var mTitles: List<String>
 
     lateinit var viewModel: VM
     lateinit var dataBinding: DB
@@ -41,7 +44,52 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
     abstract fun initLayout(): Int
     abstract fun initView(view: View)
     abstract fun initData()
-    open fun setListener(){
+    open fun setListener() {
+    }
+
+
+    open fun getTabView(position: Int): View {
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.tab_top, null)
+        val txtTitle = view.findViewById<TextView>(R.id.textView9)
+        txtTitle.text = mTitles[position]
+        if (position == 0) {
+            txtTitle.background = resources.getDrawable(R.drawable.tab_bg, null)
+        }
+        return view
+    }
+
+    open fun getTabViewChat(position: Int): View {
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.tab_top_chat, null)
+        val txtTitle = view.findViewById<TextView>(R.id.textView9)
+        txtTitle.text = mTitles[position]
+        if (position == 0) {
+            txtTitle.background = resources.getDrawable(R.drawable.tab_bg, null)
+        }
+        return view
+    }
+
+    open fun changeTabSelect(tab: XTabLayout.Tab, view_pager: ViewPager) {
+        val view = tab.customView
+        val txtTitle = view?.findViewById<TextView>(R.id.textView9)
+        if (txtTitle != null) {
+            txtTitle.background = resources.getDrawable(R.drawable.tab_bg, null)
+            view_pager.currentItem = tab.position
+        }
+    }
+
+    open fun changeTabNormal(tab: XTabLayout.Tab) {
+        val view = tab.customView
+        val txtTitle = view?.findViewById<TextView>(R.id.textView9)
+        if (txtTitle != null) {
+            txtTitle.background = null
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        hideSoftKeyboard(activity)
     }
 
 }

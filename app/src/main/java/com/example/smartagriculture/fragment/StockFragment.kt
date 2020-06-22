@@ -1,6 +1,5 @@
 package com.example.smartagriculture.fragment
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -8,7 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartagriculture.R
-import com.example.smartagriculture.adapter.DataAdapter
+import com.example.smartagriculture.adapter.HomeAdapter
 import com.example.smartagriculture.adapter.DropDownAdapter
 import com.example.smartagriculture.databinding.FragmentStockBinding
 import com.example.smartagriculture.myview.TextDrawable
@@ -16,7 +15,6 @@ import com.example.smartagriculture.util.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.DataViewModel
 import com.github.jdsjlzx.ItemDecoration.GridItemDecoration
-import com.github.jdsjlzx.ItemDecoration.SpacesItemDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_stock.*
 import kotlinx.android.synthetic.main.title_item.*
@@ -31,7 +29,7 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
     private lateinit var expandedView: View
     private lateinit var headerChevronTv: TextDrawable
 
-    private lateinit var stockAdapter: DataAdapter
+    private lateinit var stockAdapter: HomeAdapter
 
     override fun initLayout(): Int {
         return R.layout.fragment_stock
@@ -78,7 +76,7 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
         stock_recycler.layoutManager = manager
 
         stockAdapter =
-            DataAdapter(requireContext(), R.layout.stock_item, Identification.STOCK)
+            HomeAdapter(requireContext(), R.layout.stock_item, Identification.STOCK)
         mLRecycleViewAdapter = LRecyclerViewAdapter(stockAdapter)
         val dataList = listOf<String>("镁肥", "钙肥", "有机肥")
         stockAdapter.setDataList(dataList)
@@ -97,8 +95,8 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
 
         //根据需要选择使用GridItemDecoration还是SpacesItemDecoration
         val divider: GridItemDecoration = GridItemDecoration.Builder(requireContext())
-            .setHorizontal(R.dimen.dp_10)
-            .setVertical(R.dimen.dp_10)
+            .setHorizontal(R.dimen.dp_20)
+            .setVertical(R.dimen.dp_20)
             .setColorResource(R.color.white)
             .build()
         stock_recycler.addItemDecoration(divider)

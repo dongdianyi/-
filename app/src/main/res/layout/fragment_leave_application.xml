@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".fragment.LeaveApplicationFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@mipmap/top_bg"
+            app:layout_constraintBottom_toTopOf="@+id/guideline37"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/leave_application"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_35"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline38" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="0dp"
+            android:padding="@dimen/dp_10"
+            app:layout_constraintBottom_toBottomOf="@+id/textView62"
+            app:layout_constraintStart_toStartOf="@+id/guideline48"
+            app:layout_constraintTop_toTopOf="@+id/textView62"
+            app:srcCompat="@mipmap/back" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_40"
+            android:background="@drawable/cycle_white_shadow"
+            android:padding="@dimen/dp_40"
+            app:layout_constraintBottom_toTopOf="@+id/guideline55"
+            app:layout_constraintEnd_toStartOf="@+id/guideline49"
+            app:layout_constraintStart_toStartOf="@+id/guideline48"
+            app:layout_constraintTop_toBottomOf="@+id/textView62">
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="@string/leave_type"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:leftDrawable="@mipmap/required_iv" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable15"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/cycle_gray_line"
+                android:drawablePadding="@dimen/dp_20"
+                android:padding="@dimen/dp_10"
+                android:text="事假"
+                android:textColor="@color/title_gray"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDrawable14"
+                app:rightDrawable="@mipmap/pull_blue" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="@string/start_time"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textDrawable15"
+                app:leftDrawable="@mipmap/required_iv" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable17"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/cycle_gray_line"
+                android:drawablePadding="@dimen/dp_20"
+                android:padding="@dimen/dp_10"
+                android:text="TextView"
+                android:textColor="@color/title_gray"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDrawable16"
+                app:rightDrawable="@mipmap/pull_blue" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="@string/end_time"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textDrawable17"
+                app:leftDrawable="@mipmap/required_iv" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable19"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/cycle_gray_line"
+                android:drawablePadding="@dimen/dp_20"
+                android:padding="@dimen/dp_10"
+                android:text="TextView"
+                android:textColor="@color/title_gray"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDrawable18"
+                app:rightDrawable="@mipmap/pull_blue" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="@string/time_length"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textDrawable19"
+                app:leftDrawable="@mipmap/required_iv" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/cycle_gray_line"
+                android:drawablePadding="@dimen/dp_20"
+                android:padding="@dimen/dp_10"
+                android:text="TextView"
+                android:textColor="@color/title_gray"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDrawable20"
+                app:rightDrawable="@mipmap/pull_blue" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="@string/leave_reason"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textDrawable21"
+                app:leftDrawable="@mipmap/required_iv" />
+
+            <EditText
+                android:id="@+id/textDrawable23"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/cycle_gray_line"
+                android:drawablePadding="@dimen/dp_20"
+                android:padding="@dimen/dp_20"
+                android:textCursorDrawable="@drawable/textcursor"
+                android:layout_marginBottom="@dimen/dp_40"
+                android:hint="请输入请假理由"
+                android:gravity="left"
+                android:textColor="@color/title_gray"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintBottom_toTopOf="@+id/textView80"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDrawable22"
+                app:rightDrawable="@mipmap/pull_blue"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/textView80"
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="@dimen/dp_60"
+                android:background="@mipmap/sure_bg"
+                android:gravity="center"
+                android:text="@string/sure"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_30"
+                app:layout_constraintBottom_toBottomOf="@+id/textView81"
+                app:layout_constraintEnd_toStartOf="@+id/textView81"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView81" />
+
+            <TextView
+                android:id="@+id/textView81"
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="@dimen/dp_60"
+                android:background="@mipmap/cancle_bg"
+                android:gravity="center"
+                android:text="@string/cancle"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView80" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

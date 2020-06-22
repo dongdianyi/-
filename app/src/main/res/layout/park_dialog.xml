@@ -22,7 +22,7 @@
             android:layout_marginTop="@dimen/dp_10"
             android:text="-筛选-"
             android:textColor="@color/green"
-            android:textSize="@dimen/sp_28"
+            android:textSize="@dimen/sp_30"
             app:layout_constraintBottom_toTopOf="@+id/guideline10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
             android:id="@+id/divider7"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
+            android:background="@color/line_color"
             app:layout_constraintBottom_toTopOf="@+id/guideline10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline10"
@@ -61,12 +61,14 @@
             <com.example.smartagriculture.myview.MyRadioButton
                 android:id="@+id/radioButton"
                 style="@style/radio"
+                android:background="?attr/selectableItemBackground"
                 android:checked="true"
                 android:text="@string/all_area" />
 
             <com.example.smartagriculture.myview.MyRadioButton
                 android:id="@+id/radioButton2"
                 style="@style/radio"
+                android:background="?attr/selectableItemBackground"
                 android:text="@string/warning_area" />
 
             <com.example.smartagriculture.myview.MyRadioButton
@@ -80,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginBottom="@dimen/dp_36"
-            android:background="?android:attr/listDivider"
+            android:background="@color/line_color"
             app:layout_constraintBottom_toTopOf="@+id/cancel_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

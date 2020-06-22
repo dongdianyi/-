@@ -18,4 +18,13 @@
     <string name="stock_manage">农资库存管理</string>
     <string name="product_manage">产品库存管理</string>
     <string name="add_product">增加产品</string>
+    <string name="revisedinformation">编辑个人资料</string>
+    <string name="revise_phone">修改手机号</string>
+    <string name="leave_application">请假申请</string>
+    <string name="leave_record">请假记录</string>
+    <string name="leave_type">请假类型</string>
+    <string name="start_time">开始时间</string>
+    <string name="end_time">结束时间</string>
+    <string name="time_length">时长</string>
+    <string name="leave_reason">请假理由</string>
 </resources>

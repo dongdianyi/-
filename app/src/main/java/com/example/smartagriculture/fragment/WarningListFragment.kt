@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.BaseFragment
 import com.example.smartagriculture.R
-import com.example.smartagriculture.adapter.DataAdapter
+import com.example.smartagriculture.adapter.HomeAdapter
 import com.example.smartagriculture.databinding.FragmentWarningListBinding
 import com.example.smartagriculture.util.Identification
 import com.example.smartagriculture.viewmodel.WarnMessageViewModel
@@ -22,7 +22,7 @@ class WarningListFragment : BaseFragment<WarnMessageViewModel,FragmentWarningLis
 
 
     companion object{
-         fun newInstance(title: String?, flag: String?): WarningListFragment? {
+         fun newInstance(title: String?, flag: Int): WarningListFragment? {
             val fragment = WarningListFragment()
             val bundle = Bundle()
             bundle.putString("title", title)
@@ -38,7 +38,7 @@ class WarningListFragment : BaseFragment<WarnMessageViewModel,FragmentWarningLis
     override fun initView(view: View) {
         viewModel = ViewModelProvider(requireActivity()).get(WarnMessageViewModel::class.java)
         val warnAdapter =
-            DataAdapter(requireContext(),R.layout.warning_item,Identification.WARNINGLIST)
+            HomeAdapter(requireContext(),R.layout.warning_item,Identification.WARNINGLIST)
         mLRecycleViewAdapter = LRecyclerViewAdapter(warnAdapter)
         val dataList = listOf<String>("设备警告", "设备警告2", "设备警告3")
         warnAdapter.setDataList(dataList)

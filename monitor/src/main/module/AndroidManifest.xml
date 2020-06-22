@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.library">
 
-    <application
-        android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name="com.example.monitor.MainActivity">
-        </activity>
+    <application android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name="com.example.monitor.activity.MonitorActivity" />
     </application>
 
 </manifest>

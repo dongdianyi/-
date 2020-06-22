@@ -5,5 +5,4 @@ import androidx.lifecycle.AndroidViewModel
 
 open class BaseViewModel(application: Application) : AndroidViewModel(application) {
 
-
 }

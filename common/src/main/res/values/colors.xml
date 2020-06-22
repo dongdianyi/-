@@ -12,5 +12,7 @@
     <color name="green">#1BA17E</color>
     <color name="title_gray">#696969</color>
     <color name="time_gray">#737171</color>
-
+    <color name="send_bg">#8DC33B</color>
+    <color name="line_color">#DFDFDF</color>
+    <color name="blue_line">#32B16C</color>
 </resources>
