@@ -2,6 +2,7 @@ package com.example.smartagriculture.fragment
 
 import android.text.TextUtils
 import android.view.View
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,7 +33,6 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
     }
 
     override fun initView(view: View) {
-        AndroidBug5497Workaround.assistActivity(requireActivity())
         viewModel = ViewModelProvider(requireActivity()).get(ChatViewModel::class.java)
         textView.text="聊天详情"
     }
@@ -44,13 +44,19 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
         dataList = mutableListOf<String>("一直小可爱", "两只小可爱")
         chatAdapter.setDataList(dataList as Collection<Any?>?)
         chatdetails_recycler.adapter = mLRecycleViewAdapter
-        linearLayoutManager=LinearLayoutManager(requireContext())
+        linearLayoutManager=LinearLayoutManager(context)
             //弹出软键盘recyclerview上移
         linearLayoutManager.stackFromEnd =true
         linearLayoutManager.scrollToPositionWithOffset(dataList.size-1,0)
         chatdetails_recycler.layoutManager = linearLayoutManager
     }
 
+    override fun onResume() {
+        super.onResume()
+        initData()
+        editText_msg.isFocusable=true
+        editText_msg.isFocusableInTouchMode=true
+    }
     override fun setListener() {
         super.setListener()
         chatdetails_recycler.setPullRefreshEnabled(false)
@@ -92,6 +98,12 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
             })
 
 
+    }
+
+    override fun onPause() {
+        super.onPause()
+        editText_msg.isFocusable=false
+        editText_msg.isFocusableInTouchMode=false
     }
 
 }

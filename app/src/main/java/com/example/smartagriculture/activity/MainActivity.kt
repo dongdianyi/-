@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.common.BaseActivity
+import com.example.common.hideSoftKeyboard
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityMainBinding
+import com.example.smartagriculture.util.AndroidBug5497Workaround
 import com.example.smartagriculture.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
@@ -22,6 +24,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     override fun initData() {
+        AndroidBug5497Workaround.assistActivity(this)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

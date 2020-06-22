@@ -1,14 +1,17 @@
 package com.example.common
 
 import android.app.Activity
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.graphics.Rect
 import android.util.Log
 import android.view.Gravity
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 
 

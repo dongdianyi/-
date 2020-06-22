@@ -48,8 +48,9 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
     }
 
     override fun initData() {
-        textView34.isFocusable=true
+        textView34.isEnabled=true
         textView34.clickNoRepeat {
+            textView34.isEnabled=false
             mHandlerMessage.removeCallbacksAndMessages(null)
             startActivity(Intent(this@StartActivity, MainActivity::class.java))
             finish()

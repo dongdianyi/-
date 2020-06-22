@@ -36,7 +36,7 @@
             android:layout_marginEnd="@dimen/dp_40"
             android:background="@mipmap/search_bg"
             android:gravity="center"
-            android:focusable="false"
+            android:enabled="false"
             android:text="跳过"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_18"
