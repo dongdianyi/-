@@ -41,7 +41,7 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
         chatAdapter =
             ChatAdapter(requireContext(), R.layout.chatdetails_item, Identification.CHATDETAILS)
         mLRecycleViewAdapter = LRecyclerViewAdapter(chatAdapter)
-        dataList = mutableListOf<String>("一直小可爱")
+        dataList = mutableListOf<String>("一直小可爱","一直小可爱","一直小可爱","一直小可爱","一直小可爱","一直小可爱")
         chatdetails_recycler.adapter = mLRecycleViewAdapter
         chatAdapter.setDataList(dataList as Collection<Any?>?)
         linearLayoutManager = LinearLayoutManager(context)
@@ -57,7 +57,8 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
 
     override fun onResume() {
         super.onResume()
-        linearLayoutManager.scrollToPositionWithOffset(0, 0)
+//        linearLayoutManager.scrollToPositionWithOffset(0, 0)
+        mLRecycleViewAdapter.notifyDataSetChanged()
         editText_msg.isFocusable = true
         editText_msg.isFocusableInTouchMode = true
     }
@@ -89,8 +90,10 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
             SoftKeyBoardListener.OnSoftKeyBoardChangeListener {
 
             override fun keyBoardShow(height: Int) {
-                linearLayoutManager.scrollToPositionWithOffset(0, 0)
-                chatdetails_recycler.layoutManager = linearLayoutManager
+                if (chatdetails_recycler!=null) {
+                    linearLayoutManager.scrollToPositionWithOffset(0, 0)
+                    chatdetails_recycler.layoutManager = linearLayoutManager
+                }
 
             }
 

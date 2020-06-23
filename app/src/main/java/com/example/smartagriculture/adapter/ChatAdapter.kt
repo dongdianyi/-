@@ -37,7 +37,9 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
                 val textView44 = holder.getView<TextView>(R.id.textView44)
                 if (position % 2 == 0) {
                     textView43.text = mDataList[position].toString()
+                    textView44.text="hahahh"
                 } else {
+                    textView43.text="hehheh"
                     textView44.text = mDataList[position].toString()
                 }
             }
