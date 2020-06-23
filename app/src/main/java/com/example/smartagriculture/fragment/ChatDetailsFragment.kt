@@ -46,25 +46,18 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
         chatAdapter.setDataList(dataList as Collection<Any?>?)
         linearLayoutManager = LinearLayoutManager(context)
 //        弹出软键盘recyclerview上移
+        linearLayoutManager.reverseLayout=true
         linearLayoutManager.stackFromEnd = true
 
+        linearLayoutManager.scrollToPositionWithOffset(0, 0)
 
-        if (chatdetails_recycler.canScrollVertically(-1)) {
-            linearLayoutManager.scrollToPosition(dataList.size - 1)
-        } else {
-            linearLayoutManager.scrollToPosition(0)
-
-        }
         chatdetails_recycler.layoutManager = linearLayoutManager
-        LogUtil("是否能滚", linearLayoutManager.canScrollVertically())
-        LogUtil("是否能滚",   chatdetails_recycler.canScrollVertically(1))
-        LogUtil("是否能滚",   chatdetails_recycler.canScrollVertically(-1))
 
     }
 
     override fun onResume() {
         super.onResume()
-//        initData()
+        linearLayoutManager.scrollToPositionWithOffset(0, 0)
         editText_msg.isFocusable = true
         editText_msg.isFocusableInTouchMode = true
     }
@@ -96,21 +89,14 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
             SoftKeyBoardListener.OnSoftKeyBoardChangeListener {
 
             override fun keyBoardShow(height: Int) {
-                //弹出软键盘recyclerview上移
-                linearLayoutManager.stackFromEnd = true
-                linearLayoutManager.scrollToPosition(dataList.size - 1)
+                linearLayoutManager.scrollToPositionWithOffset(0, 0)
                 chatdetails_recycler.layoutManager = linearLayoutManager
 
             }
 
             override fun keyBoardHide(height: Int) {
-                if (chatdetails_recycler!=null) {
-                    linearLayoutManager.stackFromEnd = false
-                    if (chatdetails_recycler.canScrollVertically(1)) {
-                        linearLayoutManager.scrollToPosition(dataList.size - 1)
-                    } else {
-                        linearLayoutManager.scrollToPosition(0)
-                    }
+                if (chatdetails_recycler != null) {
+                    linearLayoutManager.scrollToPositionWithOffset(0, 0)
                     chatdetails_recycler.layoutManager = linearLayoutManager
                 }
             }
