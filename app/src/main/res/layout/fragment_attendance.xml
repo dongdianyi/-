@@ -12,7 +12,10 @@
         android:background="@color/bg"
         tools:context=".fragment.AttendanceFragment">
 
-        <include layout="@layout/attendance_peasant" />
+        <include layout="@layout/attendance_peasant"
+            android:id="@+id/include6"/>
+        <include layout="@layout/attendance_manager"
+            android:id="@+id/include7"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

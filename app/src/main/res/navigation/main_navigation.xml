@@ -44,6 +44,12 @@
         <action
             android:id="@+id/action_mainFragment_to_leaveRecordFragment"
             app:destination="@id/leaveRecordFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_attendanceSelectFragment"
+            app:destination="@id/attendanceSelectFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
     </fragment>
     <fragment
         android:id="@+id/warningMessageFragment"
@@ -104,4 +110,12 @@
         android:id="@+id/leaveApplicationFragment"
         android:name="com.example.smartagriculture.fragment.LeaveApplicationFragment"
         android:label="LeaveApplicationFragment" />
+    <fragment
+        android:id="@+id/attendanceSelectFragment"
+        android:name="com.example.smartagriculture.fragment.AttendanceSelectFragment"
+        android:label="AttendanceSelectFragment" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.smartagriculture.fragment.WeatherFragment"
+        android:label="WeatherFragment" />
 </navigation>

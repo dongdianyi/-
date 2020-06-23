@@ -43,16 +43,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView79"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="审批状态：同意"
-        android:textSize="@dimen/sp_21"
-        app:layout_constraintBottom_toTopOf="@+id/divider20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView82"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,4 +77,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView83" />
+
+    <TextView
+        android:id="@+id/textView99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:text="审批状态"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/sp_21"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@mipmap/cancle_bg"
+        android:text="驳回"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView84" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:background="@mipmap/sure_bg"
+        android:text="同意"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_21"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/textView84" />
 </androidx.constraintlayout.widget.ConstraintLayout>

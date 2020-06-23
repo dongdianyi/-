@@ -89,18 +89,18 @@
             android:textColor="@color/white"
             android:textSize="@dimen/sp_60"
             app:layout_constraintBottom_toTopOf="@+id/guideline45"
-            app:layout_constraintTop_toTopOf="@id/time_tv"
-            app:layout_constraintStart_toStartOf="@+id/time_tv" />
+            app:layout_constraintStart_toStartOf="@+id/time_tv"
+            app:layout_constraintTop_toTopOf="@id/time_tv" />
 
         <ImageView
             android:id="@+id/weather_iv"
             android:layout_width="@dimen/dp_48"
             android:layout_height="@dimen/dp_48"
-            app:layout_constraintTop_toTopOf="@id/time_tv"
             android:layout_marginStart="8dp"
             android:contentDescription="@string/weather_description"
             app:layout_constraintBottom_toTopOf="@+id/guideline45"
             app:layout_constraintStart_toEndOf="@+id/weather_tv"
+            app:layout_constraintTop_toTopOf="@id/time_tv"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
         <TextView
@@ -118,9 +118,9 @@
             android:id="@+id/notice_constraint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/weather_tv"
             app:layout_constraintEnd_toStartOf="@+id/guideline47"
-            app:layout_constraintTop_toTopOf="@+id/weather_tv"
-            app:layout_constraintBottom_toBottomOf="@id/weather_tv">
+            app:layout_constraintTop_toTopOf="@+id/weather_tv">
 
 
             <TextView
@@ -140,20 +140,21 @@
                 android:layout_height="@dimen/dp_40"
                 android:contentDescription="@string/notice_description"
                 android:padding="@dimen/dp_5"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/notice_tv"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:srcCompat="@mipmap/notice" />
+
             <TextView
                 android:id="@+id/notice_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/orange_cycle"
+                android:background="@drawable/round_orange"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_17"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="@+id/notice_iv"
                 app:layout_constraintTop_toTopOf="@+id/notice_iv"
-                android:visibility="gone"
                 tools:text="23" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -221,10 +222,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_20"
-            android:paddingTop="@dimen/dp_30"
-            android:paddingBottom="@dimen/dp_30"
-            android:background="@drawable/cycle_white"
             app:layout_constraintEnd_toStartOf="@+id/guideline47"
+            android:background="@drawable/cycle_white"
             app:layout_constraintStart_toStartOf="@+id/guideline46"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
@@ -238,63 +237,90 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView23"
-                android:layout_width="@dimen/dp_68"
-                android:layout_height="@dimen/dp_55"
-                android:background="@mipmap/phone_bg"
-                android:paddingStart="@dimen/dp_10"
-                android:paddingTop="@dimen/dp_5"
-                android:paddingEnd="@dimen/dp_10"
-                android:paddingBottom="@dimen/dp_5"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_30"
+                android:paddingBottom="@dimen/dp_30"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView55"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@id/divider12"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/phone_iv" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView55"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="@dimen/dp_68"
+                    android:layout_height="@dimen/dp_55"
+                    android:background="@mipmap/phone_bg"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_5"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView55"
+                    app:layout_constraintEnd_toStartOf="@+id/textView55"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView55"
+                    app:srcCompat="@mipmap/phone_iv" />
+
+                <TextView
+                    android:id="@+id/textView55"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:text="@string/revise_phone"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/sp_28"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView23"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/revise_phone"
-                android:textColor="@color/title_color"
-                android:textSize="@dimen/sp_28"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/divider12"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView23"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView26"
-                android:layout_width="@dimen/dp_68"
-                android:layout_height="@dimen/dp_55"
-                android:background="@mipmap/pwd_bg"
-                android:paddingStart="@dimen/dp_10"
-                android:paddingTop="@dimen/dp_5"
-                android:paddingEnd="@dimen/dp_10"
-                android:paddingBottom="@dimen/dp_5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView57"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/divider12"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/pwd_iv" />
-
-            <TextView
-                android:id="@+id/textView57"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/revise_pwd"
-                android:textColor="@color/title_color"
-                android:textSize="@dimen/sp_28"
+                android:paddingTop="@dimen/dp_30"
+                android:paddingBottom="@dimen/dp_30"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView26"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@id/divider12"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView26"
+                    android:layout_width="@dimen/dp_68"
+                    android:layout_height="@dimen/dp_55"
+                    android:background="@mipmap/pwd_bg"
+                    android:paddingStart="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_5"
+                    android:paddingEnd="@dimen/dp_10"
+                    android:paddingBottom="@dimen/dp_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView57"
+                    app:layout_constraintEnd_toStartOf="@+id/textView57"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView57"
+                    app:srcCompat="@mipmap/pwd_iv" />
+
+                <TextView
+                    android:id="@+id/textView57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:text="@string/revise_pwd"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/sp_28"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView26"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -357,171 +383,216 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider16" />
 
-            <ImageView
-                android:id="@+id/imageView24"
-                android:layout_width="@dimen/dp_36"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginStart="@dimen/dp_35"
-                app:layout_constraintBottom_toBottomOf="@+id/textView56"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView56"
-                app:layout_constraintVertical_bias="0.36"
-                app:srcCompat="@mipmap/feedback_iv" />
-
-            <TextView
-                android:id="@+id/textView56"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:text="@string/feedback"
-                android:textColor="@color/title_gray"
-                android:textSize="@dimen/sp_30"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView25"
-                app:layout_constraintStart_toEndOf="@+id/imageView24"
-                app:layout_constraintTop_toTopOf="@+id/imageView25" />
-
-            <ImageView
-                android:id="@+id/imageView25"
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginEnd="@dimen/dp_40"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="@+id/divider13"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/more_iv" />
-
-            <ImageView
-                android:id="@+id/imageView27"
-                android:layout_width="@dimen/dp_36"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginStart="@dimen/dp_35"
-                app:layout_constraintBottom_toTopOf="@+id/divider14"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider13"
-                app:layout_constraintVertical_bias="0.5"
-                app:srcCompat="@mipmap/about_iv" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView58"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:text="@string/about"
-                android:textColor="@color/title_gray"
-                android:textSize="@dimen/sp_30"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView27"
-                app:layout_constraintStart_toEndOf="@+id/imageView27"
-                app:layout_constraintTop_toTopOf="@+id/imageView27" />
+                <ImageView
+                    android:id="@+id/imageView24"
+                    android:layout_width="@dimen/dp_36"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginStart="@dimen/dp_35"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView56"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView56"
+                    app:srcCompat="@mipmap/feedback_iv" />
 
-            <ImageView
-                android:id="@+id/imageView28"
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginEnd="@dimen/dp_40"
-                app:layout_constraintBottom_toBottomOf="@+id/textView58"
+                <TextView
+                    android:id="@+id/textView56"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:text="@string/feedback"
+                    android:textColor="@color/title_gray"
+                    android:textSize="@dimen/sp_30"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView25"
+                    app:layout_constraintStart_toEndOf="@+id/imageView24"
+                    app:layout_constraintTop_toTopOf="@+id/imageView25" />
+
+                <ImageView
+                    android:id="@+id/imageView25"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/more_iv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/divider14"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView58"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@mipmap/more_iv" />
-
-            <ImageView
-                android:id="@+id/imageView29"
-                android:layout_width="@dimen/dp_36"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginStart="@dimen/dp_35"
-                app:layout_constraintBottom_toTopOf="@+id/divider15"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider14"
-                app:srcCompat="@mipmap/problem_iv" />
+                app:layout_constraintTop_toTopOf="@id/divider13">
 
-            <TextView
-                android:id="@+id/textView59"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:text="@string/problem"
-                android:textColor="@color/title_gray"
-                android:textSize="@dimen/sp_30"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView29"
-                app:layout_constraintStart_toEndOf="@+id/imageView29"
-                app:layout_constraintTop_toTopOf="@+id/imageView29" />
+                <ImageView
+                    android:id="@+id/imageView27"
+                    android:layout_width="@dimen/dp_36"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginStart="@dimen/dp_35"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@mipmap/about_iv" />
 
-            <ImageView
-                android:id="@+id/imageView31"
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginEnd="@dimen/dp_40"
-                app:layout_constraintBottom_toBottomOf="@+id/textView59"
+                <TextView
+                    android:id="@+id/textView58"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:text="@string/about"
+                    android:textColor="@color/title_gray"
+                    android:textSize="@dimen/sp_30"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView27"
+                    app:layout_constraintStart_toEndOf="@+id/imageView27"
+                    app:layout_constraintTop_toTopOf="@+id/imageView27" />
+
+                <ImageView
+                    android:id="@+id/imageView28"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView58"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView58"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@mipmap/more_iv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/divider15"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView59"
-                app:layout_constraintVertical_bias="0.5"
-                app:srcCompat="@mipmap/more_iv" />
-            <ImageView
-                android:id="@+id/imageView32"
-                android:layout_width="@dimen/dp_36"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginStart="@dimen/dp_35"
-                app:layout_constraintBottom_toTopOf="@+id/divider16"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider15"
-                app:srcCompat="@mipmap/setting_iv" />
+                app:layout_constraintTop_toTopOf="@id/divider14">
 
-            <TextView
-                android:id="@+id/textView60"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:text="@string/setting"
-                android:textColor="@color/title_gray"
-                android:textSize="@dimen/sp_30"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView32"
-                app:layout_constraintStart_toEndOf="@+id/imageView32"
-                app:layout_constraintTop_toTopOf="@+id/imageView32" />
+                <ImageView
+                    android:id="@+id/imageView29"
+                    android:layout_width="@dimen/dp_36"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginStart="@dimen/dp_35"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@mipmap/problem_iv" />
 
-            <ImageView
-                android:id="@+id/imageView33"
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginEnd="@dimen/dp_40"
-                app:layout_constraintBottom_toBottomOf="@+id/textView60"
+                <TextView
+                    android:id="@+id/textView59"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:text="@string/problem"
+                    android:textColor="@color/title_gray"
+                    android:textSize="@dimen/sp_30"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView29"
+                    app:layout_constraintStart_toEndOf="@+id/imageView29"
+                    app:layout_constraintTop_toTopOf="@+id/imageView29" />
+
+                <ImageView
+                    android:id="@+id/imageView31"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView59"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView59"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@mipmap/more_iv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/divider16"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView60"
-                app:layout_constraintVertical_bias="0.5"
-                app:srcCompat="@mipmap/more_iv" />
-            <ImageView
-                android:id="@+id/imageView34"
-                android:layout_width="@dimen/dp_36"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginStart="@dimen/dp_35"
-                app:layout_constraintBottom_toTopOf="@+id/divider17"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider16"
-                app:srcCompat="@mipmap/update_iv" />
+                app:layout_constraintTop_toTopOf="@id/divider15">
 
-            <TextView
-                android:id="@+id/textView61"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_20"
-                android:text="@string/problem"
-                android:textColor="@color/title_gray"
-                android:textSize="@dimen/sp_30"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView34"
-                app:layout_constraintStart_toEndOf="@+id/imageView34"
-                app:layout_constraintTop_toTopOf="@+id/imageView34" />
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="@dimen/dp_36"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginStart="@dimen/dp_35"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@mipmap/setting_iv" />
 
-            <ImageView
-                android:id="@+id/imageView30"
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginEnd="@dimen/dp_40"
-                app:layout_constraintBottom_toBottomOf="@+id/textView61"
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:text="@string/setting"
+                    android:textColor="@color/title_gray"
+                    android:textSize="@dimen/sp_30"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView32"
+                    app:layout_constraintStart_toEndOf="@+id/imageView32"
+                    app:layout_constraintTop_toTopOf="@+id/imageView32" />
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView60"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView60"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@mipmap/more_iv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/divider17"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView61"
-                app:layout_constraintVertical_bias="0.5"
-                app:srcCompat="@mipmap/more_iv" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/divider16">
 
+                <ImageView
+                    android:id="@+id/imageView34"
+                    android:layout_width="@dimen/dp_36"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginStart="@dimen/dp_35"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@mipmap/update_iv" />
 
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:text="@string/problem"
+                    android:textColor="@color/title_gray"
+                    android:textSize="@dimen/sp_30"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView34"
+                    app:layout_constraintStart_toEndOf="@+id/imageView34"
+                    app:layout_constraintTop_toTopOf="@+id/imageView34" />
+
+                <ImageView
+                    android:id="@+id/imageView30"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginEnd="@dimen/dp_40"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView61"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView61"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@mipmap/more_iv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

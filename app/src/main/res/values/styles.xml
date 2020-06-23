@@ -1,4 +1,5 @@
 <resources>
+
     <style name="radio">
         <item name="android:button">@null</item>
         <item name="android:drawableLeft">@drawable/park_select</item>
@@ -8,6 +9,7 @@
         <item name="android:textSize">@dimen/sp_25</item>
         <item name="android:layout_weight">1</item>
     </style>
+
     <style name="radio_horizontal">
         <item name="android:button">@null</item>
         <item name="android:drawableLeft">@drawable/park_select</item>
@@ -18,4 +20,15 @@
         <item name="android:textSize">@dimen/sp_21</item>
         <item name="android:layout_weight">1</item>
     </style>
+
+    <declare-styleable name="CircularProgressView">
+        <attr name="backWidth" format="dimension" />    <!--背景圆环宽度-->
+        <attr name="progWidth" format="dimension" />    <!--进度圆环宽度-->
+        <attr name="backColor" format="color" />        <!--背景圆环颜色-->
+        <attr name="progColor" format="color" />        <!--进度圆环颜色-->
+        <attr name="progStartColor" format="color" />   <!--进度圆环开始颜色-->
+        <attr name="progFirstColor" format="color" />   <!--进度圆环结束颜色-->
+        <attr name="progress" format="integer" />       <!--圆环进度-->
+    </declare-styleable>
+
 </resources>

@@ -1,63 +1,62 @@
 package com.example.smartagriculture.fragment
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.BaseFragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.AttendanceAdapter
-import com.example.smartagriculture.databinding.FragmentLeaveRecordBinding
+import com.example.smartagriculture.databinding.FragmentAttendanceSelectBinding
 import com.example.smartagriculture.util.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.AttendanceViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
-import kotlinx.android.synthetic.main.fragment_leave_record.*
+import kotlinx.android.synthetic.main.fragment_attendance_select.*
+import kotlinx.android.synthetic.main.title_item_two.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class LeaveRecordFragment : BaseFragment<AttendanceViewModel, FragmentLeaveRecordBinding>() {
+class AttendanceSelectFragment :
+    BaseFragment<AttendanceViewModel, FragmentAttendanceSelectBinding>() {
 
     lateinit var attendanceAdapter: AttendanceAdapter
-    var title: Int? = 0
+
     override fun initLayout(): Int {
-        return R.layout.fragment_leave_record
+        return R.layout.fragment_attendance_select
     }
 
     override fun initView(view: View) {
         viewModel = ViewModelProvider(requireActivity()).get(AttendanceViewModel::class.java)
-        title = arguments?.getInt("title")
-        if (Identification.ATTENDANCE_PEASANT_LEAVE==title) {
-            textView62.text=getString(R.string.leave_record)
-        }
-        if (Identification.ATTENDANCE_MANAGER_APPROVAL==title) {
-            textView62.text=getString(R.string.approval)
-        }
-        if (Identification.ATTENDANCE_MANAGER_APPROVED==title) {
-            textView62.text=getString(R.string.approved)
-        }
+        textView.text=getString(R.string.select_details)
     }
 
     override fun initData() {
         attendanceAdapter =
             AttendanceAdapter(
                 requireContext(),
-                R.layout.leave_record_item,
-                Identification.ATTENDANCE_PEASANT_LEAVE
+                R.layout.attendance_details_item,
+                Identification.ATTENDANCE_MANAGER_SELECT
             )
         mLRecycleViewAdapter = LRecyclerViewAdapter(attendanceAdapter)
-        val dataList = listOf<String>("请假一天", "请假五天", "请假10天")
+
+        var view = LayoutInflater.from(requireContext()).inflate(R.layout.attendance_details_top,
+            activity?.findViewById(android.R.id.content),false)
+        mLRecycleViewAdapter.addHeaderView(view)
+        val dataList = listOf<String>("30", "50", "60")
         attendanceAdapter.setDataList(dataList)
-        leave_record_recycler.adapter = mLRecycleViewAdapter
+        select_recycler.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
-            .setHeight(R.dimen.dp_10)
+            .setHeight(R.dimen.dp_2)
             .setColorResource(R.color.bg)
             .build()
-        leave_record_recycler.addItemDecoration(divider)
-        leave_record_recycler.layoutManager = LinearLayoutManager(requireContext())
+        select_recycler.addItemDecoration(divider)
+        select_recycler.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun setListener() {
@@ -67,3 +66,4 @@ class LeaveRecordFragment : BaseFragment<AttendanceViewModel, FragmentLeaveRecor
     }
 
 }
+

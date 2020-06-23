@@ -36,6 +36,14 @@ interface Identification {
         const val ATTENDANCE_PEASANT_CLOCK=9
         //农户请假详情
         const val ATTENDANCE_PEASANT_LEAVE=10
+        //考勤管理首页
+        const val ATTENDANCE_MANAGER=11
+        //考勤管理待审批
+        const val ATTENDANCE_MANAGER_APPROVAL=12
+        //考勤管理已审批
+        const val ATTENDANCE_MANAGER_APPROVED=13
+        //考勤管理查询
+        const val ATTENDANCE_MANAGER_SELECT=14
     }
 
 

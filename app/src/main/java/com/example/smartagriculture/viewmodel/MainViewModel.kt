@@ -102,6 +102,9 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
     fun toSearch(view: View) {
         nav(view).navigate(R.id.action_mainFragment_to_searchFragment)
     }
+    fun toWeather(view: View) {
+        nav(view).navigate(R.id.action_mainFragment_to_weatherFragment)
+    }
 
 
 }

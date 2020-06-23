@@ -76,7 +76,7 @@
             android:textSize="@dimen/sp_28"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/view5"
-            app:leftDrawable="@mipmap/orange_cycle" />
+            app:leftDrawable="@drawable/round_orange" />
 
         <TextView
             android:id="@+id/textView64"
@@ -151,7 +151,7 @@
             android:id="@+id/textView65"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/warning_num_bg"
+            android:background="@drawable/cycle_orange"
             android:paddingStart="@dimen/dp_20"
             android:paddingTop="@dimen/dp_10"
             android:paddingEnd="@dimen/dp_20"

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.meetsl.scardview.SCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@drawable/cardview_select"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="@dimen/dp_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_20"
+                android:text="打卡记录"
+                android:textColor="@color/green"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintBottom_toTopOf="@+id/divider18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:leftDrawable="@mipmap/attendance_iv" />
+
+            <com.example.smartagriculture.myview.TextDrawable
+                android:id="@+id/textDrawable13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20"
+                android:drawablePadding="@dimen/dp_20"
+                android:text="2020/6/22"
+                android:textColor="@color/title_gray"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintBottom_toTopOf="@+id/divider18"
+                app:layout_constraintStart_toEndOf="@+id/textDrawable12"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rightDrawable="@mipmap/pull_blue" />
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cycle_orange"
+                android:paddingStart="@dimen/dp_20"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingEnd="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_10"
+                android:text="查询详情"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="今日出勤率:%d"
+                android:textColor="@color/title_gray"
+                android:textSize="@dimen/sp_21"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDrawable12" />
+
+            <TextView
+                android:id="@+id/textView89"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="今日迟到：5"
+                android:textSize="@dimen/sp_21"
+                app:layout_constraintBottom_toTopOf="@+id/textView90"
+                app:layout_constraintStart_toStartOf="@+id/textView90"
+                app:layout_constraintTop_toBottomOf="@id/textDrawable12" />
+
+            <TextView
+                android:id="@+id/textView90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="今日请假：5"
+                android:textSize="@dimen/sp_21"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/textView92"
+                app:layout_constraintStart_toEndOf="@id/textView88"
+                app:layout_constraintTop_toBottomOf="@+id/textView89" />
+
+            <TextView
+                android:id="@+id/textView91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="今日矿工：540"
+                android:textSize="@dimen/sp_21"
+                app:layout_constraintBottom_toTopOf="@+id/textView92"
+                app:layout_constraintStart_toStartOf="@+id/textView92"
+                app:layout_constraintTop_toBottomOf="@id/textDrawable12" />
+
+            <TextView
+                android:id="@+id/textView92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:paddingEnd="@dimen/dp_20"
+                android:text="今日出差：5"
+                android:textSize="@dimen/sp_21"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView91" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.meetsl.scardview.SCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

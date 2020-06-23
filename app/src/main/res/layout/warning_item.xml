@@ -59,7 +59,7 @@
         android:layout_marginStart="@dimen/dp_10"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="@+id/textView10"
-        app:srcCompat="@mipmap/warning_red_cycle" />
+        app:srcCompat="@drawable/round_red" />
 
     <TextView
         android:id="@+id/textView26"

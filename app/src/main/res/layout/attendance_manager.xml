@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@mipmap/top_bg"
+        app:layout_constraintBottom_toTopOf="@+id/guideline37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/attendance"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline38" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        app:layout_constraintEnd_toStartOf="@+id/guideline49"
+        app:layout_constraintStart_toStartOf="@+id/guideline48"
+        app:layout_constraintTop_toBottomOf="@+id/textView62">
+
+        <TextView
+            android:id="@+id/textView95"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cycle_gray_line"
+            android:padding="@dimen/dp_10"
+            android:text="2020-02-13"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/sp_21"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView96"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_20"
+            android:text="至"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_21"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView95"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView97"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cycle_gray_line"
+            android:padding="@dimen/dp_10"
+            android:text="2020-03-21"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/sp_21"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView96"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/cycle_white_shadow"
+        app:layout_constraintEnd_toStartOf="@+id/guideline49"
+        app:layout_constraintStart_toStartOf="@+id/guideline48"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout6">
+
+
+        <View
+            android:id="@+id/divider22"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/line_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_30"
+            android:paddingBottom="@dimen/dp_30"
+            android:id="@+id/approval_constraint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/divider22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="@dimen/dp_68"
+                android:layout_height="@dimen/dp_68"
+                app:layout_constraintBottom_toTopOf="@+id/textView85"
+                app:layout_constraintEnd_toEndOf="@+id/textView85"
+                app:layout_constraintStart_toStartOf="@+id/textView85"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/approval_iv" />
+
+            <TextView
+                android:id="@+id/textView85"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="@string/approval"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/textView86"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_red"
+                android:text="23"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_23"
+                app:layout_constraintBottom_toTopOf="@+id/textView85"
+                app:layout_constraintEnd_toEndOf="@+id/textView85"
+                app:layout_constraintStart_toEndOf="@+id/textView85"
+                app:layout_constraintTop_toTopOf="@+id/textView85" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/approved_constraint"
+            android:paddingTop="@dimen/dp_30"
+            android:paddingBottom="@dimen/dp_30"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/divider22"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView35"
+                android:layout_width="@dimen/dp_68"
+                android:layout_height="@dimen/dp_68"
+                app:layout_constraintBottom_toTopOf="@+id/textView87"
+                app:layout_constraintEnd_toEndOf="@+id/textView87"
+                app:layout_constraintStart_toStartOf="@+id/textView87"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/approved_iv" />
+
+            <TextView
+                android:id="@+id/textView87"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="@string/approved"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/attendance_manager_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline49"
+        app:layout_constraintStart_toStartOf="@id/guideline48"
+        app:layout_constraintTop_toBottomOf="@id/view5" />
+
+    <TextView
+        android:id="@+id/textView93"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:background="@drawable/cycle_orange"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingEnd="@dimen/dp_20"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:text="查询"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_23"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout6"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout6"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout6" />
+</androidx.constraintlayout.widget.ConstraintLayout>

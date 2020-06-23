@@ -187,7 +187,7 @@
             android:layout_alignBaseline="@id/textView11"
             android:layout_marginLeft="@dimen/dp_5"
             android:layout_toRightOf="@id/textView11"
-            android:background="@mipmap/red_cycle"
+            android:background="@drawable/round_red"
             android:paddingLeft="@dimen/dp_2"
             android:paddingRight="@dimen/dp_2"
             android:text="12"
@@ -237,7 +237,7 @@
             android:layout_toRightOf="@id/textView15"
             android:paddingLeft="@dimen/dp_2"
             android:paddingRight="@dimen/dp_2"
-            android:background="@mipmap/orange_cycle"
+            android:background="@drawable/round_orange"
             android:text="12"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_21" />

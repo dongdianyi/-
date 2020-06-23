@@ -26,43 +26,54 @@ import kotlinx.android.synthetic.main.title_item_two.*
 class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBinding>() {
 
     lateinit var chatAdapter: ChatAdapter
-    var dataList= mutableListOf<String>()
-    private lateinit var linearLayoutManager:LinearLayoutManager
+    var dataList = mutableListOf<String>()
+    private lateinit var linearLayoutManager: LinearLayoutManager
     override fun initLayout(): Int {
         return R.layout.fragment_chat_details
     }
 
     override fun initView(view: View) {
         viewModel = ViewModelProvider(requireActivity()).get(ChatViewModel::class.java)
-        textView.text="聊天详情"
+        textView.text = "聊天详情"
     }
 
     override fun initData() {
-        LogUtil("aaaaa","aaaaa")
         chatAdapter =
             ChatAdapter(requireContext(), R.layout.chatdetails_item, Identification.CHATDETAILS)
         mLRecycleViewAdapter = LRecyclerViewAdapter(chatAdapter)
-        dataList = mutableListOf<String>("一直小可爱", "两只小可爱","一直小可爱", "两只小可爱","一直小可爱", "两只小可爱")
+        dataList = mutableListOf<String>("一直小可爱")
         chatdetails_recycler.adapter = mLRecycleViewAdapter
         chatAdapter.setDataList(dataList as Collection<Any?>?)
-        linearLayoutManager=LinearLayoutManager(context)
-            //弹出软键盘recyclerview上移
-        linearLayoutManager.stackFromEnd =true
-        linearLayoutManager.scrollToPositionWithOffset(dataList.size-1,0)
+        linearLayoutManager = LinearLayoutManager(context)
+//        弹出软键盘recyclerview上移
+        linearLayoutManager.stackFromEnd = true
+
+
+        if (chatdetails_recycler.canScrollVertically(-1)) {
+            linearLayoutManager.scrollToPosition(dataList.size - 1)
+        } else {
+            linearLayoutManager.scrollToPosition(0)
+
+        }
         chatdetails_recycler.layoutManager = linearLayoutManager
+        LogUtil("是否能滚", linearLayoutManager.canScrollVertically())
+        LogUtil("是否能滚",   chatdetails_recycler.canScrollVertically(1))
+        LogUtil("是否能滚",   chatdetails_recycler.canScrollVertically(-1))
+
     }
 
     override fun onResume() {
         super.onResume()
-        initData()
-        editText_msg.isFocusable=true
-        editText_msg.isFocusableInTouchMode=true
+//        initData()
+        editText_msg.isFocusable = true
+        editText_msg.isFocusableInTouchMode = true
     }
+
     override fun setListener() {
         super.setListener()
         chatdetails_recycler.setPullRefreshEnabled(false)
         chatdetails_recycler.setLoadMoreEnabled(false)
-//        setSoftKeyBoardListener()
+        setSoftKeyBoardListener()
         send.setOnClickListener {
             if (null == editText_msg.text || TextUtils.isEmpty(editText_msg.text)) {
                 ToastUtil("聊天内容不能为空")
@@ -75,37 +86,43 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
             nav().navigateUp()
         }
     }
+
     /**
      * 添加软键盘的监听
      */
     private fun setSoftKeyBoardListener() {
         //监听软件盘是否弹起
-            SoftKeyBoardListener.setListener(activity,  object :
-                SoftKeyBoardListener.OnSoftKeyBoardChangeListener {
+        SoftKeyBoardListener.setListener(activity, object :
+            SoftKeyBoardListener.OnSoftKeyBoardChangeListener {
 
-                override fun keyBoardShow(height: Int) {
-                    if (isResumed) {
-                        linearLayoutManager=LinearLayoutManager(BaseApplication.context)
-                        //弹出软键盘recyclerview上移
-                        linearLayoutManager.stackFromEnd =true
-                        linearLayoutManager.scrollToPositionWithOffset(dataList.size-1, 0)
-                        chatdetails_recycler.layoutManager = linearLayoutManager
+            override fun keyBoardShow(height: Int) {
+                //弹出软键盘recyclerview上移
+                linearLayoutManager.stackFromEnd = true
+                linearLayoutManager.scrollToPosition(dataList.size - 1)
+                chatdetails_recycler.layoutManager = linearLayoutManager
 
+            }
+
+            override fun keyBoardHide(height: Int) {
+                if (chatdetails_recycler!=null) {
+                    linearLayoutManager.stackFromEnd = false
+                    if (chatdetails_recycler.canScrollVertically(1)) {
+                        linearLayoutManager.scrollToPosition(dataList.size - 1)
+                    } else {
+                        linearLayoutManager.scrollToPosition(0)
                     }
-
+                    chatdetails_recycler.layoutManager = linearLayoutManager
                 }
-
-                override fun keyBoardHide(height: Int) {
-                }
-            })
+            }
+        })
 
 
     }
 
     override fun onPause() {
         super.onPause()
-        editText_msg.isFocusable=false
-        editText_msg.isFocusableInTouchMode=false
+        editText_msg.isFocusable = false
+        editText_msg.isFocusableInTouchMode = false
     }
 
 }

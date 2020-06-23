@@ -31,15 +31,15 @@
 
         <TextView
             android:id="@+id/textView34"
-            android:layout_width="@dimen/dp_75"
-            android:layout_height="@dimen/dp_35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_40"
             android:background="@mipmap/search_bg"
             android:gravity="center"
             android:enabled="false"
             android:text="跳过"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_18"
+            android:textSize="@dimen/sp_35"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline27" />
 

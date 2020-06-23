@@ -61,4 +61,7 @@ dependencies {
     //阿里导航跳转其他库的activity
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 
+    //天气
+    implementation 'com.github.cjhandroid:WeatherView:v1.0.0'
+
 }

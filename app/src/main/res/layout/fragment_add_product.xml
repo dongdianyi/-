@@ -13,5 +13,8 @@
         tools:context=".fragment.AddProductFragment">
 
         <include layout="@layout/title_item" />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

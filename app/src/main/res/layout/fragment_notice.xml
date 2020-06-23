@@ -96,7 +96,7 @@
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/warning_num_bg"
+                android:background="@drawable/cycle_orange"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_23"
                 app:layout_constraintStart_toStartOf="parent"

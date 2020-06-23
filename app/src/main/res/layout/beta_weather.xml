@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="昨天"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/sp_25" />
+
+    <TextView
+        android:id="@+id/date2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="11/26"
+        android:textColor="@color/title_gray"
+        android:textSize="@dimen/sp_25" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="霾"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/sp_25" />
+
+    <ImageView
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        android:layout_margin="@dimen/dp_10"
+        android:src="@mipmap/stock_item_iv" />
+
+    <cjh.weatherviewlibarary.WeatherView
+        android:id="@+id/weatherView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        app:dotColor="@android:color/white"
+        app:backgroundColor="@color/white"
+        app:dotRadiu="@dimen/dp_10"
+        app:highLineColor="@android:color/holo_purple"
+        app:lowLineColor="@android:color/darker_gray"
+        app:txtColor="@android:color/black"
+        app:txtSize="@dimen/sp_23"
+        app:txtToBorder="@dimen/dp_20"
+        app:txtToDot="@dimen/dp_48" />
+
+    <ImageView
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/dp_10"
+        android:src="@mipmap/stock_item_iv" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="霾"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/sp_25" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="北风"
+        android:textColor="@color/title_gray"
+        android:textSize="@dimen/sp_23" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="3级"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/sp_23" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/cycle_orange"
+        android:padding="@dimen/dp_10"
+        android:text="严重"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_25" />
+
+
+</LinearLayout>

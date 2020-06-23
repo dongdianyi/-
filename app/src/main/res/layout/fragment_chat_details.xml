@@ -8,10 +8,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:id="@+id/root"
         tools:context=".fragment.ChatDetailsFragment">
 
         <include
@@ -20,9 +20,9 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bottom_constraint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:id="@+id/bottom_constraint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -51,11 +51,12 @@
                 android:id="@+id/editText_msg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:hint="@string/input_msg"
                 android:minHeight="@dimen/dp_100"
-                android:textColor="@color/title_gray"
+                android:background="@null"
                 android:textCursorDrawable="@drawable/textcursor"
+                android:inputType="textMultiLine"
+                android:hint="@string/input_msg"
+                android:textColor="@color/title_gray"
                 android:textSize="@dimen/sp_30"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/send"
@@ -75,6 +76,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:id="@+id/chatdetails_recycler"
             android:layout_width="0dp"
@@ -84,6 +86,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include4" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

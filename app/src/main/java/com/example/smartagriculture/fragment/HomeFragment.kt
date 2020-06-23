@@ -112,6 +112,9 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
             ARouter.getInstance().build(BaseField.RETROSPECT_PATH).navigation()
         }
 
+        weather_linear.setOnClickListener {
+            viewModel.toWeather(it)
+        }
 
         parkAdapter.setOnWMListener { view: View, i: Int,flag:Int ->
             //处理接口回掉
