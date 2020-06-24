@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".activity.LoginActivity">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline69"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline68"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.43" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@mipmap/login_bg"
+            app:layout_constraintBottom_toTopOf="@+id/guideline68"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_95"
+            android:src="@mipmap/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView122"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/logo_description"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_100"
+            app:layout_constraintBottom_toTopOf="@+id/guideline69"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView41" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cycle_white"
+            android:paddingStart="@dimen/dp_40"
+            android:paddingTop="@dimen/dp_40"
+            android:paddingEnd="@dimen/dp_40"
+            android:paddingBottom="@dimen/dp_60"
+            app:layout_constraintEnd_toStartOf="@+id/guideline60"
+            app:layout_constraintStart_toStartOf="@+id/guideline67"
+            app:layout_constraintTop_toTopOf="@+id/guideline69">
+
+            <TextView
+                android:id="@+id/textView124"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sp_60"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView42"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_40"
+                android:src="@mipmap/login_phone"
+                app:layout_constraintBottom_toBottomOf="@+id/editText4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editText4" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginStart="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_60"
+                android:background="@null"
+                android:ems="10"
+                android:hint="@string/input_loginname"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/color_hint"
+                android:textCursorDrawable="@drawable/textcursor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView42"
+                app:layout_constraintTop_toBottomOf="@+id/textView124" />
+
+            <View
+                android:id="@+id/divider34"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@color/line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+
+            <ImageView
+                android:id="@+id/imageView43"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_40"
+                android:src="@mipmap/login_pwd"
+                app:layout_constraintBottom_toBottomOf="@+id/editText5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editText5" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginStart="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_40"
+                android:background="@null"
+                android:ems="10"
+                android:hint="@string/input_loginpwd"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/color_hint"
+                android:textCursorDrawable="@drawable/textcursor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView43"
+                app:layout_constraintTop_toBottomOf="@+id/divider34" />
+
+            <View
+                android:id="@+id/divider35"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@color/line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView126"
+            android:layout_width="@dimen/dp_500"
+            android:layout_height="@dimen/dp_87"
+            android:background="@drawable/cycle_blue"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_35"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout13"
+            app:layout_constraintEnd_toStartOf="@+id/guideline60"
+            app:layout_constraintStart_toStartOf="@+id/guideline67"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout13" />
+
+        <TextView
+            android:id="@+id/textView127"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_40"
+            android:text="@string/company"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/sp_23"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline60"
+            app:layout_constraintStart_toStartOf="@+id/guideline67" />
+
+        <View
+            android:id="@+id/divider36"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginStart="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:background="@color/line_color"
+            app:layout_constraintBottom_toBottomOf="@+id/textView127"
+            app:layout_constraintEnd_toStartOf="@+id/textView127"
+            app:layout_constraintStart_toStartOf="@+id/guideline67"
+            app:layout_constraintTop_toTopOf="@+id/textView127" />
+
+        <View
+            android:id="@+id/divider37"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginStart="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:background="@color/line_color"
+            app:layout_constraintBottom_toBottomOf="@+id/textView127"
+            app:layout_constraintEnd_toStartOf="@+id/guideline60"
+            app:layout_constraintStart_toEndOf="@+id/textView127"
+            app:layout_constraintTop_toTopOf="@+id/textView127" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

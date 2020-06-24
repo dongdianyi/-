@@ -31,7 +31,7 @@
         <View
             android:id="@+id/divider7"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/dp_2"
             android:background="@color/line_color"
             app:layout_constraintBottom_toTopOf="@+id/guideline10"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
         <View
             android:id="@+id/divider8"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/dp_2"
             android:layout_marginBottom="@dimen/dp_36"
             android:background="@color/line_color"
             app:layout_constraintBottom_toTopOf="@+id/cancel_button"

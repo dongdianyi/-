@@ -117,7 +117,7 @@
 
         <View
             android:id="@+id/divider22"
-            android:layout_width="1dp"
+            android:layout_width="@dimen/dp_2"
             android:layout_height="0dp"
             android:background="@color/line_color"
             app:layout_constraintBottom_toBottomOf="parent"

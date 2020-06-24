@@ -114,7 +114,7 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="1dp"
+        android:layout_width="@dimen/dp_2"
         android:layout_height="0dp"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView5"
@@ -124,7 +124,7 @@
 
     <View
         android:id="@+id/divider2"
-        android:layout_width="1dp"
+        android:layout_width="@dimen/dp_2"
         android:layout_height="0dp"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView6"
@@ -134,7 +134,7 @@
 
     <View
         android:id="@+id/divider3"
-        android:layout_width="1dp"
+        android:layout_width="@dimen/dp_2"
         android:layout_height="0dp"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView7"
@@ -144,7 +144,7 @@
 
     <View
         android:id="@+id/divider4"
-        android:layout_width="1dp"
+        android:layout_width="@dimen/dp_2"
         android:layout_height="0dp"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView4"
@@ -155,7 +155,7 @@
     <View
         android:id="@+id/divider5"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp_2"
         android:layout_marginTop="@dimen/dp_10"
         android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="parent"
@@ -281,7 +281,7 @@
     <View
         android:id="@+id/divider6"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp_2"
         android:layout_marginTop="8dp"
         android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="parent"

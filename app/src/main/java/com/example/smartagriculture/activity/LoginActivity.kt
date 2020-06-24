@@ -1,5 +1,6 @@
 package com.example.smartagriculture.activity
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.alibaba.android.arouter.launcher.ARouter
@@ -8,12 +9,14 @@ import com.example.common.hideSoftKeyboard
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityMainBinding
 import com.example.smartagriculture.util.AndroidBug5497Workaround
+import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.fragment_login.*
 
-class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
+class LoginActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun initLayout(): Int {
-        return R.layout.activity_main
+        return R.layout.fragment_login
     }
 
     override fun initView() {
@@ -25,9 +28,9 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun initData() {
         AndroidBug5497Workaround.assistActivity(this)
-    }
+        textView126.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
 
-    override fun onSupportNavigateUp(): Boolean {
-        return Navigation.findNavController(this, R.id.main_navigation).navigateUp()
+        }
     }
 }

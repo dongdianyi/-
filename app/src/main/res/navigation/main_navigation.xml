@@ -50,6 +50,15 @@
         <action
             android:id="@+id/action_mainFragment_to_weatherFragment"
             app:destination="@id/weatherFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_revisedInformationFragment"
+            app:destination="@id/revisedInformationFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_updatePwdFragment"
+            app:destination="@id/updatePwdFragment" />
     </fragment>
     <fragment
         android:id="@+id/warningMessageFragment"
@@ -118,4 +127,16 @@
         android:id="@+id/weatherFragment"
         android:name="com.example.smartagriculture.fragment.WeatherFragment"
         android:label="WeatherFragment" />
+    <fragment
+        android:id="@+id/revisedInformationFragment"
+        android:name="com.example.smartagriculture.fragment.RevisedInformationFragment"
+        android:label="RevisedInformationFragment" />
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.example.smartagriculture.fragment.PhoneFragment"
+        android:label="PhoneFragment" />
+    <fragment
+        android:id="@+id/updatePwdFragment"
+        android:name="com.example.smartagriculture.fragment.UpdatePwdFragment"
+        android:label="UpdatePwdFragment" />
 </navigation>

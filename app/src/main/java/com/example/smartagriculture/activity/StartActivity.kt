@@ -52,7 +52,7 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
         textView34.clickNoRepeat {
             textView34.isEnabled=false
             mHandlerMessage.removeCallbacksAndMessages(null)
-            startActivity(Intent(this@StartActivity, MainActivity::class.java))
+            startActivity(Intent(this@StartActivity, LoginActivity::class.java))
             finish()
         }
     }

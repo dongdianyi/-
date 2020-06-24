@@ -18,13 +18,21 @@ import com.example.smartagriculture.util.Identification
 /**
  * Created by ddy
  */
-class WeatherAdapter<T>(context: Context?, layoutId: Int, data: MutableList<MyWeatherData>) :
+class WeatherAdapter(context: Context?, layoutId: Int, data: MutableList<MyWeatherData>,height:Int,width:Int,highDegree:Int,lowDegree:Int) :
     ListBaseAdapter<Any?>(context) {
     private var layoutId = 0
     var data:MutableList<MyWeatherData>
+    var height:Int
+    var width:Int
+    var highDegree:Int
+    var lowDegree:Int
     init {
         this.layoutId = layoutId
         this.data=data
+        this.height=height
+        this.width=width
+        this.highDegree=highDegree
+        this.lowDegree=lowDegree
         setDataList(data as Collection<Any?>?)
     }
 
@@ -38,11 +46,11 @@ class WeatherAdapter<T>(context: Context?, layoutId: Int, data: MutableList<MyWe
         val date1=holder.getView<TextView>(R.id.date1)
         val weatherView=holder.getView<WeatherView<MyWeatherData>>(R.id.weatherView)
         weatherView.layoutParams=LinearLayout.LayoutParams(
-            BaseApplication.getWidth()/4,
-            BaseApplication.getWidth()/3
+            width,
+            height
         )
         date1.text=myWeatherData.date
-        weatherView.setDatas(data,8,-8,position)
+        weatherView.setDatas(data,highDegree,lowDegree,position)
 
 
     }
