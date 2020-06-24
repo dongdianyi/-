@@ -51,7 +51,7 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
         for (i in 0 until history.size) {
             val tv = TextView(requireContext())
             tv.setPadding(28, 10, 28, 10)
-            tv.textSize=24f
+            tv.textSize=12f
             tv.setTextColor(Color.rgb(34,34,34))
             tv.text = history[i]
             tv.maxEms = 10

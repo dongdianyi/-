@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/dp_150"
+    android:paddingEnd="@dimen/mm_150"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_100"
+        android:layout_height="@dimen/mm_100"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -16,19 +16,19 @@
             android:id="@+id/textDrawable4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_30"
-            android:drawablePadding="@dimen/dp_20"
+            android:layout_marginLeft="@dimen/mm_30"
+            android:drawablePadding="@dimen/mm_20"
             android:text="全部园区"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_23"
+            android:textSize="@dimen/mm_23"
             app:leftDrawable="@mipmap/park_icon"
-            app:leftDrawableHeight="@dimen/dp_30"
-            app:leftDrawableWidth="@dimen/dp_30" />
+            app:leftDrawableHeight="@dimen/mm_30"
+            app:leftDrawableWidth="@dimen/mm_30" />
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dp_14"
-            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_height="@dimen/mm_14"
+            android:layout_marginLeft="@dimen/mm_20"
             android:scaleType="fitStart"
             android:src="@mipmap/pull" />
     </LinearLayout>

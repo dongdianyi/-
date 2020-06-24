@@ -20,7 +20,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
+            android:layout_width="0mm"
             android:layout_height="wrap_content"
             android:id="@+id/bottom_constraint"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,9 +30,9 @@
 
             <ImageView
                 android:id="@+id/imageView16"
-                android:layout_width="@dimen/dp_100"
-                android:layout_height="@dimen/dp_100"
-                android:padding="@dimen/dp_30"
+                android:layout_width="@dimen/mm_100"
+                android:layout_height="@dimen/mm_100"
+                android:padding="@dimen/mm_30"
                 android:src="@mipmap/camera_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,8 +40,8 @@
 
             <View
                 android:id="@+id/divider9"
-                android:layout_width="@dimen/dp_2"
-                android:layout_height="@dimen/dp_60"
+                android:layout_width="@dimen/mm_2"
+                android:layout_height="@dimen/mm_60"
                 android:background="@color/line_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView16"
@@ -49,15 +49,15 @@
 
             <EditText
                 android:id="@+id/editText_msg"
-                android:layout_width="0dp"
+                android:layout_width="0mm"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/dp_100"
+                android:minHeight="@dimen/mm_100"
                 android:background="@null"
                 android:textCursorDrawable="@drawable/textcursor"
                 android:inputType="textMultiLine"
                 android:hint="@string/input_msg"
                 android:textColor="@color/title_gray"
-                android:textSize="@dimen/sp_30"
+                android:textSize="@dimen/mm_30"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/send"
                 app:layout_constraintStart_toEndOf="@+id/divider9"
@@ -65,12 +65,12 @@
 
             <Button
                 android:id="@+id/send"
-                android:layout_width="@dimen/dp_150"
-                android:layout_height="0dp"
+                android:layout_width="@dimen/mm_150"
+                android:layout_height="0mm"
                 android:background="@color/send_bg"
                 android:text="@string/send"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_30"
+                android:textSize="@dimen/mm_30"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -79,8 +79,8 @@
 
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:id="@+id/chatdetails_recycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@id/bottom_constraint"
             app:layout_constraintEnd_toEndOf="parent"

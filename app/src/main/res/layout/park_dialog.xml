@@ -19,10 +19,10 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/mm_10"
             android:text="-筛选-"
             android:textColor="@color/green"
-            android:textSize="@dimen/sp_30"
+            android:textSize="@dimen/mm_30"
             app:layout_constraintBottom_toTopOf="@+id/guideline10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,29 +30,29 @@
 
         <View
             android:id="@+id/divider7"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_2"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_2"
             android:background="@color/line_color"
             app:layout_constraintBottom_toTopOf="@+id/guideline10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline10"
-            tools:layout_editor_absoluteX="10dp" />
+            tools:layout_editor_absoluteX="10mm" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline10"
-            android:layout_width="0dp"
+            android:layout_width="0mm"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="@dimen/dp_72" />
+            app:layout_constraintGuide_begin="@dimen/mm_72" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dp_20"
-            android:layout_marginBottom="@dimen/dp_36"
-            android:paddingLeft="@dimen/dp_20"
-            android:paddingRight="@dimen/dp_20"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
+            android:layout_marginTop="@dimen/mm_20"
+            android:layout_marginBottom="@dimen/mm_36"
+            android:paddingLeft="@dimen/mm_20"
+            android:paddingRight="@dimen/mm_20"
             app:layout_constraintBottom_toTopOf="@+id/divider8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,9 +79,9 @@
 
         <View
             android:id="@+id/divider8"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_2"
-            android:layout_marginBottom="@dimen/dp_36"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_2"
+            android:layout_marginBottom="@dimen/mm_36"
             android:background="@color/line_color"
             app:layout_constraintBottom_toTopOf="@+id/cancel_button"
             app:layout_constraintEnd_toEndOf="parent"
@@ -89,14 +89,14 @@
 
         <Button
             android:id="@+id/cancel_button"
-            android:layout_width="@dimen/dp_200"
-            android:layout_height="@dimen/dp_60"
-            android:layout_marginBottom="@dimen/dp_36"
+            android:layout_width="@dimen/mm_200"
+            android:layout_height="@dimen/mm_60"
+            android:layout_marginBottom="@dimen/mm_36"
             android:background="@mipmap/cancle_bg"
             android:onClick="@{()->data.dismissDialog()}"
             android:text="@string/cancle"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_28"
+            android:textSize="@dimen/mm_28"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/sure_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -104,13 +104,13 @@
 
         <Button
             android:id="@+id/sure_button"
-            android:layout_width="@dimen/dp_200"
-            android:layout_height="@dimen/dp_60"
+            android:layout_width="@dimen/mm_200"
+            android:layout_height="@dimen/mm_60"
             android:background="@mipmap/sure_bg"
             android:onClick="@{()->data.dismissDialog()}"
             android:text="@string/sure"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_28"
+            android:textSize="@dimen/mm_28"
             app:layout_constraintBottom_toBottomOf="@+id/cancel_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

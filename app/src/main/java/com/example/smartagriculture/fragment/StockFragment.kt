@@ -82,7 +82,7 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
         stockAdapter.setDataList(dataList)
         stock_recycler.adapter = mLRecycleViewAdapter
 
-//        val spacing = resources.getDimensionPixelSize(R.dimen.dp_4)
+//        val spacing = resources.getDimensionPixelSize(R.dimen.mm_4)
 //        stock_recycler.addItemDecoration(
 //            SpacesItemDecoration.newInstance(
 //                spacing,
@@ -95,8 +95,8 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
 
         //根据需要选择使用GridItemDecoration还是SpacesItemDecoration
         val divider: GridItemDecoration = GridItemDecoration.Builder(requireContext())
-            .setHorizontal(R.dimen.dp_20)
-            .setVertical(R.dimen.dp_20)
+            .setHorizontal(R.dimen.mm_20)
+            .setVertical(R.dimen.mm_20)
             .setColorResource(R.color.white)
             .build()
         stock_recycler.addItemDecoration(divider)

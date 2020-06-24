@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/dp_20"
+    android:padding="@dimen/mm_20"
     android:background="@color/bg">
 
     <com.example.smartagriculture.myview.TextDrawable
         android:id="@+id/textDrawable6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/dp_40"
+        android:paddingStart="@dimen/mm_40"
         android:textColor="@color/title_color"
-        android:textSize="@dimen/sp_25"
-        app:leftDrawableWidth="@dimen/dp_22"
-        app:leftDrawableHeight="@dimen/dp_22"
-        android:drawablePadding="@dimen/dp_6"
+        android:textSize="@dimen/mm_25"
+        app:leftDrawableWidth="@dimen/mm_22"
+        app:leftDrawableHeight="@dimen/mm_22"
+        android:drawablePadding="@dimen/mm_6"
         app:leftDrawable="@drawable/parkname_select"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,9 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/title_color"
-        android:layout_marginStart="@dimen/dp_68"
-        android:textSize="@dimen/sp_23"
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginStart="@dimen/mm_68"
+        android:textSize="@dimen/mm_23"
+        android:layout_marginTop="@dimen/mm_20"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textDrawable6"
         app:layout_constraintTop_toBottomOf="@+id/textDrawable6" />

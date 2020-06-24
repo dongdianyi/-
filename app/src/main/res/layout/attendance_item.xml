@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/dp_20"
-    android:paddingBottom="@dimen/dp_20"
+    android:paddingTop="@dimen/mm_20"
+    android:paddingBottom="@dimen/mm_20"
     android:background="@color/white">
 
     <TextView
         android:id="@+id/textView73"
-        android:layout_width="@dimen/dp_48"
-        android:layout_height="@dimen/dp_48"
+        android:layout_width="@dimen/mm_48"
+        android:layout_height="@dimen/mm_48"
         android:background="@drawable/round_blue"
         android:gravity="center"
         android:text="上"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_30"
+        android:textSize="@dimen/mm_30"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView74"
-        android:layout_width="0dp"
+        android:layout_width="0mm"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/mm_20"
         android:text="TextView"
         android:textColor="@color/blue"
-        android:textSize="@dimen/sp_25"
+        android:textSize="@dimen/mm_25"
         app:layout_constraintBottom_toBottomOf="@+id/textView73"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -37,14 +37,14 @@
 
     <TextView
         android:id="@+id/textView75"
-        android:layout_width="@dimen/dp_48"
-        android:layout_height="@dimen/dp_48"
-        android:layout_marginTop="@dimen/dp_100"
+        android:layout_width="@dimen/mm_48"
+        android:layout_height="@dimen/mm_48"
+        android:layout_marginTop="@dimen/mm_100"
         android:background="@drawable/round_gray"
         android:gravity="center"
         android:text="下"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_30"
+        android:textSize="@dimen/mm_30"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView73" />
 
@@ -52,18 +52,18 @@
         android:id="@+id/textView76"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/mm_20"
         android:text="TextView"
         android:textColor="@color/title_gray"
-        android:textSize="@dimen/sp_25"
+        android:textSize="@dimen/mm_25"
         app:layout_constraintBottom_toBottomOf="@+id/textView75"
         app:layout_constraintStart_toEndOf="@+id/textView75"
         app:layout_constraintTop_toTopOf="@+id/textView75" />
 
     <TextView
         android:id="@+id/textView77"
-        android:layout_width="@dimen/dp_2"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/mm_2"
+        android:layout_height="0mm"
         android:background="@drawable/line_vertical"
         android:layerType="software"
         app:layout_constraintBottom_toTopOf="@+id/textView75"

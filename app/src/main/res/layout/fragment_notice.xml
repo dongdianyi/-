@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,9 +55,9 @@
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="0dp"
-            android:padding="@dimen/dp_10"
+            android:layout_width="@dimen/mm_40"
+            android:layout_height="0mm"
+            android:padding="@dimen/mm_10"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
             app:layout_constraintHorizontal_bias="0.0"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:text="@string/notice_description"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/cycle_orange"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_23"
+                android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="200" />
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:text="条未读消息"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_23"
+                android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toEndOf="@+id/textView23"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -119,9 +119,9 @@
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_20"
-            android:paddingLeft="@dimen/dp_20"
-            android:paddingRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/mm_20"
+            android:paddingLeft="@dimen/mm_20"
+            android:paddingRight="@dimen/mm_20"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"

@@ -29,8 +29,8 @@
 
         <View
             android:id="@+id/view6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:background="@mipmap/top_bg"
             app:layout_constraintBottom_toTopOf="@+id/guideline50"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:text="打卡详情"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintBottom_toTopOf="@+id/guideline51"
             app:layout_constraintEnd_toStartOf="@+id/guideline53"
             app:layout_constraintStart_toStartOf="@+id/guideline52"
@@ -72,19 +72,19 @@
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_60"
-            android:padding="@dimen/dp_10"
+            android:layout_width="@dimen/mm_40"
+            android:layout_height="@dimen/mm_60"
+            android:padding="@dimen/mm_10"
             android:src="@mipmap/back"
             app:layout_constraintBottom_toTopOf="@+id/guideline51"
             app:layout_constraintStart_toStartOf="@+id/guideline52"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingStart="@dimen/dp_40"
-            android:paddingEnd="@dimen/dp_40"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
+            android:paddingStart="@dimen/mm_40"
+            android:paddingEnd="@dimen/mm_40"
             android:background="@drawable/cycle_white_shadow"
             app:layout_constraintEnd_toStartOf="@+id/guideline53"
             app:layout_constraintStart_toStartOf="@+id/guideline52"
@@ -93,9 +93,9 @@
 
             <View
                 android:id="@+id/divider21"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/dp_2"
-                android:layout_marginTop="@dimen/dp_87"
+                android:layout_width="0mm"
+                android:layout_height="@dimen/mm_2"
+                android:layout_marginTop="@dimen/mm_87"
                 android:background="@color/line_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -105,10 +105,10 @@
                 android:id="@+id/textDrawable12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/dp_20"
+                android:drawablePadding="@dimen/mm_20"
                 android:text="打卡记录"
                 android:textColor="@color/green"
-                android:textSize="@dimen/sp_23"
+                android:textSize="@dimen/mm_23"
                 app:layout_constraintBottom_toTopOf="@+id/divider21"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -119,10 +119,10 @@
                 android:id="@+id/textDrawable13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/dp_20"
+                android:drawablePadding="@dimen/mm_20"
                 android:text="2020/6/22"
                 android:textColor="@color/title_gray"
-                android:textSize="@dimen/sp_23"
+                android:textSize="@dimen/mm_23"
                 app:layout_constraintBottom_toTopOf="@+id/divider21"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -134,8 +134,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:id="@+id/attendance_recycle"
-                android:layout_width="0dp"
-                android:layout_height="0dp" />
+                android:layout_width="0mm"
+                android:layout_height="0mm" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

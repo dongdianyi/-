@@ -38,6 +38,13 @@ android {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/NOTICE'
     }
+
+    sourceSets {
+        main {
+            //指定so文件的查找目录是libs目录
+            jniLibs.srcDir 'libs'
+        }
+    }
 }
 
 

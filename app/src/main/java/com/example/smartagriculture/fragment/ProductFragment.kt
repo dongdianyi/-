@@ -84,7 +84,7 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
         product_recycler.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
-            .setHeight(R.dimen.dp_10)
+            .setHeight(R.dimen.mm_10)
             .setColorResource(R.color.bg)
             .build()
         product_recycler.addItemDecoration(divider)

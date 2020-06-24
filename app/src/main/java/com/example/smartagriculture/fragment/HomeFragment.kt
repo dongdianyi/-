@@ -44,7 +44,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         home_recycler.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
-            .setHeight(R.dimen.dp_10)
+            .setHeight(R.dimen.mm_10)
             .setColorResource(R.color.bg)
             .build()
         home_recycler.addItemDecoration(divider)

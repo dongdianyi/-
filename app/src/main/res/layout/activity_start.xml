@@ -33,13 +33,13 @@
             android:id="@+id/textView34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/mm_40"
             android:background="@mipmap/search_bg"
             android:gravity="center"
             android:enabled="false"
             android:text="跳过"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline27" />
 
@@ -47,7 +47,7 @@
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/mm_10"
             android:src="@mipmap/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,42 +57,42 @@
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/mm_10"
             android:text="智慧农业"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_100"
+            android:textSize="@dimen/mm_100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
         <TextView
             android:id="@+id/textView36"
-            android:layout_width="@dimen/dp_400"
+            android:layout_width="@dimen/mm_400"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/mm_10"
             android:background="@mipmap/start_bg10"
             android:gravity="center"
             android:text="综  合  管  理  平  台"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="@dimen/dp_120"
-            android:layout_height="@dimen/dp_87"
-            android:layout_marginStart="@dimen/dp_75"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="@dimen/mm_120"
+            android:layout_height="@dimen/mm_87"
+            android:layout_marginStart="@dimen/mm_75"
+            android:layout_marginTop="@dimen/mm_10"
             android:src="@mipmap/start_bg5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:src="@mipmap/start_bg9"
             app:layout_constraintBottom_toBottomOf="@id/guideline29"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,19 +110,19 @@
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="@dimen/dp_100"
-            android:layout_height="@dimen/dp_60"
+            android:layout_width="@dimen/mm_100"
+            android:layout_height="@dimen/mm_60"
             android:layout_marginTop="92dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="40mm"
             android:src="@mipmap/start_bg2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
         <ImageView
             android:id="@+id/imageView11"
-            android:layout_width="@dimen/dp_120"
-            android:layout_height="@dimen/dp_87"
-            android:layout_marginBottom="@dimen/dp_22"
+            android:layout_width="@dimen/mm_120"
+            android:layout_height="@dimen/mm_87"
+            android:layout_marginBottom="@dimen/mm_22"
             android:src="@mipmap/start_bg6"
             app:layout_constraintBottom_toTopOf="@+id/guideline29"
             app:layout_constraintStart_toStartOf="parent" />
@@ -131,15 +131,15 @@
             android:id="@+id/textView37"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/dp_10"
+            android:drawablePadding="@dimen/mm_10"
             android:text="扫码关注我们"
-            android:textSize="@dimen/sp_16"
-            android:layout_marginEnd="@dimen/dp_10"
+            android:textSize="@dimen/mm_16"
+            android:layout_marginEnd="@dimen/mm_10"
             app:layout_constraintBottom_toBottomOf="@id/guideline28"
             app:layout_constraintEnd_toEndOf="parent"
             app:topDrawable="@mipmap/start_bg4"
-            app:topDrawableHeight="@dimen/dp_100"
-            app:topDrawableWidth="@dimen/dp_100" />
+            app:topDrawableHeight="@dimen/mm_100"
+            app:topDrawableWidth="@dimen/mm_100" />
 
         <ImageView
             android:id="@+id/imageView13"

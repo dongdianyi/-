@@ -4,20 +4,20 @@
         <item name="android:button">@null</item>
         <item name="android:drawableLeft">@drawable/park_select</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:drawablePadding">@dimen/dp_10</item>
-        <item name="android:textSize">@dimen/sp_25</item>
+        <item name="android:layout_height">0mm</item>
+        <item name="android:drawablePadding">@dimen/mm_10</item>
+        <item name="android:textSize">@dimen/mm_25</item>
         <item name="android:layout_weight">1</item>
     </style>
 
     <style name="radio_horizontal">
         <item name="android:button">@null</item>
         <item name="android:drawableLeft">@drawable/park_select</item>
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">0mm</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:drawablePadding">@dimen/dp_10</item>
-        <item name="android:textSize">@dimen/sp_21</item>
+        <item name="android:drawablePadding">@dimen/mm_10</item>
+        <item name="android:textSize">@dimen/mm_21</item>
         <item name="android:layout_weight">1</item>
     </style>
 

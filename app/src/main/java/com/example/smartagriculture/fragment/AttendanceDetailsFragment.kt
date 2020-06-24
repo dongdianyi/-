@@ -39,7 +39,7 @@ class AttendanceDetailsFragment : BaseFragment<AttendanceViewModel,FragmentAtten
         attendance_recycle.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
-            .setHeight(R.dimen.dp_2)
+            .setHeight(R.dimen.mm_2)
             .setColorResource(R.color.bg)
             .build()
         attendance_recycle.addItemDecoration(divider)

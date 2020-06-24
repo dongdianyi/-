@@ -18,8 +18,8 @@
         <fragment
             android:id="@+id/fragment"
             android:name="com.example.smartagriculture.navigation.NavHostFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import me.jessyan.autosize.AutoSize
 import me.jessyan.autosize.AutoSizeConfig
 import me.jessyan.autosize.onAdaptListener
+import me.jessyan.autosize.unit.Subunits
 import me.jessyan.autosize.utils.AutoSizeLog
 import me.jessyan.autosize.utils.ScreenUtils
 import java.util.*
@@ -75,9 +76,9 @@ open class BaseApplication : Application() {
          * 以下是 AndroidAutoSize 可以自定义的参数, [AutoSizeConfig] 的每个方法的注释都写的很详细
          * 使用前请一定记得跳进源码，查看方法的注释, 下面的注释只是简单描述!!!
          */
-        AutoSizeConfig.getInstance().unitsManager.isSupportDP = true
-        AutoSizeConfig.getInstance().unitsManager.isSupportSP = true
-//        AutoSizeConfig.getInstance().unitsManager.supportSubunits = Subunits.MM
+        AutoSizeConfig.getInstance().unitsManager.isSupportDP = false
+        AutoSizeConfig.getInstance().unitsManager.isSupportSP = false
+        AutoSizeConfig.getInstance().unitsManager.supportSubunits = Subunits.MM
         //打开对fragment修改尺寸的支持
         AutoSizeConfig.getInstance().isCustomFragment = true;
         AutoSizeConfig.getInstance()
@@ -142,7 +143,9 @@ open class BaseApplication : Application() {
         screenHeight = ((height / density).toInt())
         LogUtil(
             "屏幕尺寸",
-            (sqrt((2250 * 2250 + 4002 * 4002).toDouble() )/ 480).toString()
+            (sqrt((2250 * 2250 + 4002 * 4002).toDouble() )/ 25.4).toString()+
+                    "\n"+(sqrt((750 * 750 + 1334 * 1334).toDouble() )/ 25.4).toString()+
+            "\n"+(sqrt((1125 * 1125 + 2001 * 2001).toDouble() )/ 25.4).toString()
                  + "\n屏幕宽度（像素）：" + width
                     + "\n屏幕高度（像素）：" + height
                     + "\n屏幕密度（0.75 / 1.0 / 1.5）" + density

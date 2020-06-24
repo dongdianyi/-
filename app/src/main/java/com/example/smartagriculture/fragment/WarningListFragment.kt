@@ -45,7 +45,7 @@ class WarningListFragment : BaseFragment<WarnMessageViewModel,FragmentWarningLis
         warning_recycler.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
-            .setHeight(R.dimen.dp_20)
+            .setHeight(R.dimen.mm_20)
             .setColorResource(R.color.bg)
             .build()
         warning_recycler.addItemDecoration(divider)

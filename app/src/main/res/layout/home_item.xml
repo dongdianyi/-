@@ -3,49 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/dp_10"
+    android:padding="@dimen/mm_10"
     android:background="@drawable/cycle_white">
 
     <com.example.smartagriculture.myview.TextDrawable
         android:id="@+id/textDrawable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_10"
-        android:drawablePadding="@dimen/dp_14"
+        android:layout_marginStart="@dimen/mm_10"
+        android:drawablePadding="@dimen/mm_14"
         android:text="@string/logo_description"
         android:textColor="@color/title_color"
-        android:textSize="@dimen/sp_23"
+        android:textSize="@dimen/mm_23"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:leftDrawable="@mipmap/home_item_iv"
-        app:leftDrawableWidth="@dimen/dp_5" />
+        app:leftDrawableWidth="@dimen/mm_5" />
 
     <com.example.smartagriculture.myview.TextDrawable
         android:id="@+id/textDrawable2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginEnd="@dimen/dp_10"
-        android:drawablePadding="@dimen/dp_5"
+        android:layout_marginTop="@dimen/mm_10"
+        android:layout_marginEnd="@dimen/mm_10"
+        android:drawablePadding="@dimen/mm_5"
         android:text="@string/retrospectname"
         android:textColor="@color/green"
-        android:textSize="@dimen/sp_18"
+        android:textSize="@dimen/mm_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:leftDrawable="@mipmap/home_item_iv_two"
-        app:leftDrawableWidth="@dimen/dp_20" />
+        app:leftDrawableWidth="@dimen/mm_20" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="@dimen/dp_150"
-        android:layout_height="@dimen/dp_87"
-        android:layout_marginStart="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_22"
+        android:layout_width="@dimen/mm_150"
+        android:layout_height="@dimen/mm_87"
+        android:layout_marginStart="@dimen/mm_10"
+        android:layout_marginTop="@dimen/mm_22"
         android:background="@mipmap/task_bg"
         android:gravity="center"
         android:text="50\n待做"
-        android:textSize="@dimen/sp_28"
+        android:textSize="@dimen/mm_28"
         android:lineSpacingMultiplier="1.2"
         android:textColor="@color/title_color"
         android:textStyle="bold"
@@ -114,8 +114,8 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="@dimen/dp_2"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/mm_2"
+        android:layout_height="0mm"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView5"
         app:layout_constraintEnd_toStartOf="@id/textView5"
@@ -124,8 +124,8 @@
 
     <View
         android:id="@+id/divider2"
-        android:layout_width="@dimen/dp_2"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/mm_2"
+        android:layout_height="0mm"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView6"
         app:layout_constraintEnd_toStartOf="@id/textView6"
@@ -134,8 +134,8 @@
 
     <View
         android:id="@+id/divider3"
-        android:layout_width="@dimen/dp_2"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/mm_2"
+        android:layout_height="0mm"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView7"
         app:layout_constraintEnd_toStartOf="@id/textView7"
@@ -144,8 +144,8 @@
 
     <View
         android:id="@+id/divider4"
-        android:layout_width="@dimen/dp_2"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/mm_2"
+        android:layout_height="0mm"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@id/textView4"
         app:layout_constraintEnd_toStartOf="@id/textView4"
@@ -154,9 +154,9 @@
 
     <View
         android:id="@+id/divider5"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp_2"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="0mm"
+        android:layout_height="@dimen/mm_2"
+        android:layout_marginTop="@dimen/mm_10"
         android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,21 +178,21 @@
             android:layout_height="wrap_content"
             android:text="@string/warning_message"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/sp_23" />
+            android:textSize="@dimen/mm_23" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/textView11"
-            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/mm_5"
             android:layout_toRightOf="@id/textView11"
             android:background="@drawable/round_red"
-            android:paddingLeft="@dimen/dp_2"
-            android:paddingRight="@dimen/dp_2"
+            android:paddingLeft="@dimen/mm_2"
+            android:paddingRight="@dimen/mm_2"
             android:text="12"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_21" />
+            android:textSize="@dimen/mm_21" />
 
         <com.example.smartagriculture.myview.TextDrawable
             android:id="@+id/textView13"
@@ -200,7 +200,7 @@
             android:layout_below="@id/textView11"
             android:text="@string/equipment_warning"
             app:leftDrawable="@mipmap/home_item_iv_three"
-            app:leftDrawableWidth="@dimen/dp_22" />
+            app:leftDrawableWidth="@dimen/mm_22" />
 
         <com.example.smartagriculture.myview.TextDrawable
             android:id="@+id/textView14"
@@ -208,15 +208,15 @@
             android:layout_below="@id/textView13"
             android:text="@string/farming_warning"
             app:leftDrawable="@mipmap/home_item_iv_four"
-            app:leftDrawableWidth="@dimen/dp_22" />
+            app:leftDrawableWidth="@dimen/mm_22" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_22"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginStart="@dimen/mm_22"
+        android:layout_marginTop="@dimen/mm_10"
         app:layout_constraintStart_toEndOf="@id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@id/divider5">
 
@@ -226,21 +226,21 @@
             android:layout_height="wrap_content"
             android:text="@string/monitor_equipment"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/sp_23" />
+            android:textSize="@dimen/mm_23" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/textView15"
-            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/mm_5"
             android:layout_toRightOf="@id/textView15"
-            android:paddingLeft="@dimen/dp_2"
-            android:paddingRight="@dimen/dp_2"
+            android:paddingLeft="@dimen/mm_2"
+            android:paddingRight="@dimen/mm_2"
             android:background="@drawable/round_orange"
             android:text="12"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_21" />
+            android:textSize="@dimen/mm_21" />
 
         <com.example.smartagriculture.myview.TextDrawable
             android:id="@+id/textView17"
@@ -248,7 +248,7 @@
             android:layout_below="@id/textView15"
             android:text="@string/air_temperature"
             app:leftDrawable="@mipmap/home_item_iv_five"
-            app:leftDrawableWidth="@dimen/dp_22" />
+            app:leftDrawableWidth="@dimen/mm_22" />
 
         <com.example.smartagriculture.myview.TextDrawable
             android:id="@+id/textView18"
@@ -256,7 +256,7 @@
             android:layout_below="@id/textView17"
             android:text="@string/air_humidity"
             app:leftDrawable="@mipmap/home_item_iv_six"
-            app:leftDrawableWidth="@dimen/dp_22" />
+            app:leftDrawableWidth="@dimen/mm_22" />
 
         <com.example.smartagriculture.myview.TextDrawable
             android:id="@+id/textView19"
@@ -264,7 +264,7 @@
             android:layout_below="@id/textView18"
             android:text="@string/soil_tension"
             app:leftDrawable="@mipmap/home_item_iv_seven"
-            app:leftDrawableWidth="@dimen/dp_22" />
+            app:leftDrawableWidth="@dimen/mm_22" />
 
         <com.example.smartagriculture.myview.TextDrawable
             android:id="@+id/textView20"
@@ -272,16 +272,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textView19"
             android:layout_alignRight="@id/textView19"
-            android:layout_marginTop="@dimen/dp_22"
+            android:layout_marginTop="@dimen/mm_22"
             android:text="@string/more"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/sp_18" />
+            android:textSize="@dimen/mm_18" />
     </RelativeLayout>
 
     <View
         android:id="@+id/divider6"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp_2"
+        android:layout_width="0mm"
+        android:layout_height="@dimen/mm_2"
         android:layout_marginTop="8dp"
         android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="parent"
@@ -292,9 +292,9 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginTop="@dimen/mm_10"
         android:text="@string/area"
-        android:textSize="@dimen/sp_21"
+        android:textSize="@dimen/mm_21"
         app:layout_constraintEnd_toStartOf="@id/textView22"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -305,7 +305,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/crop"
-        android:textSize="@dimen/sp_21"
+        android:textSize="@dimen/mm_21"
         app:layout_constraintBottom_toBottomOf="@id/textView21"
         app:layout_constraintEnd_toStartOf="@id/textDrawable3"
         app:layout_constraintHorizontal_bias="0.5"
@@ -317,7 +317,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/address"
-        android:textSize="@dimen/sp_21"
+        android:textSize="@dimen/mm_21"
         app:layout_constraintBottom_toBottomOf="@id/textView22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

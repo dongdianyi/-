@@ -30,8 +30,8 @@
 
         <View
             android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:background="@mipmap/top_bg"
             app:layout_constraintBottom_toTopOf="@+id/guideline30"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,9 +42,9 @@
 
         <ImageView
             android:id="@+id/maillist_iv"
-            android:layout_width="@dimen/dp_48"
-            android:layout_height="@dimen/dp_48"
-            android:padding="@dimen/dp_4"
+            android:layout_width="@dimen/mm_48"
+            android:layout_height="@dimen/mm_48"
+            android:padding="@dimen/mm_4"
             app:layout_constraintStart_toStartOf="@+id/guideline32"
             app:layout_constraintTop_toTopOf="@id/guideline31"
             app:srcCompat="@mipmap/maillist" />
@@ -55,16 +55,16 @@
             android:layout_height="wrap_content"
             android:text="@string/chat"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline31" />
 
         <ImageView
             android:id="@+id/add_friend_iv"
-            android:layout_width="@dimen/dp_48"
-            android:layout_height="@dimen/dp_48"
-            android:padding="@dimen/dp_4"
+            android:layout_width="@dimen/mm_48"
+            android:layout_height="@dimen/mm_48"
+            android:padding="@dimen/mm_4"
             app:layout_constraintEnd_toStartOf="@+id/guideline33"
             app:layout_constraintTop_toTopOf="@+id/guideline31"
             app:srcCompat="@mipmap/add_friend" />
@@ -85,8 +85,8 @@
 
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:id="@+id/chat_recycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

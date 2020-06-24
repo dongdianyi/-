@@ -16,14 +16,6 @@ abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompa
     lateinit var viewModel: VM
     lateinit var dataBinding: DB
 
-    /**
-     * 需要进行检测的权限数组
-     */
-    protected var needPermissions = arrayOf(
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.READ_PHONE_STATE
-    )
     private var mDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

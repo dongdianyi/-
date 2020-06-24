@@ -1,47 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dp_200">200dp</dimen>
-    <dimen name="dp_120">120dp</dimen>
-    <dimen name="dp_40">40dp</dimen>
-    <dimen name="dp_10">10dp</dimen>
-    <dimen name="dp_300">300dp</dimen>
+    <dimen name="mm_200">200mm</dimen>
+    <dimen name="mm_120">120mm</dimen>
+    <dimen name="mm_10">10mm</dimen>
+    <dimen name="mm_300">300mm</dimen>
+    <dimen name="mm_20">20mm</dimen>
+    <dimen name="mm_5">5mm</dimen>
+    <dimen name="list_item_spacing">16mm</dimen>
+    <dimen name="list_item_spacing_half">8mm</dimen>
+    <dimen name="icon_size">38mm</dimen>
+    <dimen name="fixed_height_bottom_padding">20mm</dimen>
+
+
+    <dimen name="mm_18">18mm</dimen>
+    <dimen name="mm_12">15mm</dimen>
+    <dimen name="mm_28">28mm</dimen>
+    <dimen name="mm_40">40mm</dimen>
+
+
+    <dimen name="mm_8">8mm</dimen>
+    <dimen name="mm_21">21mm</dimen>
+    <dimen name="mm_35">35mm</dimen>
+    <dimen name="mm_23">23mm</dimen>
+    <dimen name="mm_25">25mm</dimen>
+    <dimen name="mm_60">60mm</dimen>
+    <dimen name="mm_48">48mm</dimen>
+    <dimen name="mm_30">30mm</dimen>
+    <dimen name="mm_17">17mm</dimen>
+    <dimen name="mm_75">75mm</dimen>
+
+    <dimen name="mm_150">150mm</dimen>
+    <dimen name="mm_2">2mm</dimen>
+    <dimen name="mm_87">87mm</dimen>
+    <dimen name="mm_68">68mm</dimen>
+    <dimen name="mm_100">100mm</dimen>
+    <dimen name="mm_400">400mm</dimen>
+    <dimen name="mm_500">500mm</dimen>
+    <dimen name="mm_55">55mm</dimen>
+    <dimen name="mm_15">15mm</dimen>
+    <dimen name="mm_95">95mm</dimen>
+    <dimen name="mm_14">14mm</dimen>
+    <dimen name="mm_16">16mm</dimen>
+    <dimen name="mm_36">36mm</dimen>
+    <dimen name="mm_4">4mm</dimen>
+    <dimen name="mm_72">72mm</dimen>
+    <dimen name="mm_22">22mm</dimen>
+    <dimen name="mm_6">6mm</dimen>
     <dimen name="dp_20">20dp</dimen>
-    <dimen name="dp_5">5dp</dimen>
-    <dimen name="list_item_spacing">16dp</dimen>
-    <dimen name="list_item_spacing_half">8dp</dimen>
-    <dimen name="icon_size">38dp</dimen>
-    <dimen name="dp_18">18dp</dimen>
-    <dimen name="fixed_height_bottom_padding">20dp</dimen>
-
-
-    <dimen name="sp_18">18sp</dimen>
-    <dimen name="sp_12">15sp</dimen>
-    <dimen name="sp_30">30sp</dimen>
-    <dimen name="sp_15">15sp</dimen>
-    <dimen name="sp_28">28sp</dimen>
-
-
-    <dimen name="sp_8">8sp</dimen>
-    <dimen name="sp_35">35sp</dimen>
-    <dimen name="sp_21">21sp</dimen>
-    <dimen name="dp_35">35dp</dimen>
-    <dimen name="sp_23">23sp</dimen>
-    <dimen name="sp_25">25sp</dimen>
-    <dimen name="sp_60">60sp</dimen>
-    <dimen name="dp_48">48dp</dimen>
-    <dimen name="dp_30">30dp</dimen>
-    <dimen name="sp_17">17sp</dimen>
-    <dimen name="dp_100">100dp</dimen>
-    <dimen name="dp_75">75dp</dimen>
-
-    <dimen name="dp_150">150dp</dimen>
-    <dimen name="dp_2">2dp</dimen>
-    <dimen name="dp_87">87dp</dimen>
-    <dimen name="dp_68">68dp</dimen>
-    <dimen name="sp_100">100sp</dimen>
-    <dimen name="dp_400">400dp</dimen>
-    <dimen name="dp_500">500dp</dimen>
-    <dimen name="dp_55">55dp</dimen>
-    <dimen name="dp_15">15dp</dimen>
-    <dimen name="dp_95">95dp</dimen>
 </resources>

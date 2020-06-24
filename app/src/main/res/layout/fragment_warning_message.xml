@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/cycle_orange"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_23"
+                android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="200" />
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:text="条预警消息"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_23"
+                android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toEndOf="@+id/textView23"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -77,21 +77,21 @@
 
         <com.androidkun.xtablayout.XTabLayout
             android:id="@+id/task_tab"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_48"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_48"
             android:layout_gravity="bottom"
             app:layout_constraintEnd_toEndOf="@id/guideline11"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:xTabSelectedTextColor="@color/blue"
-            app:xTabTextSize="@dimen/sp_14" />
+            app:xTabTextSize="@dimen/mm_14" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
+            android:layout_marginTop="@dimen/mm_10"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"

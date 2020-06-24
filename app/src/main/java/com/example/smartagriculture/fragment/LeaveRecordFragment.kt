@@ -53,7 +53,7 @@ class LeaveRecordFragment : BaseFragment<AttendanceViewModel, FragmentLeaveRecor
         leave_record_recycler.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
-            .setHeight(R.dimen.dp_10)
+            .setHeight(R.dimen.mm_10)
             .setColorResource(R.color.bg)
             .build()
         leave_record_recycler.addItemDecoration(divider)

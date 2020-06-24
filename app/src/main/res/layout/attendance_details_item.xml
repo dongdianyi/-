@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
-    android:layout_height="@dimen/dp_150">
+    android:layout_height="@dimen/mm_150">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline34"
@@ -15,8 +15,8 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_100"
+        android:layout_width="@dimen/mm_100"
+        android:layout_height="@dimen/mm_100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline34"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="@color/title_color"
-        android:textSize="@dimen/sp_30"
+        android:textSize="@dimen/mm_30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline34"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,10 +39,10 @@
         android:id="@+id/textView41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/mm_48"
         android:text="TextView"
         android:textColor="@color/title_gray"
-        android:textSize="@dimen/sp_21"
+        android:textSize="@dimen/mm_21"
         app:layout_constraintBottom_toBottomOf="@+id/textView39"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView39" />

@@ -10,8 +10,8 @@
     <solid android:color="@color/green" />
 
     <size
-        android:width="20dp"
+        android:width="20mm"
 
-        android:height="20dp" />
+        android:height="20mm" />
 
 </shape>

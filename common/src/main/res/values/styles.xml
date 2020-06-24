@@ -39,19 +39,19 @@
 
     <style name="button">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/sp_28</item>
+        <item name="android:textSize">@dimen/mm_28</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/dp_75</item>
+        <item name="android:layout_height">@dimen/mm_75</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_marginStart">@dimen/dp_30</item>
+        <item name="android:layout_marginStart">@dimen/mm_30</item>
     </style>
     
     <style name="park_textView">
-        <item name="android:layout_marginTop">@dimen/dp_22</item>
+        <item name="android:layout_marginTop">@dimen/mm_23</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:drawablePadding">@dimen/dp_5</item>
-        <item name="android:textSize">@dimen/sp_23</item>
+        <item name="android:drawablePadding">@dimen/mm_5</item>
+        <item name="android:textSize">@dimen/mm_23</item>
         <item name="android:textColor">@color/title_gray</item>
     </style>
     //弹框的样式

@@ -54,10 +54,10 @@ class ParkAdapter(context: Context?, layoutId: Int) :
         var spList= mutableListOf<SpannableString>()
         strMsg.forEach {
             var sp = SpannableString(it)
-            sp.setSpan( AbsoluteSizeSpan(spToPx(mContext,28),false),0,it.length-2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+            sp.setSpan( AbsoluteSizeSpan(28,false),0,it.length-2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
             sp.setSpan( StyleSpan(Typeface.BOLD), 0, it.length-2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             sp.setSpan( ForegroundColorSpan(Color.rgb(27,161,126)), 0, it.length-2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            sp.setSpan( AbsoluteSizeSpan(spToPx(mContext,22),false),it.length-2,it.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+            sp.setSpan( AbsoluteSizeSpan(22,false),it.length-2,it.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
             spList.add(sp)
         }
 //        textView3.text = Html.fromHtml(strMsg)

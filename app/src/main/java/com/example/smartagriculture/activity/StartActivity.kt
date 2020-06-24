@@ -30,7 +30,7 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
                         count--
                         mHandlerMessage.sendEmptyMessageDelayed(Identification.WHATNUM, 1000)
                     } else {
-                        startActivity(Intent(this@StartActivity, MainActivity::class.java))
+                        startActivity(Intent(this@StartActivity, LoginActivity::class.java))
                         finish()
                     }
                 }

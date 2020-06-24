@@ -46,10 +46,10 @@
             layout="@layout/title_item" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:background="@drawable/cycle_white"
-            android:padding="@dimen/dp_40"
+            android:padding="@dimen/mm_40"
             app:layout_constraintBottom_toTopOf="@+id/guideline59"
             app:layout_constraintEnd_toStartOf="@+id/guideline58"
             app:layout_constraintStart_toStartOf="@+id/guideline57"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="8"
                 android:includeFontPadding="false"
-                android:textSize="@dimen/sp_60"
+                android:textSize="@dimen/mm_60"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="@dimen/sp_21"
+                android:textSize="@dimen/mm_21"
                 app:layout_constraintStart_toEndOf="@+id/textView94"
                 app:layout_constraintTop_toTopOf="@+id/textView94" />
 
@@ -79,16 +79,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="hahah"
-                android:layout_marginStart="@dimen/dp_48"
-                android:textSize="@dimen/sp_21"
+                android:layout_marginStart="@dimen/mm_48"
+                android:textSize="@dimen/mm_21"
                 app:layout_constraintBottom_toBottomOf="@+id/textView94"
                 app:layout_constraintStart_toEndOf="@+id/textView94" />
 
             <View
                 android:id="@+id/divider23"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/dp_2"
-                android:layout_marginTop="@dimen/dp_20"
+                android:layout_width="0mm"
+                android:layout_height="@dimen/mm_2"
+                android:layout_marginTop="@dimen/mm_20"
                 android:background="@color/line_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="@dimen/sp_30"
+                android:textSize="@dimen/mm_30"
                 app:layout_constraintBottom_toBottomOf="@+id/textView102"
                 app:layout_constraintEnd_toStartOf="@+id/textView102"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -111,7 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="@dimen/sp_30"
+                android:textSize="@dimen/mm_30"
                 app:layout_constraintBottom_toBottomOf="@+id/textView103"
                 app:layout_constraintEnd_toStartOf="@+id/textView103"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -123,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="@dimen/sp_30"
+                android:textSize="@dimen/mm_30"
                 app:layout_constraintBottom_toBottomOf="@+id/textView104"
                 app:layout_constraintEnd_toStartOf="@+id/textView104"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -135,8 +135,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:layout_marginTop="@dimen/dp_20"
-                android:textSize="@dimen/sp_30"
+                android:layout_marginTop="@dimen/mm_20"
+                android:textSize="@dimen/mm_30"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView103"
@@ -144,8 +144,8 @@
 
             <View
                 android:id="@+id/divider25"
-                android:layout_width="@dimen/dp_2"
-                android:layout_height="0dp"
+                android:layout_width="@dimen/mm_2"
+                android:layout_height="0mm"
                 android:background="@color/line_color"
                 app:layout_constraintBottom_toBottomOf="@+id/textView101"
                 app:layout_constraintEnd_toStartOf="@+id/textView102"
@@ -154,8 +154,8 @@
 
             <View
                 android:id="@+id/divider26"
-                android:layout_width="@dimen/dp_2"
-                android:layout_height="0dp"
+                android:layout_width="@dimen/mm_2"
+                android:layout_height="0mm"
                 android:background="@color/line_color"
                 app:layout_constraintBottom_toBottomOf="@+id/textView102"
                 app:layout_constraintEnd_toStartOf="@+id/textView103"
@@ -164,8 +164,8 @@
 
             <View
                 android:id="@+id/divider27"
-                android:layout_width="@dimen/dp_2"
-                android:layout_height="0dp"
+                android:layout_width="@dimen/mm_2"
+                android:layout_height="0mm"
                 android:background="@color/line_color"
                 app:layout_constraintBottom_toBottomOf="@+id/textView103"
                 app:layout_constraintEnd_toStartOf="@+id/textView104"
@@ -174,8 +174,8 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="0mm"
+                android:layout_height="0mm"
                 android:overScrollMode="never"
                 android:scrollbars="none"
                 app:layout_constraintStart_toStartOf="parent"

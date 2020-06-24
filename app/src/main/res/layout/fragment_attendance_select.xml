@@ -19,7 +19,7 @@
 
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="0mm"
             android:id="@+id/select_recycler"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -54,8 +54,8 @@
 
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:id="@+id/stock_recycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:background="@drawable/cycle_white"
             app:layout_constraintBottom_toBottomOf="@id/guideline24"
             app:layout_constraintEnd_toEndOf="@id/guideline23"
@@ -64,7 +64,7 @@
 
         <com.example.smartagriculture.myview.DropDownView
             android:id="@+id/dropDownView"
-            android:layout_width="0dp"
+            android:layout_width="0mm"
             android:layout_height="wrap_content"
             app:containerBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"

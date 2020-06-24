@@ -24,18 +24,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2020-10-10"
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginTop="@dimen/mm_20"
         android:textColor="@color/title_color"
-        android:textSize="@dimen/sp_30"
+        android:textSize="@dimen/mm_30"
         app:layout_constraintEnd_toStartOf="@+id/guideline35"
         app:layout_constraintStart_toStartOf="@+id/guideline36"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/divider10"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp_2"
-        android:layout_marginEnd="@dimen/dp_48"
+        android:layout_width="0mm"
+        android:layout_height="@dimen/mm_2"
+        android:layout_marginEnd="@dimen/mm_48"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@+id/textView42"
         app:layout_constraintEnd_toStartOf="@id/textView42"
@@ -44,9 +44,9 @@
 
     <View
         android:id="@+id/divider11"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp_2"
-        android:layout_marginStart="@dimen/dp_48"
+        android:layout_width="0mm"
+        android:layout_height="@dimen/mm_2"
+        android:layout_marginStart="@dimen/mm_48"
         android:background="@color/line_color"
         app:layout_constraintBottom_toBottomOf="@+id/textView42"
         app:layout_constraintEnd_toStartOf="@id/guideline35"
@@ -57,13 +57,13 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginTop="@dimen/mm_20"
         app:layout_constraintStart_toStartOf="@+id/guideline36"
         app:layout_constraintTop_toBottomOf="@+id/textView42">
         <ImageView
             android:id="@+id/imageView17"
-            android:layout_width="@dimen/dp_100"
-            android:layout_height="@dimen/dp_100"
+            android:layout_width="@dimen/mm_100"
+            android:layout_height="@dimen/mm_100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@mipmap/headportrait" />
@@ -72,8 +72,8 @@
             android:id="@+id/imageView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxWidth="@dimen/dp_300"
-            android:layout_marginStart="@dimen/dp_40"
+            android:maxWidth="@dimen/mm_300"
+            android:layout_marginStart="@dimen/mm_40"
             app:layout_constraintBottom_toBottomOf="@+id/imageView17"
             app:layout_constraintStart_toEndOf="@+id/imageView17"
             android:visibility="gone"
@@ -84,13 +84,13 @@
             android:id="@+id/textView43"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginStart="@dimen/mm_20"
             android:background="@mipmap/gray_bg"
-            android:maxWidth="@dimen/dp_500"
-            android:padding="@dimen/dp_40"
+            android:maxWidth="@dimen/mm_500"
+            android:padding="@dimen/mm_40"
             android:text="聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/sp_28"
+            android:textSize="@dimen/mm_28"
             app:layout_constraintBottom_toBottomOf="@+id/imageView17"
             app:layout_constraintStart_toEndOf="@+id/imageView17" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -98,14 +98,14 @@
         android:id="@+id/constraintLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginTop="@dimen/mm_20"
         app:layout_constraintEnd_toEndOf="@+id/guideline35"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <ImageView
             android:id="@+id/imageView19"
-            android:layout_width="@dimen/dp_100"
-            android:layout_height="@dimen/dp_100"
+            android:layout_width="@dimen/mm_100"
+            android:layout_height="@dimen/mm_100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@mipmap/headportrait" />
@@ -113,9 +113,9 @@
             android:id="@+id/imageView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxWidth="@dimen/dp_300"
+            android:maxWidth="@dimen/mm_300"
             android:visibility="gone"
-            android:layout_marginEnd="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/mm_40"
             app:layout_constraintBottom_toBottomOf="@id/imageView19"
             app:layout_constraintEnd_toStartOf="@id/imageView19"
             app:srcCompat="@mipmap/default_iv" />
@@ -126,11 +126,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/blue_bg"
-            android:maxWidth="@dimen/dp_500"
-            android:padding="@dimen/dp_40"
+            android:maxWidth="@dimen/mm_500"
+            android:padding="@dimen/mm_40"
             android:text="聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容聊天内容"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_28"
+            android:textSize="@dimen/mm_28"
             app:layout_constraintBottom_toBottomOf="@id/imageView19"
             app:layout_constraintEnd_toStartOf="@id/imageView19" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,8 +36,8 @@
 
         <View
             android:id="@+id/view4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:background="@mipmap/top_bg"
             app:layout_constraintBottom_toTopOf="@+id/guideline37"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:text="@string/leave_record"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/guideline38" />
@@ -71,9 +71,9 @@
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="0dp"
-            android:padding="@dimen/dp_10"
+            android:layout_width="@dimen/mm_40"
+            android:layout_height="0mm"
+            android:padding="@dimen/mm_10"
             app:layout_constraintBottom_toBottomOf="@+id/textView62"
             app:layout_constraintStart_toStartOf="@+id/guideline48"
             app:layout_constraintTop_toTopOf="@+id/textView62"
@@ -82,12 +82,12 @@
 
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:id="@+id/leave_record_recycler"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:paddingTop="@dimen/dp_20"
-            android:paddingStart="@dimen/dp_20"
-            android:paddingEnd="@dimen/dp_20"
-            android:layout_marginTop="@dimen/dp_40"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
+            android:paddingTop="@dimen/mm_20"
+            android:paddingStart="@dimen/mm_20"
+            android:paddingEnd="@dimen/mm_20"
+            android:layout_marginTop="@dimen/mm_40"
             android:background="@drawable/cycle_white_shadow"
             app:layout_constraintBottom_toTopOf="@+id/guideline55"
             app:layout_constraintEnd_toStartOf="@+id/guideline49"

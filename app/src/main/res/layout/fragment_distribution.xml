@@ -37,8 +37,8 @@
 
         <View
             android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
             android:background="@mipmap/top_bg"
             app:layout_constraintBottom_toTopOf="@+id/guideline30"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/distribution"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintEnd_toEndOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline31" />
@@ -61,8 +61,8 @@
 
 <!--        <com.tianditu.android.maps.MapView-->
 <!--            android:id="@+id/distribution_mapview"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
+<!--            android:layout_width="0mm"-->
+<!--            android:layout_height="0mm"-->
 <!--            app:layout_constraintBottom_toBottomOf="parent"-->
 <!--            app:layout_constraintEnd_toEndOf="parent"-->
 <!--            app:layout_constraintStart_toStartOf="parent"-->

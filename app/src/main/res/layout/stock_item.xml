@@ -10,25 +10,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@drawable/cardview_select"
-        app:cardCornerRadius="@dimen/dp_10"
+        app:cardCornerRadius="@dimen/mm_10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dp_10">
+            android:padding="@dimen/mm_10">
 
             <com.example.smartagriculture.myview.TextDrawable
                 android:id="@+id/textDrawable9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_25"
-                android:drawablePadding="@dimen/dp_20"
+                android:textSize="@dimen/mm_25"
+                android:drawablePadding="@dimen/mm_20"
                 android:text="@string/text_day_ago"
                 app:layout_constraintStart_toStartOf="@+id/textView32"
-                app:topDrawableHeight="@dimen/dp_30"
-                app:topDrawableWidth="@dimen/dp_30"
+                app:topDrawableHeight="@dimen/mm_30"
+                app:topDrawableWidth="@dimen/mm_30"
                 app:layout_constraintTop_toTopOf="parent"
                 app:topDrawable="@mipmap/stock_item_iv" />
 
@@ -36,8 +36,8 @@
                 android:id="@+id/textView32"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/sp_25"
-                android:layout_marginTop="@dimen/dp_20"
+                android:textSize="@dimen/mm_25"
+                android:layout_marginTop="@dimen/mm_20"
                 android:text="@string/text_day_ago"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDrawable9" />
@@ -45,7 +45,7 @@
             <TextView
                 android:id="@+id/textView33"
                 android:layout_width="wrap_content"
-                android:textSize="@dimen/sp_25"
+                android:textSize="@dimen/mm_25"
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"

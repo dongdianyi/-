@@ -41,7 +41,7 @@ class CreateChatFragment : BaseFragment<ChatViewModel, FragmentCreateChatBinding
         create_chat.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
-            .setHeight(R.dimen.dp_2)
+            .setHeight(R.dimen.mm_2)
             .setColorResource(R.color.bg)
             .build()
         create_chat.addItemDecoration(divider)

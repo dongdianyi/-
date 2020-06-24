@@ -15,8 +15,8 @@
 
         <View
             android:id="@+id/view2"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_200"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_200"
             android:background="@mipmap/top_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +24,9 @@
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_60"
-            android:padding="@dimen/dp_10"
+            android:layout_width="@dimen/mm_40"
+            android:layout_height="@dimen/mm_60"
+            android:padding="@dimen/mm_10"
             android:src="@mipmap/back"
             app:layout_constraintBottom_toBottomOf="@id/view2"
             app:layout_constraintStart_toStartOf="@id/guideline39"
@@ -48,10 +48,10 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_100"
-            android:padding="@dimen/dp_5"
-            android:layout_marginTop="@dimen/dp_150"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_100"
+            android:padding="@dimen/mm_5"
+            android:layout_marginTop="@dimen/mm_150"
             android:background="@drawable/cycle_white_shadow"
             android:gravity="center_vertical"
             android:orientation="horizontal"
@@ -61,9 +61,9 @@
 
             <ImageView
                 android:id="@+id/search_iv"
-                android:layout_width="@dimen/dp_30"
-                android:layout_height="@dimen/dp_30"
-                android:layout_marginStart="@dimen/dp_10"
+                android:layout_width="@dimen/mm_30"
+                android:layout_height="@dimen/mm_30"
+                android:layout_marginStart="@dimen/mm_10"
                 android:contentDescription="@string/search_description"
                 app:srcCompat="@mipmap/search_iv_black" />
 
@@ -71,12 +71,12 @@
                 android:id="@+id/search_tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginStart="@dimen/mm_10"
                 android:background="@null"
                 android:hint="@string/search_maillist"
                 android:textColor="@color/title_gray"
                 android:textCursorDrawable="@drawable/textcursor"
-                android:textSize="@dimen/sp_28" />
+                android:textSize="@dimen/mm_28" />
         </LinearLayout>
 
         <TextView
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:text="@string/create_chat"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_35"
+            android:textSize="@dimen/mm_35"
             app:layout_constraintBottom_toBottomOf="@id/view2"
             app:layout_constraintEnd_toStartOf="@id/guideline40"
             app:layout_constraintStart_toStartOf="@id/guideline39"
@@ -93,13 +93,13 @@
 
         <TextView
             android:id="@+id/textView46"
-            android:layout_width="@dimen/dp_100"
-            android:layout_height="@dimen/dp_60"
+            android:layout_width="@dimen/mm_100"
+            android:layout_height="@dimen/mm_60"
             android:background="@mipmap/search_bg"
             android:gravity="center"
             android:text="@string/sure"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_30"
+            android:textSize="@dimen/mm_30"
             app:layout_constraintBottom_toBottomOf="@id/view2"
             app:layout_constraintEnd_toStartOf="@id/guideline40"
             app:layout_constraintTop_toTopOf="parent" />
@@ -107,7 +107,7 @@
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:id="@+id/create_chat"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="0mm"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
 

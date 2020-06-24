@@ -1,14 +1,18 @@
 package com.example.smartagriculture.activity
 
+import android.Manifest
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.common.BaseActivity
+import com.example.common.ToastUtil
 import com.example.common.hideSoftKeyboard
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityMainBinding
 import com.example.smartagriculture.util.AndroidBug5497Workaround
 import com.example.smartagriculture.viewmodel.MainViewModel
+import com.permissionx.guolindev.PermissionX
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
