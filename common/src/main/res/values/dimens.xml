@@ -15,7 +15,6 @@
     <dimen name="mm_18">18mm</dimen>
     <dimen name="mm_12">15mm</dimen>
     <dimen name="mm_28">28mm</dimen>
-    <dimen name="mm_40">40mm</dimen>
 
 
     <dimen name="mm_8">8mm</dimen>
@@ -47,4 +46,5 @@
     <dimen name="mm_22">22mm</dimen>
     <dimen name="mm_6">6mm</dimen>
     <dimen name="dp_20">20dp</dimen>
+    <dimen name="mm_40">40mm</dimen>
 </resources>

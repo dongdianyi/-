@@ -66,6 +66,9 @@ dependencies {
     //动态权限
     api 'com.permissionx.guolindev:permissionx:1.1.1'
 
+    //网络请求
+    api 'com.github.liqinew:nohttprxutils:v.2.0.7'
+
 
 
 }

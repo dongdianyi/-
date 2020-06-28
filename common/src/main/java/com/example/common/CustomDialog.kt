@@ -36,7 +36,7 @@ class CustomDialog(context: Context?, theme: Int) : Dialog(context!!, theme) {
         })
     }
 
-    override fun onCreate(savedInstanceState: Bundle) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init(context)
     }
@@ -48,7 +48,7 @@ class CustomDialog(context: Context?, theme: Int) : Dialog(context!!, theme) {
         setContentView(R.layout.progress_layout)
         val params = window!!.attributes
         params.width = WindowManager.LayoutParams.WRAP_CONTENT
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT
+        params.height =WindowManager.LayoutParams.WRAP_CONTENT
         window!!.attributes = params
     }
 
@@ -76,16 +76,17 @@ class CustomDialog(context: Context?, theme: Int) : Dialog(context!!, theme) {
     private fun showReallyDialog() {
 
         try {
-            this.window!!.setFlags(
+            this.window?.setFlags(
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
             )
             super.show()
             LogUtil("show", "show")
             fullScreenImmersive(window!!.decorView)
-            this.window!!.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+            this.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
         } catch (e: Exception) {
             e.printStackTrace()
+            LogUtil("printStackTrace", e.message)
         }
     }
 }

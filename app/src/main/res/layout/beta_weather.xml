@@ -20,7 +20,7 @@
         android:id="@+id/date2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="@dimen/mm_2"
         android:text="11/26"
         android:textColor="@color/title_gray"
         android:textSize="@dimen/mm_25" />
@@ -58,7 +58,7 @@
 
     <ImageView
         android:layout_width="@dimen/mm_48"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/mm_48"
         android:layout_margin="@dimen/mm_10"
         android:src="@mipmap/stock_item_iv" />
 
@@ -73,7 +73,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="@dimen/mm_2"
         android:text="北风"
         android:textColor="@color/title_gray"
         android:textSize="@dimen/mm_23" />
@@ -89,7 +89,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="@dimen/mm_2"
         android:background="@drawable/cycle_orange"
         android:padding="@dimen/mm_10"
         android:text="严重"

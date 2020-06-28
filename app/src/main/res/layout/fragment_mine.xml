@@ -96,7 +96,7 @@
             android:id="@+id/weather_iv"
             android:layout_width="@dimen/mm_48"
             android:layout_height="@dimen/mm_48"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/mm_8"
             android:contentDescription="@string/weather_description"
             app:layout_constraintBottom_toTopOf="@+id/guideline45"
             app:layout_constraintStart_toEndOf="@+id/weather_tv"

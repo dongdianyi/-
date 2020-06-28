@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/mm_20"
-    android:background="@color/bg">
+    android:padding="@dimen/mm_20">
 
     <com.example.smartagriculture.myview.TextDrawable
         android:id="@+id/textDrawable6"

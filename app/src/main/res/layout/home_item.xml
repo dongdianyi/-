@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/mm_10"
@@ -166,8 +167,8 @@
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/mm_8"
+        android:layout_marginTop="@dimen/mm_8"
         android:background="?attr/selectableItemBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider5">
@@ -278,11 +279,23 @@
             android:textSize="@dimen/mm_18" />
     </RelativeLayout>
 
+    <com.example.smartagriculture.myview.ParkView
+        android:layout_width="0mm"
+        android:layout_height="0mm"
+        android:id="@+id/park_view"
+        app:layout_constraintBottom_toTopOf="@+id/textView22"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/mm_40"
+        android:padding="@dimen/mm_40"
+        android:background="@mipmap/park_view_bg"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
     <View
         android:id="@+id/divider6"
         android:layout_width="0mm"
         android:layout_height="@dimen/mm_2"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/mm_8"
         android:background="@color/line_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

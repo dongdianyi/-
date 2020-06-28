@@ -11,6 +11,7 @@ interface Identification {
         const val WARNINGLIST=0
         //库存管理
         const val STOCK=1
+        const val SCREEN=11
         //产品管理
         const val PRODUCT=2
 
@@ -44,6 +45,9 @@ interface Identification {
         const val ATTENDANCE_MANAGER_APPROVED=13
         //考勤管理查询
         const val ATTENDANCE_MANAGER_SELECT=14
+
+        //退出登录
+        const val EXIT=15
     }
 
 

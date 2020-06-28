@@ -1,5 +1,6 @@
 package com.example.common
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +12,18 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.androidkun.xtablayout.XTabLayout
+import com.example.common.view.IView
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+import com.liqi.nohttputils.interfa.OnDialogGetListener
 
 
 /**
  * A simple [Fragment] subclass.
  */
 @Suppress("UNCHECKED_CAST")
-abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() ,
+    OnDialogGetListener, IView {
+    private var mDialog: Dialog? = null
 
     lateinit var mTitles: List<String>
 
@@ -91,6 +96,19 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
     override fun onPause() {
         super.onPause()
         hideSoftKeyboard(requireActivity())
+    }
+
+    override fun toData(flag: String?, `object`: String?) {
+    }
+
+    override fun fail(isNetWork: Boolean, flag: String?, t: Throwable?) {
+    }
+
+    override fun getDialog(): Dialog? {
+        if (null == mDialog) {
+            mDialog = CustomDialog(activity, R.style.CustomDialog)
+        }
+        return mDialog
     }
 
 }

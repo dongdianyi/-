@@ -8,16 +8,25 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.common.BaseField
+import com.example.common.BaseUrl
+import com.example.common.CommitParam
+import com.example.common.model.NoHttpRx
 import com.example.common.setNbOnItemClickListener
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.DropDownAdapter
 import com.example.smartagriculture.adapter.ParkAdapter
+import com.example.smartagriculture.bean.Data
+import com.example.smartagriculture.bean.Notice
+import com.example.smartagriculture.bean.ParkList
 import com.example.smartagriculture.databinding.FragmentHomeBinding
 import com.example.smartagriculture.myview.TextDrawable
 import com.example.smartagriculture.util.Identification
+import com.example.smartagriculture.util.Identification.Companion.SCREEN
+import com.example.smartagriculture.util.Identification.Companion.STOCK
 import com.example.smartagriculture.viewmodel.MainViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -30,6 +39,10 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
     private lateinit var collapsedView: View
     private lateinit var expandedView: View
     private lateinit var headerChevronTv: TextDrawable
+    private var parkList = mutableListOf<Data>()
+
+
+    lateinit var map: Map<Any, Any>
     override fun initLayout(): Int {
         return R.layout.fragment_home
     }
@@ -39,8 +52,6 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         parkAdapter =
             ParkAdapter(requireContext(), R.layout.home_item)
         mLRecycleViewAdapter = LRecyclerViewAdapter(parkAdapter)
-        val dataList = listOf<String>("wwwwww", "dsds", "章丘大鱼合作社")
-        parkAdapter.setDataList(dataList)
         home_recycler.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
@@ -77,6 +88,23 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         drop_down_view.setHeaderView(collapsedView)
         drop_down_view.setExpandedView(expandedView)
         drop_down_view.dropDownListener = dropDownListener
+
+        map = HashMap<Any, Any>()
+        map = HashMap<Any, Any>()
+        var commitParam = CommitParam()
+        commitParam.companyId = "1"
+        commitParam.parkType = "212"
+        commitParam.parkId = "1"
+        commitParam.query = "1"
+        val noHttpRx = NoHttpRx(this)
+//        noHttpRx.getHttp("token", "预警个数", BaseUrl.NOTICE_NUM, commitParam.toJson(commitParam), this)
+        noHttpRx.postHttpJson(
+            "token",
+            "首页列表",
+            BaseUrl.PARK_LIST_URL,
+            commitParam.toJson(commitParam),
+            this
+        )
     }
 
     override fun setListener() {
@@ -85,10 +113,10 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
             viewModel.toSearch(it)
         }
         screen.setOnClickListener {
-            viewModel.showDialog(requireActivity(), viewModel.SCREEN)
+            viewModel.showDialog(requireActivity(), SCREEN)
         }
         stock_constraint.setOnClickListener {
-            viewModel.showDialog(requireActivity(), viewModel.STOCK)
+            viewModel.showDialog(requireActivity(), STOCK)
         }
         notice_constraint.setOnClickListener {
             viewModel.toNotice(it)
@@ -116,12 +144,12 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
             viewModel.toWeather(it)
         }
 
-        parkAdapter.setOnWMListener { view: View, i: Int,flag:Int ->
+        parkAdapter.setOnWMListener { view: View, i: Int, flag: Int ->
             //处理接口回掉
-            if (Identification.WARNING==flag) {
+            if (Identification.WARNING == flag) {
                 viewModel.toWarningMessage(view, i)
             }
-            if (Identification.MONITOR==flag) {
+            if (Identification.MONITOR == flag) {
                 viewModel.toMonitor(view, i)
             }
         }
@@ -130,6 +158,24 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         }
     }
 
+
+    override fun toData(flag: String?, data: String?) {
+        super.toData(flag, data)
+        if ("预警个数" == flag) {
+            val notice = Gson().fromJson(data, Notice::class.java)
+            if (0 < notice.data) {
+                notice_num.visibility = View.VISIBLE
+                notice_num.text = notice.data.toString()
+            } else {
+                notice_num.visibility = View.GONE
+            }
+        }
+        if ("首页列表" == flag) {
+            val park=Gson().fromJson(data,ParkList::class.java)
+            parkList= park.data.toMutableList()
+            parkAdapter.setDataList(parkList as Collection<Any?>?)
+        }
+    }
 
 }
 

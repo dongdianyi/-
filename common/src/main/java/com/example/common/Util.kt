@@ -1,6 +1,7 @@
 package com.example.common
 
 import android.app.Activity
+import android.app.Dialog
 import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.graphics.Rect
@@ -122,4 +123,67 @@ fun hideSoftKeyboard(activity: Activity?) {
             )
         }
     }
+}
+
+
+/**
+ * 弹窗可使用第三方 gradle直接集成 'com.dou361.dialogui:jjdxm-dialogui:1.0.3'
+ *
+ * @param context     上下文
+ * @param view        视图布局
+ * @param widthValue  宽度比例
+ * @param heightValue 高度比例
+ * @param gravity     弹窗显示位置
+ * @param style       动画样式
+ * @param isCancel    是否可以点击取消弹窗
+ * @return
+ */
+
+/**
+ * 有圓角的自定义dialog
+ */
+class DialogCircle : Dialog {
+    constructor(
+        context: Context?,
+        width: Int,
+        height: Int,
+        layout: View?,
+        style: Int,
+        gravity: Int
+    ) : super(context!!, style) {
+        if (layout != null) {
+            setContentView(layout)
+        }
+        val params: WindowManager.LayoutParams = window!!.attributes
+        params.width = width
+        params.height = height
+        params.gravity = gravity
+        window!!.attributes = params
+    }
+
+
+}
+
+
+fun getPop(
+    context: Context?,
+    view: View?,
+    widthValue: Int,
+    heightValue: Int,
+    gravity: Int,
+    style: Int,
+    isCancel: Boolean
+): DialogCircle {
+    val dialogCircle = DialogCircle(
+        context,
+        BaseApplication.getWidth() / widthValue,
+        BaseApplication.getHeight() / heightValue,
+        view,
+        R.style.dialog,
+        gravity
+    )
+    dialogCircle.setCancelable(isCancel)
+    dialogCircle.window!!.setWindowAnimations(style)
+    dialogCircle.show()
+    return dialogCircle
 }

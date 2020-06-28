@@ -10,20 +10,17 @@ import com.example.common.BaseApplication.Companion.context
 import com.example.common.BaseField
 import com.example.common.BaseViewModel
 import com.example.common.LogUtil
+import com.example.common.getPop
 import com.example.smartagriculture.R
-import com.example.smartagriculture.util.DialogCircle
-import com.example.smartagriculture.util.getPop
+import com.example.smartagriculture.util.Identification.Companion.STOCK
 import com.example.smartagriculture.util.nav
 import kotlinx.android.synthetic.main.park_dialog.view.*
 
 
 class MainViewModel(application: Application) : BaseViewModel(application) {
-    private lateinit var dialogCircle: DialogCircle
-    val STOCK = "stock"
-    val SCREEN = "screen"
     var position: Int = 0
 
-    fun showDialog(activity: Activity, flag: String) {
+    fun showDialog(activity: Activity, flag: Int) {
         val rootView =
             View.inflate(activity, R.layout.park_dialog, null)
         when (flag) {

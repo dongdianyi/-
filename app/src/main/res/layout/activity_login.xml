@@ -54,8 +54,8 @@
 
         <ImageView
             android:id="@+id/imageView41"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/mm_87"
+            android:layout_height="@dimen/mm_87"
             android:layout_marginTop="@dimen/mm_95"
             android:src="@mipmap/logo"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
             android:layout_marginTop="@dimen/mm_10"
             android:text="@string/logo_description"
             android:textColor="@color/white"
-            android:textSize="@dimen/mm_100"
+            android:textSize="@dimen/mm_72"
             app:layout_constraintBottom_toTopOf="@+id/guideline69"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

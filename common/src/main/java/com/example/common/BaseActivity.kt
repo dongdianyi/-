@@ -1,6 +1,5 @@
 package com.example.common
 
-import android.Manifest
 import android.app.Dialog
 import android.os.Build
 import android.os.Bundle
@@ -8,10 +7,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.example.common.view.IView
 import com.jaeger.library.StatusBarUtil
 import com.liqi.nohttputils.interfa.OnDialogGetListener
 
-abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompatActivity(),OnDialogGetListener {
+abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompatActivity(),OnDialogGetListener,IView {
 
     lateinit var viewModel: VM
     lateinit var dataBinding: DB
@@ -69,5 +69,11 @@ abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompa
             mDialog = CustomDialog(this, R.style.CustomDialog)
         }
         return mDialog
+    }
+
+    override fun toData(flag: String?, `object`: String?) {
+    }
+
+    override fun fail(isNetWork: Boolean, flag: String?, t: Throwable?) {
     }
 }

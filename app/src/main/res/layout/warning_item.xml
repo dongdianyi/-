@@ -44,7 +44,7 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="@dimen/mm_23"
         android:text="TextView"
         android:textColor="@color/title_gray"
         android:textSize="@dimen/mm_21"

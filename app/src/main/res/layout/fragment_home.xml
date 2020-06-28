@@ -73,9 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/search_bg"
+            android:gravity="center"
             android:orientation="horizontal"
             android:padding="@dimen/mm_5"
-            android:gravity="center"
             app:layout_constraintEnd_toStartOf="@id/guideline9"
             app:layout_constraintTop_toTopOf="@+id/guideline13">
 
@@ -112,9 +112,9 @@
             android:id="@+id/weather_linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@id/guideline7"
-            android:gravity="center_vertical"
             app:layout_constraintStart_toStartOf="@id/time_tv"
             app:layout_constraintTop_toTopOf="@id/guideline6">
 
@@ -129,7 +129,7 @@
                 android:id="@+id/weather_iv"
                 android:layout_width="@dimen/mm_48"
                 android:layout_height="@dimen/mm_48"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/mm_8"
                 android:contentDescription="@string/weather_description"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
@@ -323,12 +323,12 @@
         <LinearLayout
             android:id="@+id/screen"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/mm_100"
             android:layout_marginEnd="@dimen/mm_30"
-            android:background="@mipmap/screen_bg"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/mm_10"
             android:paddingRight="@dimen/mm_10"
+            android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="@id/linearLayout"
             app:layout_constraintEnd_toEndOf="@id/linearLayout"
             app:layout_constraintTop_toTopOf="@id/linearLayout">
@@ -337,6 +337,7 @@
                 android:id="@+id/textDrawable5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@mipmap/screen_bg"
                 android:drawablePadding="@dimen/mm_6"
                 android:text="筛选"
                 android:textColor="@color/white"

@@ -6,6 +6,8 @@ import android.content.Context
 import android.util.DisplayMetrics
 import android.view.WindowManager
 import com.alibaba.android.arouter.launcher.ARouter
+import com.liqi.nohttputils.RxNoHttpUtils
+import com.liqi.nohttputils.nohttp.NoHttpInit
 import me.jessyan.autosize.AutoSize
 import me.jessyan.autosize.AutoSizeConfig
 import me.jessyan.autosize.onAdaptListener
@@ -49,6 +51,10 @@ open class BaseApplication : Application() {
         context = this
         application=this
         screen()
+        //网络请求初始化
+        //网络请求初始化
+        noHttp()
+
         configUnits()
         //不同模块之间跳转使用
         if (AutoSizeLog.isDebug()) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
@@ -144,6 +150,7 @@ open class BaseApplication : Application() {
         LogUtil(
             "屏幕尺寸",
             (sqrt((2250 * 2250 + 4002 * 4002).toDouble() )/ 25.4).toString()+
+                    "\n"+(sqrt((562 * 562 + 1000 * 1000).toDouble() )/ 25.4).toString()+
                     "\n"+(sqrt((750 * 750 + 1334 * 1334).toDouble() )/ 25.4).toString()+
             "\n"+(sqrt((1125 * 1125 + 2001 * 2001).toDouble() )/ 25.4).toString()
                  + "\n屏幕宽度（像素）：" + width
@@ -154,5 +161,39 @@ open class BaseApplication : Application() {
                     + "\n屏幕高度（dp）：" + screenHeight
         )
     }
-
+     open fun noHttp() {
+        try {
+            // InputStream inputStream =getApplicationContext().getAssets().open("srca.cer");
+            //初始化nohttp（在此处其实可以调用setDialogGetListener设置全局请求加载框）
+            RxNoHttpUtils.rxNoHttpInit(applicationContext) //是否维护Cookie
+                .setCookieEnable(false) //是否缓存进数据库DBCacheStore
+                .setDbEnable(true) //是否开启debug调试
+                .isDebug(true) //设置debug打印Name
+                .setDebugName("NoHttpUtils") //设置全局连接超时时间。单位秒，默认30s。
+                .setConnectTimeout(10) //设置全局服务器响应时时间，单位秒，默认30s。
+                .setReadTimeout(10) //设置全局默认加载对话框
+                //.setDialogGetListener("全局加载框获取接口")
+                //设置底层用那种方式去请求
+                .setRxRequestUtilsWhy(NoHttpInit.OKHTTP) //设置下载线程池并发数量
+                .setThreadPoolSize(3) //设置网络请求队列并发数量
+                .setRunRequestSize(4) //设置带证书安全协议请求
+                //.setInputStreamSSL(new InputStream())
+                //设置无证书安全协议请求
+                //.setInputStreamSSL()
+                //添加全局请求头
+                //.addHeader("app>>head","app_head_global")
+                //添加全局请求参数-只支持String类型
+                // .addParam("app_param","app_param_global")
+                //设置Cookie管理监听
+                // .setCookieStoreListener(new DBCookieStore.CookieStoreListener())
+                //设置主机验证
+                // .setHostnameVerifier(new HostnameVerifier())
+                //                    设置全局重试次数，配置后每个请求失败都会重试设置的次数。
+                .setRetry(2)
+                .setAnUnknownErrorHint("全局未知错误提示语") //开始初始化Nohttp|
+                .startInit()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 }
