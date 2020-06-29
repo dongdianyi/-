@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.DropDownAdapter.StandViewHolder
+import com.example.smartagriculture.bean.ParkType
 import com.example.smartagriculture.myview.TextDrawable
 
 /**
@@ -20,7 +21,7 @@ import com.example.smartagriculture.myview.TextDrawable
  */
 open class DropDownAdapter(
     private val actionViewDelegate: ViewActions,
-    parks: Array<String>
+    parks: MutableList<Any>
 ) :
     RecyclerView.Adapter<StandViewHolder>() {
 

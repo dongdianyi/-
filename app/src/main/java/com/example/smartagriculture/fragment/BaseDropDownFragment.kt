@@ -1,23 +1,23 @@
 package com.example.smartagriculture.fragment
 
-import android.app.Dialog
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.example.common.BaseFragment
 import com.example.common.BaseViewModel
-import com.example.common.view.IView
 import com.example.smartagriculture.adapter.DropDownAdapter
+import com.example.smartagriculture.bean.ParkType
 import com.example.smartagriculture.myview.DropDownView
 import com.example.smartagriculture.myview.TextDrawable
-import com.liqi.nohttputils.interfa.OnDialogGetListener
 
 /**
  * A simple [Fragment] subclass.
  */
 abstract class BaseDropDownFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseFragment<VM,DB>(){
     lateinit var adapter: DropDownAdapter
-    lateinit var parks: Array<String>
+    lateinit var parks: MutableList<ParkType>
     private var selectedStandId = 0
+
+
 
 
     val dropDownListener = object :
@@ -34,17 +34,15 @@ abstract class BaseDropDownFragment<VM : BaseViewModel, DB : ViewDataBinding> : 
         }
     }
 
-    fun setStandStateWithId(waitTime: String?, standId: Int,headerChevronTv:TextDrawable) {
+    fun setStandStateWithId(parkType: ParkType, standId: Int,headerChevronTv:TextDrawable) {
         if (standId in 0..parks.size) {
-            if (waitTime != null) {
-                parks[standId] = waitTime
-            }
+            parks[standId] .parkName= parkType.parkName
             adapter.notifyItemChanged(standId)
         }
 
         // Should update currently selected stand wait time as well
         if (selectedStandId == standId) {
-            headerChevronTv.text = waitTime
+            headerChevronTv.text = parkType.parkName
         }
     }
 
@@ -57,11 +55,11 @@ abstract class BaseDropDownFragment<VM : BaseViewModel, DB : ViewDataBinding> : 
                 }
 
                 override fun getStandTitle(standId: Int): String? {
-                    return parks[standId]
+                    return parks[standId].parkName
                 }
 
                 override fun getStandStatus(standId: Int): String? {
-                    return parks[standId]
+                    return parks[standId].parkName
                 }
 
                 override var selectedStand: Int
@@ -69,9 +67,14 @@ abstract class BaseDropDownFragment<VM : BaseViewModel, DB : ViewDataBinding> : 
                     set(standId) {
                         headerChevronTv.text = getStandStatus(standId)
                         selectedStandId = standId
+                        toPullHome(standId)
                     }
             }
         return viewActions
+    }
+
+    open fun toPullHome(standId: Int) {
+
     }
 
     override fun toData(flag: String?, data: String?) {

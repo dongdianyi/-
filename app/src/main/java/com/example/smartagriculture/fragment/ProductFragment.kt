@@ -54,8 +54,8 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
             collapsedView.findViewById<TextDrawable>(R.id.textDrawable4)
 
 
-        parks =
-            arrayOf("全部园区", "青岛园区分区", "济南历下区园区", "淄博园区")
+//        parks =
+//            mutableListOf("全部园区", "青岛园区分区", "济南历下区园区", "淄博园区")
 
         expandedView = LayoutInflater.from(context).inflate(R.layout.dropview_expanded, null, false)
 
@@ -65,7 +65,7 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
 
     override fun initData() {
         viewAction(dropDownView_product, headerChevronTv).selectedStand = 0
-        adapter = DropDownAdapter(viewAction(dropDownView_product, headerChevronTv), parks)
+//        adapter = DropDownAdapter(viewAction(dropDownView_product, headerChevronTv), parks)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
         for (i in parks.indices) {

@@ -47,8 +47,8 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
             collapsedView.findViewById<TextDrawable>(R.id.textDrawable8)
 
 
-        parks =
-            arrayOf("全部物资", "青岛物资", "济南历下区物资")
+//        parks =
+//            mutableListOf("全部物资", "青岛物资", "济南历下区物资")
 
 
 
@@ -62,7 +62,7 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
     override fun initData() {
 
         viewAction(dropDownView, headerChevronTv).selectedStand = 0
-        adapter = DropDownAdapter(viewAction(dropDownView, headerChevronTv), parks)
+//        adapter = DropDownAdapter(viewAction(dropDownView, headerChevronTv), parks)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
         for (i in parks.indices) {

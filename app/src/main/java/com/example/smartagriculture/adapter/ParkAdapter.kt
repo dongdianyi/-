@@ -24,6 +24,7 @@ import com.example.smartagriculture.myview.TextDrawable
 import com.example.smartagriculture.util.Identification
 import java.math.BigDecimal
 import java.util.*
+import kotlin.math.ln
 
 /**
  * Created by ddy
@@ -83,27 +84,29 @@ class ParkAdapter(context: Context?, layoutId: Int) :
         textView5.text=spList[2]
         textView6.text=spList[3]
         textView7.text=spList[4]
-        textView2.text= data.planTaskNum.toString() + "\n待做"
-        titleText.text = data.parkName
+        textView2.text= data.planTaskNum.toString() + "\n待做任务"
+        titleText.text = data.title
         if (data.warningCount <= 0) {
             textView12.visibility= GONE
         }else{
             textView12.text=data.warningCount.toString()
         }
+        var lat= mutableListOf<String>()
+        var lng= mutableListOf<String>()
+        var latS=""
+        var lngS=""
         if (data.attr!=null) {
-            var lat= mutableListOf<String>()
-            var lnt= mutableListOf<String>()
             data.attr!!.split(",").indices.forEach {
                 if (it%2==0) {
                     lat.add(data.attr!!.split(",")[it])
                 }else{
-                    lnt.add(data.attr!!.split(",")[it])
+                    lng.add(data.attr!!.split(",")[it])
                 }
             }
-            var latBigNum=BigDecimal(lat[0])
-            var lntBigNum=BigDecimal(lnt[0])
-            var latSmalNum=BigDecimal(lat[0])
-            var lntSmalNum=BigDecimal(lnt[0])
+            var latBigNum=BigDecimal(data.lat)
+            var lngBigNum=BigDecimal(data.lng)
+            var latSmalNum=BigDecimal(data.lat)
+            var lngSmalNum=BigDecimal(data.lng)
             lat.forEach {
                 if (it.toBigDecimal().compareTo(latBigNum)==1) {
                     latBigNum=it.toBigDecimal()
@@ -112,26 +115,45 @@ class ParkAdapter(context: Context?, layoutId: Int) :
                     latSmalNum=it.toBigDecimal()
                 }
             }
-            lnt.forEach {
-                if (it.toBigDecimal().compareTo(lntBigNum)==1) {
-                    lntBigNum=it.toBigDecimal()
+            lng.forEach {
+                if (it.toBigDecimal().compareTo(lngBigNum)==1) {
+                    lngBigNum=it.toBigDecimal()
                 }
-                if (it.toBigDecimal().compareTo(lntSmalNum)==-1) {
-                    lntSmalNum=it.toBigDecimal()
+                if (it.toBigDecimal().compareTo(lngSmalNum)==-1) {
+                    lngSmalNum=it.toBigDecimal()
                 }
             }
-            LogUtil("最大",latBigNum.toString()+lntBigNum)
-            LogUtil("最小",latSmalNum.toString()+lntSmalNum)
+            LogUtil("最大",latBigNum.toString()+lngBigNum)
+            LogUtil("最小",latSmalNum.toString()+lngSmalNum)
+
+
+            park_view.post {
+                var height=park_view.height
+                var width=park_view.width
+                var multiple:BigDecimal
+                //xy轴倍数比较
+                var xMultiple=width.toBigDecimal()/(latBigNum-latSmalNum)
+                var yMultiple=height.toBigDecimal()/(lngBigNum-lngSmalNum)
+                multiple = if (xMultiple>yMultiple){
+                    yMultiple
+                }else{
+                    xMultiple
+                }
+                LogUtil("比例",multiple)
+                for (index in lat.indices){
+                    lat[index]= ((lat[index].toBigDecimal()-latSmalNum)*multiple).toString()
+                    lng[index]= ((lng[index].toBigDecimal()-lngSmalNum)*multiple).toString()
+                }
+
+                if (data.lat!=null&&data.lng!=null) {
+                    latS= ((data.lat!!.toBigDecimal()-latSmalNum)*multiple).toString()
+                    lngS= ((data.lng!!.toBigDecimal()-lngSmalNum)*multiple).toString()
+                    park_view.setPoint(lat,lng,latS, lngS,data.massifName)
+                }
+            }
+        }else{
+            park_view.setPoint(lat, lng,latS, lngS,data.massifName)
         }
-
-        data.attr?.let { park_view.setPoint(it) }
-
-        park_view.post {
-            var height=park_view.height
-            var width=park_view.width
-        }
-
-
 
 
         relativeLayout.setOnClickListener {

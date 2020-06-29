@@ -1,24 +1,28 @@
 package com.example.smartagriculture.fragment
 
+import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.RadioGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.launcher.ARouter
-import com.example.common.BaseField
-import com.example.common.BaseUrl
-import com.example.common.CommitParam
+import com.example.common.*
 import com.example.common.model.NoHttpRx
-import com.example.common.setNbOnItemClickListener
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.DropDownAdapter
 import com.example.smartagriculture.adapter.ParkAdapter
 import com.example.smartagriculture.bean.Data
 import com.example.smartagriculture.bean.Notice
 import com.example.smartagriculture.bean.ParkList
+import com.example.smartagriculture.bean.ParkType
 import com.example.smartagriculture.databinding.FragmentHomeBinding
+import com.example.smartagriculture.myview.MyRadioButton
 import com.example.smartagriculture.myview.TextDrawable
 import com.example.smartagriculture.util.Identification
 import com.example.smartagriculture.util.Identification.Companion.SCREEN
@@ -28,6 +32,9 @@ import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.json.JSONArray
+import org.json.JSONObject
+
 
 /**
  * A simple [Fragment] subclass.
@@ -36,13 +43,14 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     lateinit var parkAdapter: ParkAdapter
     private lateinit var recyclerView: RecyclerView
+    private lateinit var radioGroup: RadioGroup
     private lateinit var collapsedView: View
     private lateinit var expandedView: View
     private lateinit var headerChevronTv: TextDrawable
     private var parkList = mutableListOf<Data>()
-
-
-    lateinit var map: Map<Any, Any>
+    lateinit var jsonObject: JSONObject
+    lateinit var commitParam:CommitParam
+    lateinit var noHttpRx:NoHttpRx
     override fun initLayout(): Int {
         return R.layout.fragment_home
     }
@@ -68,6 +76,12 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
         recyclerView =
             expandedView.findViewById<View>(R.id.recyclerView) as RecyclerView
+        recyclerView.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            BaseApplication.getHeight() / 2
+        )
+        radioGroup =
+            expandedView.findViewById<View>(R.id.radiogroup) as RadioGroup
         headerChevronTv =
             collapsedView.findViewById<TextDrawable>(R.id.textDrawable4)
 
@@ -76,32 +90,15 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     override fun initData() {
         ARouter.getInstance().inject(this)  // Start auto inject.
-        parks =
-            arrayOf("全部园区", "青岛园区分区", "济南历下区园区", "淄博园区")
-        viewAction(drop_down_view, headerChevronTv).selectedStand = 0
-        adapter = DropDownAdapter(viewAction(drop_down_view, headerChevronTv), parks)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
-        for (i in parks.indices) {
-            setStandStateWithId(parks[i], i, headerChevronTv)
-        }
-        drop_down_view.setHeaderView(collapsedView)
-        drop_down_view.setExpandedView(expandedView)
-        drop_down_view.dropDownListener = dropDownListener
-
-        map = HashMap<Any, Any>()
-        map = HashMap<Any, Any>()
-        var commitParam = CommitParam()
+        commitParam = CommitParam()
         commitParam.companyId = "1"
-        commitParam.parkType = "212"
-        commitParam.parkId = "1"
-        commitParam.query = "1"
-        val noHttpRx = NoHttpRx(this)
-//        noHttpRx.getHttp("token", "预警个数", BaseUrl.NOTICE_NUM, commitParam.toJson(commitParam), this)
+
+        noHttpRx = NoHttpRx(this)
+        noHttpRx.getHttp("token", "系统通知", BaseUrl.NOTICE_NUM, this)
         noHttpRx.postHttpJson(
             "token",
-            "首页列表",
-            BaseUrl.PARK_LIST_URL,
+            "园区类型",
+            BaseUrl.PARK_TYPE_URL,
             commitParam.toJson(commitParam),
             this
         )
@@ -161,9 +158,9 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     override fun toData(flag: String?, data: String?) {
         super.toData(flag, data)
-        if ("预警个数" == flag) {
+        if ("系统通知" == flag) {
             val notice = Gson().fromJson(data, Notice::class.java)
-            if (0 < notice.data) {
+            if (0 < notice.data.number) {
                 notice_num.visibility = View.VISIBLE
                 notice_num.text = notice.data.toString()
             } else {
@@ -171,11 +168,117 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
             }
         }
         if ("首页列表" == flag) {
-            val park=Gson().fromJson(data,ParkList::class.java)
-            parkList= park.data.toMutableList()
+            val park = Gson().fromJson(data, ParkList::class.java)
+            parkList = park.data.toMutableList()
             parkAdapter.setDataList(parkList as Collection<Any?>?)
+        }
+        if ("园区类型" == flag) {
+            jsonObject = JSONObject(data)
+            val data = jsonObject.getString("data")
+            jsonObject = JSONObject(data)
+            //通过迭代器获得json当中所有的key值
+            val keys: Iterator<*> = jsonObject.keys()
+            addRadioButton(keys)
+
         }
     }
 
+    fun addRadioButton(keys: Iterator<*>): Unit {
+        var id = 0
+        parks = mutableListOf()
+        var nameList = mutableListOf<String>()
+        while (keys.hasNext()) {
+            var name = keys.next().toString()
+            var radioButton = MyRadioButton(requireContext(), null)
+            radioButton.buttonDrawable = null
+            radioButton.setBackgroundResource(R.drawable.expanded_bg)
+            radioButton.setTextColor(
+                ContextCompat.getColorStateList(
+                    requireContext(),
+                    R.color.text_selector
+                )
+            )
+            radioButton.textSize = resources.getDimension(R.dimen.mm_15)
+            radioButton.text = name
+            radioButton.id = id
+            val lp = RadioGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            radioButton.gravity = CENTER
+            lp.setMargins(20, 20, 20, 20)
+            radioButton.setPadding(10, 5, 10, 5)
+            radioButton.isChecked = id == 0
+            radioGroup.addView(radioButton, lp)
+            nameList.add(id, jsonObject.getString(name))
+            id++
+        }
+        var jsonArray = JSONArray(nameList[0])
+        for (i in 0 until jsonArray.length()) {
+            jsonObject = jsonArray.getJSONObject(i)
+            var parkType=ParkType(
+                jsonObject.getString("parkName"),
+                jsonObject.getString("parkName"),
+                jsonObject.getString("parkName"),
+                jsonObject.getInt("parkName")
+            )
+            parks.add(parkType)
+        }
+        setAdapter()
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            for (i in 0 until group.childCount) {
+                if (i == checkedId) {
+                    parks.clear()
+                    jsonArray = JSONArray(nameList[i])
+                    for (i in 0 until jsonArray.length()) {
+                        jsonObject = jsonArray.getJSONObject(i)
+                        var parkType=ParkType(
+                            jsonObject.getString("parkName"),
+                            jsonObject.getString("parkName"),
+                            jsonObject.getString("parkName"),
+                            jsonObject.getInt("parkName")
+                        )
+                        parks.add(parkType)
+                        setAdapter()
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    fun setAdapter(): Unit {
+        viewAction(drop_down_view, headerChevronTv).selectedStand = 0
+        adapter = DropDownAdapter(viewAction(drop_down_view, headerChevronTv), parks.toMutableList())
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
+        for (i in parks.indices) {
+            setStandStateWithId(parks[i], i, headerChevronTv)
+        }
+        drop_down_view.setHeaderView(collapsedView)
+        drop_down_view.setExpandedView(expandedView)
+        drop_down_view.dropDownListener = dropDownListener
+    }
+
+    override fun toPullHome(standId: Int) {
+        super.toPullHome(standId)
+        commitParam= CommitParam()
+        commitParam.companyId = "1"
+        commitParam.parkType = parks[standId].parkType
+        if (standId!=0) {
+            commitParam.parkId = parks[standId].parkId
+        }else{
+            commitParam.parkId = null
+        }
+        commitParam.query = "1"
+        noHttpRx.postHttpJson(
+            "token",
+            "首页列表",
+            BaseUrl.PARK_LIST_URL,
+            commitParam.toJson(commitParam),
+            this
+        )
+    }
 }
 

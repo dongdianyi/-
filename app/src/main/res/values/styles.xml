@@ -20,6 +20,15 @@
         <item name="android:textSize">@dimen/mm_21</item>
         <item name="android:layout_weight">1</item>
     </style>
+    <style name="radio_expanded">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/expanded_bg</item>
+        <item name="android:layout_width">0mm</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/mm_21</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 
     <declare-styleable name="CircularProgressView">
         <attr name="backWidth" format="dimension" />    <!--背景圆环宽度-->

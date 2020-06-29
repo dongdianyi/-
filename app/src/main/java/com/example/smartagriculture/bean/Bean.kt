@@ -13,8 +13,8 @@ data class Data(
     val attr: String?,
     val collectionNum: Int,
     val farmingNum: Int,
-    val lat: String,
-    val lng: String,
+    val lat: String?,
+    val lng: String?,
     val massifId: String,
     val massifName: String,
     val parkId: String,
@@ -35,3 +35,12 @@ data class UsingHardware(
     val type: String,
     val typeName: Any
 )
+
+data class ParkType(
+    val parkId: String,
+    var parkName: String,
+    val parkType: String,
+    val smassifCount: Int
+)
+
+

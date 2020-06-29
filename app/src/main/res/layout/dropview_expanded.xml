@@ -2,11 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/cycle_white_shadow"
     android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:id="@+id/radiogroup"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+    </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:background="@drawable/cycle_white_shadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
