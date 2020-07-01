@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView62">
 
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textDrawable10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             app:layout_constraintStart_toStartOf="@id/view5"
             app:layout_constraintTop_toTopOf="@+id/textDrawable10" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textDrawable11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view5"
         app:layout_constraintVertical_bias="0.0">
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textDrawable12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:leftDrawable="@mipmap/attendance_iv" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textDrawable13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

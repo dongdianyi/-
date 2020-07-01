@@ -5,16 +5,14 @@
  * This product includes software developed at
  * The Apache Software Foundation (http://www.apache.org/).
  */
-package com.example.smartagriculture.adapter
+package com.example.common.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smartagriculture.R
-import com.example.smartagriculture.adapter.DropDownAdapter.StandViewHolder
-import com.example.smartagriculture.bean.ParkType
-import com.example.smartagriculture.myview.TextDrawable
+import com.example.common.R
+import com.example.common.myview.TextDrawable
 
 /**
  * @author Anthony ddy
@@ -23,7 +21,7 @@ open class DropDownAdapter(
     private val actionViewDelegate: ViewActions,
     parks: MutableList<Any>
 ) :
-    RecyclerView.Adapter<StandViewHolder>() {
+    RecyclerView.Adapter<DropDownAdapter.StandViewHolder>() {
 
     var count = 0
 

@@ -35,13 +35,13 @@
         app:layout_constraintStart_toStartOf="@+id/textDrawable7"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.smartagriculture.myview.TextDrawable
+    <com.example.common.myview.TextDrawable
         android:id="@+id/textDrawable7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/mm_20"
         android:drawablePadding="@dimen/mm_6"
-        android:text="com.example.smartagriculture.myview.TextDrawable"
+        android:text="com.example.common.myview.TextDrawable"
         android:textColor="@color/title_gray"
         android:textSize="@dimen/mm_14"
         app:layout_constraintBottom_toTopOf="@+id/textView30"

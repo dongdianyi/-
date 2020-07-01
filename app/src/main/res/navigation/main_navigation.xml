@@ -63,12 +63,20 @@
     <fragment
         android:id="@+id/warningMessageFragment"
         android:name="com.example.smartagriculture.fragment.WarningMessageFragment"
-        android:label="WarningMessageFragment" />
+        android:label="WarningMessageFragment" >
+        <action
+            android:id="@+id/action_warningMessageFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/noticeFragment"
         android:name="com.example.smartagriculture.fragment.NoticeFragment"
         android:label="fragment_notice"
-        tools:layout="@layout/fragment_notice" />
+        tools:layout="@layout/fragment_notice" >
+        <action
+            android:id="@+id/action_noticeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/stockFragment"
         android:name="com.example.smartagriculture.fragment.StockFragment"
@@ -139,4 +147,8 @@
         android:id="@+id/updatePwdFragment"
         android:name="com.example.smartagriculture.fragment.UpdatePwdFragment"
         android:label="UpdatePwdFragment" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.smartagriculture.fragment.DetailsFragment"
+        android:label="DetailsFragment" />
 </navigation>

@@ -3,7 +3,7 @@ package com.example.housekeeper.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.example.common.BaseField
+import com.example.common.data.BaseField
 import com.example.library.R
 @Route(path = BaseField.HOUSEKEEPER_PATH)
 class HousekeeperActivity : AppCompatActivity() {

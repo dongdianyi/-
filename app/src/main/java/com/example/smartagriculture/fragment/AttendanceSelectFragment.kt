@@ -2,15 +2,14 @@ package com.example.smartagriculture.fragment
 
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.AttendanceAdapter
 import com.example.smartagriculture.databinding.FragmentAttendanceSelectBinding
-import com.example.smartagriculture.util.Identification
+import com.example.common.data.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.AttendanceViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration

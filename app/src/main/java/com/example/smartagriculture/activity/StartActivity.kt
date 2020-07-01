@@ -4,14 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Handler
 import androidx.lifecycle.ViewModelProvider
-import com.alibaba.android.arouter.launcher.ARouter
-import com.example.common.BaseActivity
-import com.example.common.BaseField
+import com.example.common.base.BaseActivity
 import com.example.common.LogUtil
 import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityStartBinding
-import com.example.smartagriculture.util.Identification
+import com.example.common.data.Identification
 import com.example.smartagriculture.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_start.*
 @SuppressLint("SetTextI18n")

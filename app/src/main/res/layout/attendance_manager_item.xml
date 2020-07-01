@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.example.smartagriculture.myview.TextDrawable
+            <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:leftDrawable="@mipmap/attendance_iv" />
 
-            <com.example.smartagriculture.myview.TextDrawable
+            <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

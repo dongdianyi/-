@@ -3,7 +3,7 @@
     package="com.example.housekeeper">
 
     <application
-        android:name="com.example.common.BaseApplication"
+        android:name="com.example.common.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

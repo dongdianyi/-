@@ -1,10 +1,9 @@
 package com.example.smartagriculture.fragment
 
-import android.location.Location
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.WeatherAdapter
 import com.example.smartagriculture.bean.MyWeatherData
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.title_item.*
 /**
  * A simple [Fragment] subclass.
  */
-class WeatherFragment : BaseFragment<DataViewModel,FragmentWeatherBinding>() {
+class WeatherFragment : BaseFragment<DataViewModel, FragmentWeatherBinding>() {
 
 
     var height:Int=0

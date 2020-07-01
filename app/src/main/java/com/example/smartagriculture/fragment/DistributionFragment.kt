@@ -3,13 +3,10 @@ package com.example.smartagriculture.fragment
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentDistributionBinding
 import com.example.smartagriculture.viewmodel.DistributionViewModel
-import com.tianditu.android.maps.GeoPoint
-import kotlinx.android.synthetic.main.fragment_distribution.*
-import kotlinx.android.synthetic.main.fragment_main.*
 
 
 /**

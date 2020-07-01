@@ -13,20 +13,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.common.*
+import com.example.common.adapter.DropDownAdapter
+import com.example.common.base.BaseApplication
+import com.example.common.bean.*
+import com.example.common.data.BaseField
 import com.example.common.model.NoHttpRx
+import com.example.common.myview.MyRadioButton
+import com.example.common.myview.TextDrawable
 import com.example.smartagriculture.R
-import com.example.smartagriculture.adapter.DropDownAdapter
 import com.example.smartagriculture.adapter.ParkAdapter
-import com.example.smartagriculture.bean.Data
-import com.example.smartagriculture.bean.Notice
-import com.example.smartagriculture.bean.ParkList
-import com.example.smartagriculture.bean.ParkType
 import com.example.smartagriculture.databinding.FragmentHomeBinding
-import com.example.smartagriculture.myview.MyRadioButton
-import com.example.smartagriculture.myview.TextDrawable
-import com.example.smartagriculture.util.Identification
-import com.example.smartagriculture.util.Identification.Companion.SCREEN
-import com.example.smartagriculture.util.Identification.Companion.STOCK
+import com.example.common.data.Identification
+import com.example.common.data.Identification.Companion.SCREEN
+import com.example.common.data.Identification.Companion.STOCK
 import com.example.smartagriculture.viewmodel.MainViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
@@ -47,16 +46,17 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
     private lateinit var collapsedView: View
     private lateinit var expandedView: View
     private lateinit var headerChevronTv: TextDrawable
-    private var parkList = mutableListOf<Data>()
+    private lateinit var parkList:MutableList<BeanDataList>
     lateinit var jsonObject: JSONObject
-    lateinit var commitParam:CommitParam
-    lateinit var noHttpRx:NoHttpRx
+    var query = "1"
+    var standId = 0
     override fun initLayout(): Int {
         return R.layout.fragment_home
     }
 
     override fun initView(view: View) {
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        parkList= mutableListOf<BeanDataList>()
         parkAdapter =
             ParkAdapter(requireContext(), R.layout.home_item)
         mLRecycleViewAdapter = LRecyclerViewAdapter(parkAdapter)
@@ -90,22 +90,16 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     override fun initData() {
         ARouter.getInstance().inject(this)  // Start auto inject.
-        commitParam = CommitParam()
-        commitParam.companyId = "1"
 
-        noHttpRx = NoHttpRx(this)
-        noHttpRx.getHttp("token", "系统通知", BaseUrl.NOTICE_NUM, this)
-        noHttpRx.postHttpJson(
-            "token",
-            "园区类型",
-            BaseUrl.PARK_TYPE_URL,
-            commitParam.toJson(commitParam),
-            this
-        )
+        viewModel.noHttpRx = NoHttpRx(this)
+        viewModel.onDialogGetListener = this
+        viewModel.getNotice(viewModel.noHttpRx)
+        viewModel.getParkType(viewModel.noHttpRx)
     }
 
     override fun setListener() {
         home_recycler.setPullRefreshEnabled(false)
+        home_recycler.setLoadMoreEnabled(false)
         search_linear.setOnClickListener {
             viewModel.toSearch(it)
         }
@@ -118,6 +112,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         notice_constraint.setOnClickListener {
             viewModel.toNotice(it)
         }
+
         monitor_btn.setOnClickListener {
 //          1. 应用内简单的跳转(通过URL跳转在'进阶用法'中)
             ARouter.getInstance().build(BaseField.MONITOR_PATH).navigation()
@@ -141,13 +136,13 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
             viewModel.toWeather(it)
         }
 
-        parkAdapter.setOnWMListener { view: View, i: Int, flag: Int ->
+        parkAdapter.setOnWMListener { view: View, parkId: String, flag: Int ->
             //处理接口回掉
             if (Identification.WARNING == flag) {
-                viewModel.toWarningMessage(view, i)
+                viewModel.toWarningMessage(view, parkId)
             }
             if (Identification.MONITOR == flag) {
-                viewModel.toMonitor(view, i)
+                viewModel.toMonitor(view, parkId)
             }
         }
         mLRecycleViewAdapter.setNbOnItemClickListener { view, position ->
@@ -159,18 +154,20 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
     override fun toData(flag: String?, data: String?) {
         super.toData(flag, data)
         if ("系统通知" == flag) {
-            val notice = Gson().fromJson(data, Notice::class.java)
+            val notice = Gson().fromJson(data, Bean::class.java)
             if (0 < notice.data.number) {
                 notice_num.visibility = View.VISIBLE
-                notice_num.text = notice.data.toString()
+                notice_num.text = notice.data.number.toString()
             } else {
                 notice_num.visibility = View.GONE
             }
         }
         if ("首页列表" == flag) {
-            val park = Gson().fromJson(data, ParkList::class.java)
-            parkList = park.data.toMutableList()
-            parkAdapter.setDataList(parkList as Collection<Any?>?)
+            val park = Gson().fromJson(data, BeanList::class.java)
+            parkList.clear()
+            parkList .addAll(park.data)
+            parkAdapter.setDataList(park.data)
+            home_recycler.adapter=mLRecycleViewAdapter
         }
         if ("园区类型" == flag) {
             jsonObject = JSONObject(data)
@@ -185,7 +182,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     fun addRadioButton(keys: Iterator<*>): Unit {
         var id = 0
-        parks = mutableListOf()
+        viewModel. parks = mutableListOf()
         var nameList = mutableListOf<String>()
         while (keys.hasNext()) {
             var name = keys.next().toString()
@@ -216,69 +213,50 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         var jsonArray = JSONArray(nameList[0])
         for (i in 0 until jsonArray.length()) {
             jsonObject = jsonArray.getJSONObject(i)
-            var parkType=ParkType(
+            var parkType = ParkType(
+                jsonObject.getString("parkId"),
                 jsonObject.getString("parkName"),
-                jsonObject.getString("parkName"),
-                jsonObject.getString("parkName"),
-                jsonObject.getInt("parkName")
+                jsonObject.getString("parkType"),
+                jsonObject.getInt("smassifCount")
             )
-            parks.add(parkType)
+            viewModel.  parks.add(parkType)
         }
-        setAdapter()
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             for (i in 0 until group.childCount) {
                 if (i == checkedId) {
-                    parks.clear()
+                    viewModel. parks.clear()
                     jsonArray = JSONArray(nameList[i])
                     for (i in 0 until jsonArray.length()) {
                         jsonObject = jsonArray.getJSONObject(i)
-                        var parkType=ParkType(
+                        var parkType = ParkType(
+                            jsonObject.getString("parkId"),
                             jsonObject.getString("parkName"),
-                            jsonObject.getString("parkName"),
-                            jsonObject.getString("parkName"),
-                            jsonObject.getInt("parkName")
+                            jsonObject.getString("parkType"),
+                            jsonObject.getInt("smassifCount")
                         )
-                        parks.add(parkType)
+                        viewModel.  parks.add(parkType)
                         setAdapter()
                     }
                 }
             }
         }
+        setAdapter()
 
     }
 
 
-    fun setAdapter(): Unit {
-        viewAction(drop_down_view, headerChevronTv).selectedStand = 0
-        adapter = DropDownAdapter(viewAction(drop_down_view, headerChevronTv), parks.toMutableList())
+    private fun setAdapter(): Unit {
+       viewModel. viewAction(drop_down_view, headerChevronTv).selectedStand = 0
+       viewModel. adapter =
+            DropDownAdapter(viewModel. viewAction(drop_down_view, headerChevronTv), viewModel. parks.toMutableList())
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
-        for (i in parks.indices) {
-            setStandStateWithId(parks[i], i, headerChevronTv)
+        recyclerView.adapter = viewModel. adapter
+        for (i in viewModel. parks.indices) {
+            viewModel. setStandStateWithId(viewModel. parks[i], i, headerChevronTv)
         }
         drop_down_view.setHeaderView(collapsedView)
         drop_down_view.setExpandedView(expandedView)
-        drop_down_view.dropDownListener = dropDownListener
-    }
-
-    override fun toPullHome(standId: Int) {
-        super.toPullHome(standId)
-        commitParam= CommitParam()
-        commitParam.companyId = "1"
-        commitParam.parkType = parks[standId].parkType
-        if (standId!=0) {
-            commitParam.parkId = parks[standId].parkId
-        }else{
-            commitParam.parkId = null
-        }
-        commitParam.query = "1"
-        noHttpRx.postHttpJson(
-            "token",
-            "首页列表",
-            BaseUrl.PARK_LIST_URL,
-            commitParam.toJson(commitParam),
-            this
-        )
+        drop_down_view.dropDownListener = viewModel. dropDownListener
     }
 }
 

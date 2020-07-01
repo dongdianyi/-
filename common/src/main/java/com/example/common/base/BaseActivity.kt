@@ -1,4 +1,4 @@
-package com.example.common
+package com.example.common.base
 
 import android.app.Dialog
 import android.os.Build
@@ -7,17 +7,18 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.example.common.R
+import com.example.common.myview.CustomDialog
 import com.example.common.view.IView
 import com.jaeger.library.StatusBarUtil
 import com.liqi.nohttputils.interfa.OnDialogGetListener
 
-abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompatActivity(),OnDialogGetListener,IView {
+abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompatActivity(),IView ,OnDialogGetListener{
 
     lateinit var viewModel: VM
     lateinit var dataBinding: DB
 
     private var mDialog: Dialog? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideTopUIMenu()
@@ -64,16 +65,18 @@ abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompa
         }
     }
 
-    override fun getDialog(): Dialog? {
-        if (null == mDialog) {
-            mDialog = CustomDialog(this, R.style.CustomDialog)
-        }
-        return mDialog
-    }
-
     override fun toData(flag: String?, `object`: String?) {
     }
 
     override fun fail(isNetWork: Boolean, flag: String?, t: Throwable?) {
+    }
+    override fun getDialog(): Dialog {
+        if (null == mDialog) {
+            mDialog = CustomDialog(
+                this,
+                R.style.CustomDialog
+            )
+        }
+        return mDialog as Dialog
     }
 }

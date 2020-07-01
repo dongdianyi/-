@@ -6,7 +6,7 @@
  * The Apache Software Foundation (http://www.apache.org/).
  */
 
-package com.example.smartagriculture.myview;
+package com.example.common.myview;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -32,7 +32,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.example.smartagriculture.R;
+import com.example.common.R;
+
 
 /**
  * A view for displaying a typical drop down with built-in animations.

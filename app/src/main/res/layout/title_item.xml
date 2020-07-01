@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="@string/warning_message"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/mm_95"
+            android:layout_marginTop="@dimen/mm_75"
             android:textSize="@dimen/mm_35"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/imageView"

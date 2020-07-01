@@ -1,23 +1,16 @@
 package com.example.smartagriculture.util
 
 import android.app.Activity
-import android.app.Dialog
 import android.content.Context
 import android.view.View
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.example.common.BaseApplication
-import com.example.smartagriculture.R
-import com.example.smartagriculture.adapter.DropDownAdapter
-import com.example.smartagriculture.myview.DropDownView
-import com.example.smartagriculture.myview.TextDrawable
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.example.common.myview.DropDownView
+import com.example.common.myview.TextDrawable
 
 
 fun ViewPager2.init(

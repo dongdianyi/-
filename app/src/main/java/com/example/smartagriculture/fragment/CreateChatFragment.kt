@@ -3,14 +3,13 @@ package com.example.smartagriculture.fragment
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.common.BaseFragment
-import com.example.common.LogUtil
+import com.example.common.base.BaseFragment
 import com.example.common.hideSoftKeyboard
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.ChatAdapter
 import com.example.smartagriculture.bean.CreatChat
 import com.example.smartagriculture.databinding.FragmentCreateChatBinding
-import com.example.smartagriculture.util.Identification
+import com.example.common.data.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.ChatViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration

@@ -2,18 +2,15 @@ package com.example.smartagriculture.fragment
 
 import android.text.TextUtils
 import android.view.View
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.common.*
+import com.example.common.base.BaseFragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.ChatAdapter
-import com.example.smartagriculture.app.MyApplication
 import com.example.smartagriculture.databinding.FragmentChatDetailsBinding
-import com.example.smartagriculture.util.AndroidBug5497Workaround
-import com.example.smartagriculture.util.Identification
+import com.example.common.data.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.ChatViewModel
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter

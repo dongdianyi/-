@@ -1,12 +1,9 @@
 package com.example.smartagriculture.fragment
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentMineBinding
@@ -16,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_mine.*
 /**
  * A simple [Fragment] subclass.
  */
-class MineFragment : BaseFragment<MineViewModel,FragmentMineBinding>() {
+class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
 
     override fun initLayout(): Int {
         return R.layout.fragment_mine

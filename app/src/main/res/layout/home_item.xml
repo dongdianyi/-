@@ -7,7 +7,7 @@
     android:background="@drawable/cycle_white"
     android:padding="@dimen/mm_10">
 
-    <com.example.smartagriculture.myview.TextDrawable
+    <com.example.common.myview.TextDrawable
         android:id="@+id/textDrawable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         app:leftDrawable="@mipmap/home_item_iv"
         app:leftDrawableWidth="@dimen/mm_5" />
 
-    <com.example.smartagriculture.myview.TextDrawable
+    <com.example.common.myview.TextDrawable
         android:id="@+id/textDrawable2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -187,16 +187,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/textView11"
+            android:gravity="center"
             android:layout_marginLeft="@dimen/mm_5"
             android:layout_toRightOf="@id/textView11"
             android:background="@drawable/round_red"
             android:paddingLeft="@dimen/mm_2"
             android:paddingRight="@dimen/mm_2"
             android:text="12"
+            android:minWidth="@dimen/mm_30"
             android:textColor="@color/white"
             android:textSize="@dimen/mm_21" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textView13"
             style="@style/park_textView"
             android:layout_below="@id/textView11"
@@ -204,7 +206,7 @@
             app:leftDrawable="@mipmap/home_item_iv_three"
             app:leftDrawableWidth="@dimen/mm_22" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textView14"
             style="@style/park_textView"
             android:layout_below="@id/textView13"
@@ -237,14 +239,16 @@
             android:layout_alignBaseline="@id/textView15"
             android:layout_marginLeft="@dimen/mm_5"
             android:layout_toRightOf="@id/textView15"
+            android:gravity="center"
             android:background="@drawable/round_orange"
             android:paddingLeft="@dimen/mm_2"
             android:paddingRight="@dimen/mm_2"
             android:text="12"
+            android:minWidth="@dimen/mm_30"
             android:textColor="@color/white"
             android:textSize="@dimen/mm_21" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textView17"
             style="@style/park_textView"
             android:layout_below="@id/textView15"
@@ -252,7 +256,7 @@
             app:leftDrawable="@mipmap/home_item_iv_five"
             app:leftDrawableWidth="@dimen/mm_22" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textView18"
             style="@style/park_textView"
             android:layout_below="@id/textView17"
@@ -260,7 +264,7 @@
             app:leftDrawable="@mipmap/home_item_iv_six"
             app:leftDrawableWidth="@dimen/mm_22" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textView19"
             style="@style/park_textView"
             android:layout_below="@id/textView18"
@@ -268,7 +272,7 @@
             app:leftDrawable="@mipmap/home_item_iv_seven"
             app:leftDrawableWidth="@dimen/mm_22" />
 
-        <com.example.smartagriculture.myview.TextDrawable
+        <com.example.common.myview.TextDrawable
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -291,7 +295,7 @@
         app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
         app:layout_constraintTop_toBottomOf="@+id/divider5">
 
-        <com.example.smartagriculture.myview.ParkView
+        <com.example.common.myview.ParkView
             android:id="@+id/park_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -331,11 +335,14 @@
         app:layout_constraintStart_toEndOf="@id/textView21"
         app:layout_constraintTop_toTopOf="@id/textView21" />
 
-    <com.example.smartagriculture.myview.TextDrawable
+    <com.example.common.myview.TextDrawable
         android:id="@+id/textDrawable3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/address"
+        android:maxEms="10"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:textSize="@dimen/mm_21"
         app:layout_constraintBottom_toBottomOf="@id/textView22"
         app:layout_constraintEnd_toEndOf="parent"

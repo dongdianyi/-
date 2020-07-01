@@ -58,20 +58,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider7">
 
-            <com.example.smartagriculture.myview.MyRadioButton
+            <com.example.common.myview.MyRadioButton
                 android:id="@+id/radioButton"
                 style="@style/radio"
                 android:background="?attr/selectableItemBackground"
-                android:checked="true"
                 android:text="@string/all_area" />
 
-            <com.example.smartagriculture.myview.MyRadioButton
+            <com.example.common.myview.MyRadioButton
                 android:id="@+id/radioButton2"
                 style="@style/radio"
                 android:background="?attr/selectableItemBackground"
                 android:text="@string/warning_area" />
 
-            <com.example.smartagriculture.myview.MyRadioButton
+            <com.example.common.myview.MyRadioButton
                 android:id="@+id/radioButton3"
                 style="@style/radio"
                 android:text="@string/task_area" />

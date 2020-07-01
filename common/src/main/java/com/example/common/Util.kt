@@ -2,9 +2,10 @@ package com.example.common
 
 import android.app.Activity
 import android.app.Dialog
-import android.app.PendingIntent.getActivity
 import android.content.Context
-import android.graphics.Rect
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -12,7 +13,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import com.example.common.base.BaseApplication
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 
 
@@ -44,7 +45,6 @@ open class ToastUtil<T>(message: T) {
 
 
 class LogUtil<T>(TAG: String, content: T) {
-
     init {
         when (content) {
             is String -> {
@@ -106,7 +106,10 @@ fun spToPx(context: Context, spValue: Int): Int {
     return (spValue * fontScale + 0.5).toInt()
 }
 
-
+fun dip2px(context: Context, dpValue: Float): Int {
+    val scale: Float = context.getResources().getDisplayMetrics().density
+    return (dpValue * scale + 0.5f).toInt()
+}
 /**
  * 隐藏软键盘
  */
@@ -186,4 +189,28 @@ fun getPop(
     dialogCircle.window!!.setWindowAnimations(style)
     dialogCircle.show()
     return dialogCircle
+}
+
+
+/**
+ * base64转图片
+ * @param string  base64串
+ * @return
+ */
+fun stringToBitmap(string: String): Bitmap? {
+    var bitmap: Bitmap? = null
+    try {
+        val bitmapArray = Base64.decode(
+            string.split(",").toTypedArray()[1],
+            Base64.DEFAULT
+        )
+        bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.size)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return bitmap
+    /**
+     *bitmap转为drawable
+     */
+//    BitmapDrawable(getResources(), bitmap)
 }

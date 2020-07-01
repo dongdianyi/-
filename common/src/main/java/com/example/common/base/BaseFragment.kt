@@ -1,17 +1,21 @@
-package com.example.common
+package com.example.common.base
 
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.androidkun.xtablayout.XTabLayout
+import com.example.common.R
+import com.example.common.bean.BeanDataList
+import com.example.common.hideSoftKeyboard
+import com.example.common.model.NoHttpRx
+import com.example.common.myview.CustomDialog
 import com.example.common.view.IView
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.liqi.nohttputils.interfa.OnDialogGetListener
@@ -22,10 +26,12 @@ import com.liqi.nohttputils.interfa.OnDialogGetListener
  */
 @Suppress("UNCHECKED_CAST")
 abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() ,
-    OnDialogGetListener, IView {
-    private var mDialog: Dialog? = null
+     IView ,OnDialogGetListener{
 
-    lateinit var mTitles: List<String>
+    lateinit var mTitles: MutableList<String>
+    lateinit var mTitleWarning: MutableList<BeanDataList>
+    private var mDialog: Dialog? = null
+    lateinit var noHttpRx:NoHttpRx
 
     lateinit var viewModel: VM
     lateinit var dataBinding: DB
@@ -42,6 +48,7 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        noHttpRx= NoHttpRx(this)
         initView(view)
         initData()
         setListener()
@@ -58,7 +65,7 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
         val view: View =
             LayoutInflater.from(context).inflate(R.layout.tab_top, null)
         val txtTitle = view.findViewById<TextView>(R.id.textView9)
-        txtTitle.text = mTitles[position]
+        txtTitle.text = mTitleWarning[position].label
         if (position == 0) {
             txtTitle.background = resources.getDrawable(R.drawable.tab_bg, null)
         }
@@ -103,12 +110,14 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
 
     override fun fail(isNetWork: Boolean, flag: String?, t: Throwable?) {
     }
-
-    override fun getDialog(): Dialog? {
+    override fun getDialog(): Dialog {
         if (null == mDialog) {
-            mDialog = CustomDialog(activity, R.style.CustomDialog)
+            mDialog = CustomDialog(
+                context,
+                R.style.CustomDialog
+            )
         }
-        return mDialog
+        return mDialog as Dialog
     }
 
 }

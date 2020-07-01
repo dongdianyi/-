@@ -2,7 +2,7 @@ package com.example.common.model;
 
 import android.text.TextUtils;
 
-import com.example.common.BaseUrl;
+import com.example.common.data.BaseUrl;
 import com.example.common.view.IView;
 import com.liqi.nohttputils.RxNoHttpUtils;
 import com.liqi.nohttputils.interfa.OnDialogGetListener;
@@ -231,13 +231,15 @@ public class NoHttpRx implements IModelBiz {
 
     //post请求
     @Override
-    public void postHttpJson(String header ,final String flag, String url, String parameter, final OnDialogGetListener onDialogGetListener) {
+    public void postHttpJson(Map header ,final String flag, String url, String parameter, final OnDialogGetListener onDialogGetListener) {
         RxNoHttpUtils.rxNohttpRequest()
                 .post()
-                .url(BaseUrl.BASE_URL + url)
+//                .url(BaseUrl.BASE_URL + url)
+                .url( url)
 //                .addParameter("pageNum",1)
 //                .addParameter("pageSize",10)
 //                .addParameter(mapParameter)
+                .addHeader(header)
                 .setOnDialogGetListener(onDialogGetListener)//请求加载框
                 .setAnUnknownErrorHint("POST未知错误提示")
                 //设置请求bodyEntity为StringEntity，并传请求类型。
@@ -261,10 +263,10 @@ public class NoHttpRx implements IModelBiz {
                 .builder(String.class, new OnIsRequestListener<String>() {
                     @Override
                     public void onNext(String s) {
-                        if (onDialogGetListener.getDialog()!=null) {
+                        if (null!=onDialogGetListener&&onDialogGetListener.getDialog()!=null) {
                             onDialogGetListener.getDialog().dismiss();
                         }
-                        RxNoHttpUtils.cancel(flag);
+//                        RxNoHttpUtils.cancel(flag);
                         try {
                             JSONObject jsonObject = new JSONObject(s);
                             if (TextUtils.isEmpty(s) || s.equals("") || s.trim().equals("")) {
@@ -282,7 +284,7 @@ public class NoHttpRx implements IModelBiz {
 
                     @Override
                     public void onError(Throwable throwable) {
-                        if (onDialogGetListener.getDialog()!=null) {
+                        if (null!=onDialogGetListener&&onDialogGetListener.getDialog()!=null) {
                             onDialogGetListener.getDialog().dismiss();
                         }
                         iView.fail(true, flag, throwable);

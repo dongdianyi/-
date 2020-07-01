@@ -3,19 +3,24 @@ package com.example.smartagriculture.fragment
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.common.adapter.DropDownAdapter
+import com.example.common.bean.BeanList
+import com.example.common.bean.ParkType
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.HomeAdapter
-import com.example.smartagriculture.adapter.DropDownAdapter
 import com.example.smartagriculture.databinding.FragmentStockBinding
-import com.example.smartagriculture.myview.TextDrawable
-import com.example.smartagriculture.util.Identification
+import com.example.common.myview.TextDrawable
+import com.example.common.data.Identification
+import com.example.common.model.NoHttpRx
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.DataViewModel
 import com.github.jdsjlzx.ItemDecoration.GridItemDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_stock.*
 import kotlinx.android.synthetic.main.title_item.*
 
@@ -36,8 +41,12 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
     }
 
     override fun initView(view: View) {
-
+        viewModel = ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
         textView.text = getString(R.string.stock_manage)
+        viewModel.parks =
+            mutableListOf()
+        viewModel.noHttpRx = NoHttpRx(this)
+        viewModel.getStockType()
 
         collapsedView =
             LayoutInflater.from(context)
@@ -45,11 +54,6 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
 
         headerChevronTv =
             collapsedView.findViewById<TextDrawable>(R.id.textDrawable8)
-
-
-//        parks =
-//            mutableListOf("全部物资", "青岛物资", "济南历下区物资")
-
 
 
         expandedView = LayoutInflater.from(context).inflate(R.layout.dropview_expanded, null, false)
@@ -61,18 +65,9 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
 
     override fun initData() {
 
-        viewAction(dropDownView, headerChevronTv).selectedStand = 0
-//        adapter = DropDownAdapter(viewAction(dropDownView, headerChevronTv), parks)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
-        for (i in parks.indices) {
-            setStandStateWithId(parks[i], i, headerChevronTv)
-        }
-        dropDownView.setHeaderView(collapsedView)
-        dropDownView.setExpandedView(expandedView)
-        dropDownView.dropDownListener = dropDownListener
-
-        var manager=GridLayoutManager(requireContext(), 3)
+        recyclerView.adapter = viewModel.adapter
+        var manager = GridLayoutManager(requireContext(), 3)
         stock_recycler.layoutManager = manager
 
         stockAdapter =
@@ -111,4 +106,38 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
         }
     }
 
+    override fun toData(flag: String?, data: String?) {
+        super.toData(flag, data)
+        when (flag) {
+            "物资类型" -> {
+                val data = Gson().fromJson(data, BeanList::class.java)
+                data.data.forEach {
+                    var parkType = ParkType(
+                        it.data.id,
+                        it.data.label
+                    )
+                    viewModel.parks.add(parkType)
+                    setAdapter()
+                }
+            }
+            else -> {
+            }
+        }
+
+    }
+
+    fun setAdapter(): Unit {
+
+        viewModel.viewAction(dropDownView, headerChevronTv).selectedStand = 0
+        viewModel.adapter = DropDownAdapter(
+            viewModel.viewAction(dropDownView, headerChevronTv),
+            viewModel.parks.toMutableList()
+        )
+        for (i in viewModel.parks.indices) {
+            viewModel.setStandStateWithId(viewModel.parks[i], i, headerChevronTv)
+        }
+        dropDownView.setHeaderView(collapsedView)
+        dropDownView.setExpandedView(expandedView)
+        dropDownView.dropDownListener = viewModel.dropDownListener
+    }
 }

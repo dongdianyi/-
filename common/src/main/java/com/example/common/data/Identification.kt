@@ -1,4 +1,4 @@
-package com.example.smartagriculture.util
+package com.example.common.data
 
 /**
  * 唯一标识
@@ -7,10 +7,14 @@ interface Identification {
 
     companion object{
 
+        //缺省值默认值
+        const val DEFAULT=-1
+
         //预警列表
         const val WARNINGLIST=0
         //库存管理
         const val STOCK=1
+        //首页筛选
         const val SCREEN=11
         //产品管理
         const val PRODUCT=2
@@ -48,6 +52,20 @@ interface Identification {
 
         //退出登录
         const val EXIT=15
+        //系统通知
+        const val NOTICE=16
+
+        //设备预警
+        const val WARNEQUIPMENT="288"
+        //天气预警
+        const val WARNEWEATHER="289"
+        //疾病预警
+        const val WARNILLNESS="290"
+        //农事预警
+        const val WARNFARM="291"
+        //物资类型
+        const val STOCK_TYPE="bus_materiel_type"
+        const val STOCK_PARENT="0"
     }
 
 

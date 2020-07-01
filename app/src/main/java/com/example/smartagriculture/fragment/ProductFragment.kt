@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.common.adapter.DropDownAdapter
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.HomeAdapter
-import com.example.smartagriculture.adapter.DropDownAdapter
 import com.example.smartagriculture.databinding.FragmentProductBinding
-import com.example.smartagriculture.myview.TextDrawable
-import com.example.smartagriculture.util.Identification
+import com.example.common.myview.TextDrawable
+import com.example.common.data.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.DataViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
@@ -54,8 +54,8 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
             collapsedView.findViewById<TextDrawable>(R.id.textDrawable4)
 
 
-//        parks =
-//            mutableListOf("全部园区", "青岛园区分区", "济南历下区园区", "淄博园区")
+        viewModel.parks =
+            mutableListOf()
 
         expandedView = LayoutInflater.from(context).inflate(R.layout.dropview_expanded, null, false)
 
@@ -64,16 +64,16 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
     }
 
     override fun initData() {
-        viewAction(dropDownView_product, headerChevronTv).selectedStand = 0
-//        adapter = DropDownAdapter(viewAction(dropDownView_product, headerChevronTv), parks)
+        viewModel.viewAction(dropDownView_product, headerChevronTv).selectedStand = 0
+        viewModel.adapter = DropDownAdapter(viewModel.viewAction(dropDownView_product, headerChevronTv), viewModel.parks.toMutableList())
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
-        for (i in parks.indices) {
-            setStandStateWithId(parks[i], i, headerChevronTv)
+        recyclerView.adapter =  viewModel.adapter
+        for (i in  viewModel.parks.indices) {
+            viewModel.setStandStateWithId( viewModel.parks[i], i, headerChevronTv)
         }
         dropDownView_product.setHeaderView(collapsedView)
         dropDownView_product.setExpandedView(expandedView)
-        dropDownView_product.dropDownListener = dropDownListener
+        dropDownView_product.dropDownListener =  viewModel.dropDownListener
 
 
         productAdapter =

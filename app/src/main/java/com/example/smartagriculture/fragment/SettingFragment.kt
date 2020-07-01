@@ -3,17 +3,17 @@ package com.example.smartagriculture.fragment
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentSettingBinding
-import com.example.smartagriculture.util.Identification.Companion.EXIT
+import com.example.common.data.Identification.Companion.EXIT
 import com.example.smartagriculture.viewmodel.MineViewModel
 import kotlinx.android.synthetic.main.fragment_setting.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class SettingFragment : BaseFragment<MineViewModel,FragmentSettingBinding>() {
+class SettingFragment : BaseFragment<MineViewModel, FragmentSettingBinding>() {
 
 
     override fun initLayout(): Int {

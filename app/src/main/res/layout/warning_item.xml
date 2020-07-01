@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/warning_icon" />
+        app:srcCompat="@mipmap/equipment_iv" />
 
     <TextView
         android:id="@+id/textView10"
@@ -66,6 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:layout_marginEnd="@dimen/mm_20"
         android:textColor="@color/time_gray"
         android:textSize="@dimen/mm_21"
         app:layout_constraintEnd_toEndOf="parent"

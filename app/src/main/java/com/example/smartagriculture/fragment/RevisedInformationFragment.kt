@@ -2,7 +2,7 @@ package com.example.smartagriculture.fragment
 
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentRevisedInformationBinding
 import com.example.smartagriculture.util.nav

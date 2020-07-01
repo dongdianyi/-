@@ -2,11 +2,9 @@ package com.example.smartagriculture.adapter
 
 import android.content.Context
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.smartagriculture.R
-import com.example.smartagriculture.bean.CreatChat
-import com.example.smartagriculture.util.Identification
+import com.example.common.data.Identification
 
 /**
  * Created by ddy
@@ -48,7 +46,8 @@ class AttendanceAdapter(context: Context?, layoutId: Int, id: Int) :
                 val textView65 = holder.getView<TextView>(R.id.textView65)
                 textView88.text = mDataList[position].toString()
                 textView65.setOnClickListener {
-                    onAttendanceListener?.invoke(it, position,Identification.ATTENDANCE_MANAGER_SELECT)
+                    onAttendanceListener?.invoke(it, position,
+                        Identification.ATTENDANCE_MANAGER_SELECT)
                 }
             }
             Identification.ATTENDANCE_MANAGER_APPROVAL ->{}

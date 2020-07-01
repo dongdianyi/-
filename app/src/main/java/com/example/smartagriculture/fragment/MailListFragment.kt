@@ -2,17 +2,17 @@ package com.example.smartagriculture.fragment
 
 import android.view.View
 import com.androidkun.xtablayout.XTabLayout
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 import com.example.common.hideSoftKeyboard
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.LabVpAdapter
 import com.example.smartagriculture.databinding.FragmentMailListBinding
-import com.example.smartagriculture.util.Identification
+import com.example.common.data.Identification
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.ChatViewModel
 import kotlinx.android.synthetic.main.fragment_mail_list.*
 
-class MailListFragment : BaseFragment<ChatViewModel,FragmentMailListBinding>() {
+class MailListFragment : BaseFragment<ChatViewModel, FragmentMailListBinding>() {
 
 
     override fun initLayout(): Int {
@@ -20,8 +20,8 @@ class MailListFragment : BaseFragment<ChatViewModel,FragmentMailListBinding>() {
     }
 
     override fun initView(view: View) {
-        mTitles = listOf<String>("个人", "群聊")
-        val mLabVpAdapter = LabVpAdapter(childFragmentManager, mTitles, Identification.CHAT)
+        mTitles = mutableListOf<String>("个人", "群聊")
+        val mLabVpAdapter = LabVpAdapter(childFragmentManager, mTitles,"", Identification.CHAT)
         view_pager.adapter = mLabVpAdapter
         task_tab.setupWithViewPager(view_pager)
         for (index in mTitles.indices) {

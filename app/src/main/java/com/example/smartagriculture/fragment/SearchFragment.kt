@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.common.BaseFragment
+import com.example.common.base.BaseFragment
 import com.example.common.ToastUtil
 import com.example.common.hideSoftKeyboard
 import com.example.smartagriculture.R

@@ -1,4 +1,4 @@
-package com.example.common
+package com.example.common.base
 
 import android.app.Activity
 import android.app.Application
@@ -6,6 +6,7 @@ import android.content.Context
 import android.util.DisplayMetrics
 import android.view.WindowManager
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.common.LogUtil
 import com.liqi.nohttputils.RxNoHttpUtils
 import com.liqi.nohttputils.nohttp.NoHttpInit
 import me.jessyan.autosize.AutoSize
@@ -49,7 +50,7 @@ open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         context = this
-        application=this
+        application =this
         screen()
         //网络请求初始化
         //网络请求初始化
@@ -149,11 +150,11 @@ open class BaseApplication : Application() {
         screenHeight = ((height / density).toInt())
         LogUtil(
             "屏幕尺寸",
-            (sqrt((2250 * 2250 + 4002 * 4002).toDouble() )/ 25.4).toString()+
-                    "\n"+(sqrt((562 * 562 + 1000 * 1000).toDouble() )/ 25.4).toString()+
-                    "\n"+(sqrt((750 * 750 + 1334 * 1334).toDouble() )/ 25.4).toString()+
-            "\n"+(sqrt((1125 * 1125 + 2001 * 2001).toDouble() )/ 25.4).toString()
-                 + "\n屏幕宽度（像素）：" + width
+            (sqrt((2250 * 2250 + 4002 * 4002).toDouble()) / 25.4).toString() +
+                    "\n" + (sqrt((562 * 562 + 1000 * 1000).toDouble()) / 25.4).toString() +
+                    "\n" + (sqrt((750 * 750 + 1334 * 1334).toDouble()) / 25.4).toString() +
+                    "\n" + (sqrt((1125 * 1125 + 2001 * 2001).toDouble()) / 25.4).toString()
+                    + "\n屏幕宽度（像素）：" + width
                     + "\n屏幕高度（像素）：" + height
                     + "\n屏幕密度（0.75 / 1.0 / 1.5）" + density
                     + "\n屏幕密度dpi（120 / 160 / 240）：" + densityDpi

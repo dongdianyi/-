@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.smartagriculture.R
 import com.example.smartagriculture.bean.CreatChat
-import com.example.smartagriculture.util.Identification
+import com.example.common.data.Identification
 
 /**
  * Created by ddy

@@ -8,5 +8,5 @@ public interface IModelBiz {
      void getHttp(String header,String flag, String url, Map mapParameter, OnDialogGetListener onDialogGetListener);
      void getHttp(String header,String flag, String url, OnDialogGetListener onDialogGetListener);
      void postHttp(String flag, String url, Map mapParameter, OnDialogGetListener onDialogGetListener);
-     void postHttpJson(String header,String flag, String url, String parameter, OnDialogGetListener onDialogGetListener);
+     void postHttpJson(Map header,String flag, String url, String parameter, OnDialogGetListener onDialogGetListener);
 }

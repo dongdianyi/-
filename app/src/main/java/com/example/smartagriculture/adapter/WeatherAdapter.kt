@@ -1,19 +1,11 @@
 package com.example.smartagriculture.adapter
 
 import android.content.Context
-import android.text.Html
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.TextView
 import cjh.weatherviewlibarary.WeatherView
-import com.example.common.BaseApplication
 import com.example.smartagriculture.R
 import com.example.smartagriculture.bean.MyWeatherData
-import com.example.smartagriculture.myview.TextDrawable
-import com.example.smartagriculture.util.Identification
 
 /**
  * Created by ddy

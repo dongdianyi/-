@@ -186,7 +186,9 @@
                 android:id="@+id/notice_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:background="@drawable/round_orange"
+                android:minWidth="@dimen/mm_30"
                 android:textColor="@color/white"
                 android:textSize="@dimen/mm_17"
                 android:visibility="gone"
@@ -310,7 +312,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.05" />
 
-        <com.example.smartagriculture.myview.DropDownView
+        <com.example.common.myview.DropDownView
             android:id="@+id/drop_down_view"
             android:layout_width="0mm"
             android:layout_height="wrap_content"
@@ -333,7 +335,7 @@
             app:layout_constraintEnd_toEndOf="@id/linearLayout"
             app:layout_constraintTop_toTopOf="@id/linearLayout">
 
-            <com.example.smartagriculture.myview.TextDrawable
+            <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

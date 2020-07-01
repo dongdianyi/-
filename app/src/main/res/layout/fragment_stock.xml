@@ -62,7 +62,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline22"
             app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
-        <com.example.smartagriculture.myview.DropDownView
+        <com.example.common.myview.DropDownView
             android:id="@+id/dropDownView"
             android:layout_width="0mm"
             android:layout_height="wrap_content"

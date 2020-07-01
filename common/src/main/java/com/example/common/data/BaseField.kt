@@ -1,4 +1,4 @@
-package com.example.common
+package com.example.common.data
 
 interface BaseField {
     companion object{

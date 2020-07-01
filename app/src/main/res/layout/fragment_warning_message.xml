@@ -56,12 +56,14 @@
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:background="@drawable/cycle_orange"
+                android:minWidth="@dimen/mm_30"
                 android:textColor="@color/white"
                 android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="200" />
+                android:text="@{String.valueOf(data.total)}" />
 
             <TextView
                 android:id="@+id/textView24"
@@ -80,8 +82,10 @@
             android:layout_width="0mm"
             android:layout_height="@dimen/mm_48"
             android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/mm_20"
             app:layout_constraintEnd_toEndOf="@id/guideline11"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:xTabMode="scrollable"
+            app:xTabDisplayNum="4"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:xTabSelectedTextColor="@color/blue"

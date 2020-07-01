@@ -1,4 +1,4 @@
-package com.example.smartagriculture.myview
+package com.example.common.myview
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,7 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.example.smartagriculture.R
+import com.example.common.R
 
 class ParkView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 

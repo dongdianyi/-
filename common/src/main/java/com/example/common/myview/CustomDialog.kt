@@ -1,13 +1,13 @@
-package com.example.common
+package com.example.common.myview
 
 import android.app.Dialog
-import android.app.ProgressDialog
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.view.WindowManager
+import com.example.common.LogUtil
+import com.example.common.R
 
 /**
  * 加载提醒对话框

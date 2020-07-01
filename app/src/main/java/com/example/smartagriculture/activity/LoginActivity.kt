@@ -4,7 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.common.BaseActivity
+import com.example.common.base.BaseActivity
 import com.example.common.ToastUtil
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityLoginBinding
@@ -12,7 +12,7 @@ import com.example.smartagriculture.viewmodel.MainViewModel
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : BaseActivity<MainViewModel,ActivityLoginBinding>(){
+class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>(){
 
     override fun initLayout(): Int {
         return R.layout.activity_login
