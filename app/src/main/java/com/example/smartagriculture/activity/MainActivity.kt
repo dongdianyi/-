@@ -23,6 +23,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun initData() {
         AndroidBug5497Workaround.assistActivity(this)
+        viewModel.getLocation(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {

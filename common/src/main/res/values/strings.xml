@@ -13,7 +13,7 @@
 
     <string name="top_bg_description" >首页上部图片</string>
     <string name="logo_description">智慧农业平台</string>
-    <string name="search_description">搜索园区</string>
+    <string name="search_description">搜索地块</string>
     <string name="search_product">搜索产品</string>
     <string name="search_maillist">搜索通讯录人员</string>
     <string name="search_chat">搜索我的群</string>

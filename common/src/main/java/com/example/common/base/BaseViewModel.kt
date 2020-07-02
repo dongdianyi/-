@@ -12,6 +12,7 @@ import com.example.common.adapter.DropDownAdapter
 import com.example.common.bean.ParkType
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
+import com.example.common.data.Identification
 import com.example.common.model.NoHttpRx
 import com.example.common.myview.DropDownView
 import com.example.common.myview.TextDrawable
@@ -53,7 +54,7 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     lateinit var adapter: DropDownAdapter
-    private var selectedStandId = 0
+    var selectedStandId = 0
 
 
     val dropDownListener = object :
@@ -79,12 +80,14 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
         // Should update currently selected stand wait time as well
         if (selectedStandId == standId) {
             headerChevronTv.text = parkType.parkName
+
         }
     }
 
     fun viewAction(
         drop_down_view: DropDownView,
-        headerChevronTv: TextDrawable
+        headerChevronTv: TextDrawable,
+        flag: Int
     ): DropDownAdapter.ViewActions {
         val viewActions: DropDownAdapter.ViewActions =
             object : DropDownAdapter.ViewActions {
@@ -95,10 +98,18 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
 
                 override fun getStandTitle(standId: Int): String? {
                     return parks[standId].parkName
+
                 }
 
                 override fun getStandStatus(standId: Int): String? {
+                    if (Identification.PARK==flag) {
+                        getParks(standId,query)
+                    }
+                    if (Identification.STOCK==flag) {
+                        getStock(standId)
+                    }
                     return parks[standId].parkName
+
                 }
 
                 override var selectedStand: Int
@@ -106,17 +117,14 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
                     set(standId) {
                         headerChevronTv.text = getStandStatus(standId)
                         selectedStandId = standId
-                        getParks(parks, standId,query,noHttpRx)
                     }
             }
         return viewActions
     }
 
     fun getParks(
-        parks: MutableList<ParkType>,
         standId: Int,
-        query: String,
-        noHttpRx: NoHttpRx
+        query: String
     ): Unit {
         this.query=query
         this.noHttpRx=noHttpRx
@@ -140,5 +148,36 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
         )
     }
 
+    fun getStock(standId: Int): Unit {
+        var commitParam= CommitParam()
+        commitParam.materialsTypeId = parks[standId].id
+        commitParam.companyId = "1"
+        var  map=HashMap<String,String>()
+        map["Authorization"] = "1239461961037942784"
+        noHttpRx.postHttpJson(
+            map,
+            "农资列表",
+            BaseUrl.BASE_URL2+ BaseUrl.STOCK_LIST,
+            commitParam.toJson(commitParam),
+            onDialogGetListener
+        )
+    }
+
+    fun getProduct(page:String,productName:String): Unit {
+        val commitParam= CommitParam()
+        commitParam.companyId = "1"
+        commitParam.productName = productName
+        commitParam.page = page
+        commitParam.pageSize = "10"
+        var  map=HashMap<String,String>()
+        map["Authorization"] = "1239461961037942784"
+        noHttpRx.postHttpJson(
+            map,
+            "产品列表",
+            BaseUrl.BASE_URL3+ BaseUrl.PRODUCT_LIST,
+            commitParam.toJson(commitParam),
+            onDialogGetListener
+        )
+    }
 
 }

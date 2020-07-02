@@ -15,5 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:rightDrawable="@mipmap/pull" />
+        android:drawablePadding="@dimen/mm_20"
+        app:rightDrawable="@mipmap/pull"
+        app:rightDrawableWidth="@dimen/mm_20"
+        app:rightDrawableHeight="@dimen/mm_20"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

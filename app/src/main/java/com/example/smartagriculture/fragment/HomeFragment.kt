@@ -93,10 +93,13 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
         viewModel.noHttpRx = NoHttpRx(this)
         viewModel.onDialogGetListener = this
-        viewModel.getNotice(viewModel.noHttpRx)
-        viewModel.getParkType(viewModel.noHttpRx)
+        viewModel.getParkType()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getNotice()
+    }
     override fun setListener() {
         home_recycler.setPullRefreshEnabled(false)
         home_recycler.setLoadMoreEnabled(false)
@@ -240,15 +243,16 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
                 }
             }
         }
+        viewModel.getParks(standId,query)
         setAdapter()
 
     }
 
 
     private fun setAdapter(): Unit {
-       viewModel. viewAction(drop_down_view, headerChevronTv).selectedStand = 0
+        viewModel.selectedStandId=0
        viewModel. adapter =
-            DropDownAdapter(viewModel. viewAction(drop_down_view, headerChevronTv), viewModel. parks.toMutableList())
+            DropDownAdapter(viewModel. viewAction(drop_down_view, headerChevronTv,Identification.PARK), viewModel. parks.toMutableList())
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModel. adapter
         for (i in viewModel. parks.indices) {

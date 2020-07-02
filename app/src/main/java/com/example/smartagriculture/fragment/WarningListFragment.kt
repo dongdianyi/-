@@ -78,8 +78,11 @@ class WarningListFragment : BaseFragment<WarnMessageViewModel, FragmentWarningLi
     override fun setListener() {
         mLRecycleViewAdapter.setNbOnItemClickListener { view, position ->
             var bundle=Bundle()
+            bundle.putInt("flag",Identification.WARNINGLIST)
             bundle.putInt("id",bean.data.data[position].id)
             nav(view).navigate(R.id.action_warningMessageFragment_to_detailsFragment,bundle)
+            bean.data.data[position].isread=1
+            mLRecycleViewAdapter.notifyDataSetChanged()
         }
     }
 

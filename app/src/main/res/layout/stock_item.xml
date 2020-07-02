@@ -9,45 +9,54 @@
     <com.meetsl.scardview.SCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@drawable/cardview_select"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/mm_10"
+        app:cardLightDirection="none"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/mm_10">
+            android:layout_margin="@dimen/mm_20">
 
-            <com.example.common.myview.TextDrawable
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="@dimen/mm_30"
+                android:layout_height="@dimen/mm_30"
+                android:src="@mipmap/stock_item_iv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
                 android:id="@+id/textDrawable9"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/mm_20"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mm_25"
-                android:drawablePadding="@dimen/mm_20"
-                android:text="@string/text_day_ago"
-                app:layout_constraintStart_toStartOf="@+id/textView32"
-                app:topDrawableHeight="@dimen/mm_30"
-                app:topDrawableWidth="@dimen/mm_30"
-                app:layout_constraintTop_toTopOf="parent"
-                app:topDrawable="@mipmap/stock_item_iv" />
+                android:textColor="@color/title_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv" />
 
             <TextView
                 android:id="@+id/textView32"
-                android:layout_width="wrap_content"
+                android:layout_width="0mm"
+                android:ellipsize="end"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/mm_25"
                 android:layout_marginTop="@dimen/mm_20"
-                android:text="@string/text_day_ago"
+                android:textSize="@dimen/mm_25"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/textView33"
                 app:layout_constraintTop_toBottomOf="@+id/textDrawable9" />
 
             <TextView
                 android:id="@+id/textView33"
                 android:layout_width="wrap_content"
-                android:textSize="@dimen/mm_25"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:textSize="@dimen/mm_25"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView32" />
         </androidx.constraintlayout.widget.ConstraintLayout>

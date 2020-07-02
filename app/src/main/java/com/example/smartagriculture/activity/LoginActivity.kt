@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.common.LogUtil
 import com.example.common.base.BaseActivity
 import com.example.common.ToastUtil
 import com.example.smartagriculture.R
@@ -29,9 +30,7 @@ class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>(){
         PermissionX.init(this)
             .permissions(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.READ_EXTERNAL_STORAGE
             )
             .explainReasonBeforeRequest()
                 .onExplainRequestReason { deniedList ->
@@ -60,6 +59,8 @@ class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>(){
 //            }
             .onForwardToSettings { deniedList ->
                 //监听那些被用户永久拒绝的权限
+               LogUtil("永久拒绝的权限", deniedList)
+
                 showForwardToSettingsDialog(deniedList, "您需要去应用程序设置当中手动开启权限", "我已明白")
             }
             .request { allGranted, grantedList, deniedList ->

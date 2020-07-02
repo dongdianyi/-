@@ -54,6 +54,8 @@ interface Identification {
         const val EXIT=15
         //系统通知
         const val NOTICE=16
+        //园区
+        const val PARK=17
 
         //设备预警
         const val WARNEQUIPMENT="288"
@@ -65,7 +67,14 @@ interface Identification {
         const val WARNFARM="291"
         //物资类型
         const val STOCK_TYPE="bus_materiel_type"
+
         const val STOCK_PARENT="0"
+
+
+        const val ZERO="0"
+        const val ONE="1"
+        const val TWO="2"
+        const val THREE="3"
     }
 
 

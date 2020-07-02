@@ -11,6 +11,11 @@ data class Bean(
     val success: Boolean
 )
 
+data class ProductGradeNote (
+    val name:String,
+    val note:String
+)
+
 data class BeanData(
     val number: Int,
     val total: Int,
@@ -24,7 +29,10 @@ data class BeanData(
     val warntime: String,
     val warntype: String,
     val title: String,
-    val id: Int
+    val id: Int,
+    val count: Int,
+    val rows: List<Row>
+
 )
 
 data class BeanList(
@@ -32,7 +40,8 @@ data class BeanList(
     val `data`: List<BeanDataList>,
     val msg: String,
     val status: String,
-    val success: Boolean
+    val success: Boolean,
+    val count: Int
 )
 
 data class BeanDataList(
@@ -62,7 +71,13 @@ data class BeanDataList(
     val id: Int,
     val label: String,
     val parentid: String,
-    val remarks: String
+    val name: String,
+    val stock: String,
+    val unitName: String,
+    val creattime: String,
+    val content: String,
+    val statu: String
+
 
 ) : Serializable
 
@@ -102,10 +117,10 @@ class ParkType {
 
     constructor(
         id: String,
-        label: String
+        parkName: String
     ) {
         this.id = id
-        this.label = label
+        this.parkName = parkName
     }
 }
 
@@ -114,31 +129,38 @@ data class DataX(
     val id: Int,
     val massifid: Long,
     val parkid: Int,
-    val state: Int,
+    var isread: Int,
     val warnmessage: String,
     val warntime: String,
     val warntype: String,
-    val title: String
-)
+    val title: String,
+    val content: String,
+    val creattime: String,
+    val deleteState: String,
+    val sendUserName: String,
+    var statu: String,
+    val userid: String,
+    val source: String,
+    val informationId: Int
+) : Serializable
 
-
-data class a(
+data class BeanType(
     val code: String,
-    val `data`: List<Data>,
+    val `data`: List<ParkType>,
     val msg: String,
     val status: String,
     val success: Boolean
 )
 
-data class Data(
-    val equid: Int,
-    val id: Int,
-    val massifid: Long,
-    val parkid: Int,
-    val state: Int,
-    val title: String,
-    val warnmessage: String,
-    val warntime: String,
-    val warntype: String
+data class Row(
+    val createDate: String,
+    val deleteState: Int,
+    val massifId: String,
+    val productGradeNote: List<ProductGradeNote>?,
+    val productId: Int,
+    val productLeader: String,
+    val productName: String,
+    val productPictureUrl: String,
+    val productQuarter: String,
+    val varieties: String
 )
-

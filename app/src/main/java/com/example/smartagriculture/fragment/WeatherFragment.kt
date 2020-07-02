@@ -1,6 +1,12 @@
 package com.example.smartagriculture.fragment
 
+import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.Handler
+import android.os.Message
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.base.BaseFragment
@@ -8,10 +14,19 @@ import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.WeatherAdapter
 import com.example.smartagriculture.bean.MyWeatherData
 import com.example.smartagriculture.databinding.FragmentWeatherBinding
+import com.example.smartagriculture.util.LocationUtils.cityName
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.DataViewModel
 import kotlinx.android.synthetic.main.fragment_weather.*
 import kotlinx.android.synthetic.main.title_item.*
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.IOException
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.MalformedURLException
+import java.net.URL
+
 
 /**
  * A simple [Fragment] subclass.
@@ -21,7 +36,10 @@ class WeatherFragment : BaseFragment<DataViewModel, FragmentWeatherBinding>() {
 
     var height:Int=0
     var width:Int=0
-    override fun initLayout(): Int {
+    var tupian_hour = 60
+    val result =""
+
+        override fun initLayout(): Int {
         return R.layout.fragment_weather
     }
 
@@ -51,5 +69,4 @@ class WeatherFragment : BaseFragment<DataViewModel, FragmentWeatherBinding>() {
             nav().navigateUp()
         }
     }
-
 }

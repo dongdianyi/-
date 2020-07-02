@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.common.adapter.DropDownAdapter
 import com.example.common.bean.BeanList
+import com.example.common.bean.BeanType
 import com.example.common.bean.ParkType
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.HomeAdapter
@@ -35,6 +36,7 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
     private lateinit var headerChevronTv: TextDrawable
 
     private lateinit var stockAdapter: HomeAdapter
+    var standId = 0
 
     override fun initLayout(): Int {
         return R.layout.fragment_stock
@@ -65,16 +67,12 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
 
     override fun initData() {
 
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = viewModel.adapter
         var manager = GridLayoutManager(requireContext(), 3)
         stock_recycler.layoutManager = manager
 
         stockAdapter =
             HomeAdapter(requireContext(), R.layout.stock_item, Identification.STOCK)
         mLRecycleViewAdapter = LRecyclerViewAdapter(stockAdapter)
-        val dataList = listOf<String>("镁肥", "钙肥", "有机肥")
-        stockAdapter.setDataList(dataList)
         stock_recycler.adapter = mLRecycleViewAdapter
 
 //        val spacing = resources.getDimensionPixelSize(R.dimen.mm_4)
@@ -110,15 +108,21 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
         super.toData(flag, data)
         when (flag) {
             "物资类型" -> {
-                val data = Gson().fromJson(data, BeanList::class.java)
+                val data = Gson().fromJson(data, BeanType::class.java)
                 data.data.forEach {
                     var parkType = ParkType(
-                        it.data.id,
-                        it.data.label
+                        it.id,
+                        it.label
                     )
                     viewModel.parks.add(parkType)
-                    setAdapter()
                 }
+                setAdapter()
+                viewModel.getStock(standId)
+
+            }
+            "农资列表" ->{
+                val beanList=Gson().fromJson(data,BeanList::class.java)
+                stockAdapter.setDataList(beanList.data)
             }
             else -> {
             }
@@ -127,12 +131,13 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
     }
 
     fun setAdapter(): Unit {
-
-        viewModel.viewAction(dropDownView, headerChevronTv).selectedStand = 0
+        viewModel.selectedStandId=0
         viewModel.adapter = DropDownAdapter(
-            viewModel.viewAction(dropDownView, headerChevronTv),
+            viewModel.viewAction(dropDownView, headerChevronTv,Identification.STOCK),
             viewModel.parks.toMutableList()
         )
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = viewModel. adapter
         for (i in viewModel.parks.indices) {
             viewModel.setStandStateWithId(viewModel.parks[i], i, headerChevronTv)
         }

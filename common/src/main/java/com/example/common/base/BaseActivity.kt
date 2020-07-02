@@ -1,6 +1,7 @@
 package com.example.common.base
 
 import android.app.Dialog
+import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.common.myview.CustomDialog
 import com.example.common.view.IView
 import com.jaeger.library.StatusBarUtil
 import com.liqi.nohttputils.interfa.OnDialogGetListener
+import me.jessyan.autosize.AutoSizeCompat
 
 abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompatActivity(),IView ,OnDialogGetListener{
 
@@ -79,4 +81,13 @@ abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompa
         }
         return mDialog as Dialog
     }
+
+    /**
+     * 在任何情况下本来适配正常的布局突然出现适配失效，适配异常等问题，只要重写 Activity 的 getResources() 方法
+     */
+    override fun getResources(): Resources {
+        AutoSizeCompat.autoConvertDensityOfGlobal((super.getResources()))
+        return super.getResources()
+    }
+
 }

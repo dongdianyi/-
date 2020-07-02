@@ -20,7 +20,10 @@ class CommitParam : Serializable {
     var type:String?=null
     var parentId:String?=null
     var number:String?=null
-    var startPage:String?=null
+    var pageNum:String?=null
+    var materialsTypeId:String?=null
+    var productName:String?=null
+    var informationId:String?=null
 
 
     fun toJson(commitParam: CommitParam): String {

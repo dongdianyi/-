@@ -1,23 +1,33 @@
 package com.example.smartagriculture.viewmodel
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
+import android.content.Context.LOCATION_SERVICE
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.webkit.WebView
+import androidx.fragment.app.FragmentActivity
 import com.alibaba.android.arouter.launcher.ARouter
-import com.example.common.*
+import com.example.common.LogUtil
+import com.example.common.ToastUtil
+import com.example.common.base.BaseApplication
 import com.example.common.base.BaseViewModel
 import com.example.common.data.BaseField
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
-import com.example.common.model.NoHttpRx
-import com.example.smartagriculture.R
 import com.example.common.data.Identification.Companion.DEFAULT
 import com.example.common.data.Identification.Companion.SCREEN
 import com.example.common.data.Identification.Companion.STOCK
+import com.example.common.getPop
+import com.example.smartagriculture.R
 import com.example.smartagriculture.util.nav
+import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.park_dialog.view.*
 
 
@@ -25,6 +35,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
     var position: Int = 1
     lateinit var rootView: View
     var flag: Int = DEFAULT
+    lateinit var bestLocation: Location
 
     fun showDialog(activity: Activity, flag: Int) {
 
@@ -76,7 +87,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
             when (flag) {
                 SCREEN -> {
                     query = position.toString()
-                    getParks(parks, standId, query, noHttpRx)
+                    getParks(standId, query)
                 }
                 STOCK -> {
                     if (rootView.radioGroup.checkedRadioButtonId == R.id.radioButton) {
@@ -150,11 +161,11 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         nav(view).navigate(R.id.action_mainFragment_to_weatherFragment)
     }
 
-    fun getNotice(noHttpRx: NoHttpRx) {
+    fun getNotice() {
         noHttpRx.getHttp("token", "系统通知", BaseUrl.NOTICE_NUM, onDialogGetListener)
     }
 
-    fun getParkType(noHttpRx: NoHttpRx) {
+    fun getParkType() {
         var commitParam = CommitParam()
         commitParam.companyId = "1"
         var map = hashMapOf<String, String>()
@@ -166,4 +177,57 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
             onDialogGetListener
         )
     }
+
+    fun getLocation(activity: FragmentActivity): Unit {
+        PermissionX.init(activity)
+            .permissions(
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            .explainReasonBeforeRequest()
+            .onForwardToSettings { deniedList ->
+                //监听那些被用户永久拒绝的权限
+                showForwardToSettingsDialog(deniedList, "您需要去应用程序设置当中手动开启权限", "我已明白")
+            }
+            .request { allGranted, grantedList, deniedList ->
+                if (allGranted) {
+                    getLocationLL()
+                } else {
+                    ToastUtil("您拒绝了定位权限")
+                }
+
+
+            }
+
+    }
+
+    private fun getLocationLL() {
+        var location = getLastKnownLocation()
+        //            传递经纬度给网页
+        var result =
+            "{code: '0',type:'2',data: {longitude: '" + location.longitude + "',latitude: '" + location.latitude + "'}}"
+        var webView = WebView(BaseApplication.context)
+        webView.loadUrl("javascript:callback($result)")
+
+        //日志
+        var locationStr = "维度：" + location.latitude + "经度：" + location.longitude
+        LogUtil("*************", "经纬度：$locationStr")
+    }
+
+    /**
+     * 定位：得到位置对象
+     * @return
+     */
+    @SuppressLint("MissingPermission")
+    fun getLastKnownLocation(): Location {
+        //获取地理位置管理器
+        val mLocationManager =
+            BaseApplication.application?.getSystemService(LOCATION_SERVICE) as LocationManager
+        val providers = mLocationManager.getProviders(true)
+        bestLocation= Location("")
+        for (provider in providers) {
+            bestLocation = mLocationManager.getLastKnownLocation(provider) ?: continue
+        }
+        return bestLocation
+    }
+
 }

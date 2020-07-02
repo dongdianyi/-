@@ -14,16 +14,15 @@
         tools:context=".fragment.NoticeFragment">
 
 
-        <ImageView
+        <View
             android:id="@+id/imageView4"
             android:layout_width="0mm"
             android:layout_height="0mm"
-            android:scaleType="fitXY"
             app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/notice_bg" />
+            android:background="@mipmap/notice_bg" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -51,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.22" />
+            app:layout_constraintGuide_percent="0.3" />
 
         <ImageView
             android:id="@+id/back"
@@ -82,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.11" />
+            app:layout_constraintGuide_percent="0.1" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -96,7 +95,9 @@
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="@dimen/mm_30"
                 android:background="@drawable/cycle_orange"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
@@ -154,8 +155,10 @@
 
         <com.github.jdsjlzx.recyclerview.LRecyclerView
             android:id="@+id/notice_recycler"
+            android:layout_marginTop="@dimen/mm_20"
             android:layout_width="0mm"
             android:layout_height="0mm"
+            android:background="@color/bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
             app:layout_constraintStart_toStartOf="@+id/guideline5"

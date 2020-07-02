@@ -32,10 +32,16 @@ companion object{
     //预警单个详情
     const val WARNING_DETAILS="/bus/v1/plan/planEarlyWarningDetail"
 
-    //通知公告
-    const val NOTICE_URL="/sys/v1/agte/notice"
+    //通知列表
+    const val NOTICE_URL="/bus/v1/app/api/homePage/sysNoticeList"
 
     //物资类型
     const val STOCK_TYPE="/sys/v1/user/getNewdict"
+
+    //产品列表
+    const val PRODUCT_LIST="/sys/v1/sProduct/priductList"
+
+    //通知已读未读
+    const val NOTICE_STATE="/bus/v1/app/api/homePage/sysNoticeStatu"
 }
 }

@@ -187,7 +187,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="@drawable/round_orange"
+                android:background="@drawable/cycle_orange"
                 android:minWidth="@dimen/mm_30"
                 android:textColor="@color/white"
                 android:textSize="@dimen/mm_17"
