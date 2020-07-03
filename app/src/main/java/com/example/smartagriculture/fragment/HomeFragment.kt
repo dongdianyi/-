@@ -24,6 +24,7 @@ import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.ParkAdapter
 import com.example.smartagriculture.databinding.FragmentHomeBinding
 import com.example.common.data.Identification
+import com.example.common.data.Identification.Companion.ONE
 import com.example.common.data.Identification.Companion.SCREEN
 import com.example.common.data.Identification.Companion.STOCK
 import com.example.smartagriculture.viewmodel.MainViewModel
@@ -48,7 +49,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
     private lateinit var headerChevronTv: TextDrawable
     private lateinit var parkList:MutableList<BeanDataList>
     lateinit var jsonObject: JSONObject
-    var query = "1"
+    var query = ONE
     var standId = 0
     override fun initLayout(): Int {
         return R.layout.fragment_home
@@ -90,10 +91,11 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     override fun initData() {
         ARouter.getInstance().inject(this)  // Start auto inject.
-
+        time_tv.text=viewModel.getDate()
         viewModel.noHttpRx = NoHttpRx(this)
         viewModel.onDialogGetListener = this
         viewModel.getParkType()
+        viewModel.getIp()
     }
 
     override fun onResume() {
@@ -104,7 +106,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         home_recycler.setPullRefreshEnabled(false)
         home_recycler.setLoadMoreEnabled(false)
         search_linear.setOnClickListener {
-            viewModel.toSearch(it)
+            viewModel.toSearch(it,Identification.PARK)
         }
         screen.setOnClickListener {
             viewModel.showDialog(requireActivity(), SCREEN)
@@ -156,30 +158,42 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     override fun toData(flag: String?, data: String?) {
         super.toData(flag, data)
-        if ("系统通知" == flag) {
-            val notice = Gson().fromJson(data, Bean::class.java)
-            if (0 < notice.data.number) {
-                notice_num.visibility = View.VISIBLE
-                notice_num.text = notice.data.number.toString()
-            } else {
-                notice_num.visibility = View.GONE
+        when (flag) {
+            "系统通知" -> {
+                val notice = Gson().fromJson(data, Bean::class.java)
+                if (0 < notice.data.number) {
+                    notice_num.visibility = View.VISIBLE
+                    notice_num.text = notice.data.number.toString()
+                } else {
+                    notice_num.visibility = View.GONE
+                }
             }
-        }
-        if ("首页列表" == flag) {
-            val park = Gson().fromJson(data, BeanList::class.java)
-            parkList.clear()
-            parkList .addAll(park.data)
-            parkAdapter.setDataList(park.data)
-            home_recycler.adapter=mLRecycleViewAdapter
-        }
-        if ("园区类型" == flag) {
-            jsonObject = JSONObject(data)
-            val data = jsonObject.getString("data")
-            jsonObject = JSONObject(data)
-            //通过迭代器获得json当中所有的key值
-            val keys: Iterator<*> = jsonObject.keys()
-            addRadioButton(keys)
-
+            "首页列表" -> {
+                val park = Gson().fromJson(data, BeanList::class.java)
+                parkList.clear()
+                parkList .addAll(park.data)
+                parkAdapter.setDataList(park.data)
+                home_recycler.adapter=mLRecycleViewAdapter
+            }
+            "园区类型" -> {
+                jsonObject = JSONObject(data)
+                val data = jsonObject.getString("data")
+                jsonObject = JSONObject(data)
+                //通过迭代器获得json当中所有的key值
+                val keys: Iterator<*> = jsonObject.keys()
+                addRadioButton(keys)
+            }
+            "天气" -> {
+                var bean=Gson().fromJson(data,Bean::class.java)
+                weather_tv.text=bean.data.list[0].tem
+                weather_name.text=bean.data.list[0].wea
+                bean.data.list[0].wea_img
+            }
+            "ip" -> {
+                viewModel.getWeather(data?.let { replaceBlank(it) })
+            }
+            else -> {
+            }
         }
     }
 
@@ -243,7 +257,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
                 }
             }
         }
-        viewModel.getParks(standId,query)
+        viewModel.getParks(standId,query,"")
         setAdapter()
 
     }

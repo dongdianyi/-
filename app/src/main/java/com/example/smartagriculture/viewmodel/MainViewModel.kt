@@ -8,6 +8,7 @@ import android.content.Context.LOCATION_SERVICE
 import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,8 @@ import com.example.smartagriculture.R
 import com.example.smartagriculture.util.nav
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.park_dialog.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainViewModel(application: Application) : BaseViewModel(application) {
@@ -87,7 +90,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
             when (flag) {
                 SCREEN -> {
                     query = position.toString()
-                    getParks(standId, query)
+                    getParks(standId, query,"")
                 }
                 STOCK -> {
                     if (rootView.radioGroup.checkedRadioButtonId == R.id.radioButton) {
@@ -153,8 +156,10 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         nav(view).navigate(R.id.action_mainFragment_to_noticeFragment)
     }
 
-    fun toSearch(view: View) {
-        nav(view).navigate(R.id.action_mainFragment_to_searchFragment)
+    fun toSearch(view: View,flag: Int) {
+        var bundle=Bundle()
+        bundle.putInt("flag",flag)
+        nav(view).navigate(R.id.action_mainFragment_to_searchFragment,bundle)
     }
 
     fun toWeather(view: View) {
@@ -230,4 +235,13 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         return bestLocation
     }
 
+
+    @SuppressLint("SimpleDateFormat")
+    fun getDate(): String {
+
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")// HH:mm:ss
+//获取当前时间
+        val date =Date(System.currentTimeMillis());
+        return simpleDateFormat.format(date)
+    }
 }

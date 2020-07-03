@@ -59,6 +59,12 @@
         <action
             android:id="@+id/action_mainFragment_to_updatePwdFragment"
             app:destination="@id/updatePwdFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_problemFragment"
+            app:destination="@id/problemFragment" />
     </fragment>
     <fragment
         android:id="@+id/warningMessageFragment"
@@ -151,4 +157,12 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.smartagriculture.fragment.DetailsFragment"
         android:label="DetailsFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.smartagriculture.fragment.SettingFragment"
+        android:label="SettingFragment" />
+    <fragment
+        android:id="@+id/problemFragment"
+        android:name="com.example.smartagriculture.fragment.ProblemFragment"
+        android:label="ProblemFragment" />
 </navigation>

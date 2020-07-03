@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.14" />
+            app:layout_constraintGuide_percent="0.11" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0mm"
@@ -47,7 +47,6 @@
                 android:id="@+id/textView123"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="版本"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/mm_30"
                 app:layout_constraintBottom_toTopOf="@+id/divider38"

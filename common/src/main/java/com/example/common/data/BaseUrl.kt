@@ -10,6 +10,9 @@ companion object{
 
     const val BASE_URL3="http://192.168.1.17:8888"
 
+    //公网ip
+    const val GET_IP = "http://www.3322.org/dyndns/getip"
+
     //获取园区类型列表
     const val PARK_TYPE_URL="/bus/v1/app/api/homePage/leftSide"
 
@@ -43,5 +46,20 @@ companion object{
 
     //通知已读未读
     const val NOTICE_STATE="/bus/v1/app/api/homePage/sysNoticeStatu"
+
+    //常见问题
+    const val PROBLEM="/sys/v1/sCommonProblem/applist"
+
+    //天气
+    const val WEATHER="/bus/v1/plan/weather"
+
+    //个人可聊天人员 通讯录人员
+    const val MAINLIST="/sys/v1/chat/chatpersonlist"
+
+    // 通讯录群聊
+    const val MAINLIST_GROUP="/sys/v1/chat/chatgrouplist"
+
+    //个人聊天记录带最后一条记录
+    const val CHATRECORD="/sys/v1/chat/chatmessageperson"
 }
 }

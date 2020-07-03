@@ -2,6 +2,7 @@ package com.example.common.base
 
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
@@ -19,14 +20,13 @@ import com.example.common.myview.TextDrawable
 import com.liqi.nohttputils.interfa.OnDialogGetListener
 
 
-open class BaseViewModel(application: Application) : AndroidViewModel(application){
+open class BaseViewModel(application: Application) : AndroidViewModel(application) {
     lateinit var dialogCircle: DialogCircle
     lateinit var parks: MutableList<ParkType>
     var onDialogGetListener: OnDialogGetListener? = null
-    var query="1"
-    lateinit var noHttpRx:NoHttpRx
-    var standId=0
-
+    var query = "1"
+    lateinit var noHttpRx: NoHttpRx
+    var standId = 0
 
 
     fun showDialogBase(activity: Activity, flag: Int, layout: Int): Unit {
@@ -36,7 +36,7 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
             getPop(
                 activity,
                 rootView,
-                1,
+                2,
                 3,
                 Gravity.CENTER,
                 0,
@@ -102,10 +102,10 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
                 }
 
                 override fun getStandStatus(standId: Int): String? {
-                    if (Identification.PARK==flag) {
-                        getParks(standId,query)
+                    if (Identification.PARK == flag) {
+                        getParks(standId, query, "")
                     }
-                    if (Identification.STOCK==flag) {
+                    if (Identification.STOCK == flag) {
                         getStock(standId)
                     }
                     return parks[standId].parkName
@@ -124,21 +124,31 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun getParks(
         standId: Int,
-        query: String
+        query: String,
+        massifName: String
     ): Unit {
-        this.query=query
-        this.noHttpRx=noHttpRx
-        this.standId=standId
+        this.query = query
+        this.noHttpRx = noHttpRx
+        this.standId = standId
         var commitParam = CommitParam()
         commitParam.companyId = "1"
-        commitParam.parkType = parks[standId].parkType
-        if (standId != 0) {
-            commitParam.parkId = parks[standId].parkId
-        } else {
-            commitParam.parkId = null
+        when (standId) {
+            0 -> {
+                commitParam.parkId = null
+                commitParam.parkType = parks[standId].parkType
+            }
+            -1 -> {
+                commitParam.parkId = null
+                commitParam.parkType = null
+            }
+            else -> {
+                commitParam.parkId = parks[standId].parkId
+                commitParam.parkType = parks[standId].parkType
+            }
         }
         commitParam.query = query
-        var map= hashMapOf<String,String>()
+        commitParam.massifName = massifName
+        var map = hashMapOf<String, String>()
         noHttpRx.postHttpJson(
             map,
             "首页列表",
@@ -149,35 +159,72 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun getStock(standId: Int): Unit {
-        var commitParam= CommitParam()
+        var commitParam = CommitParam()
         commitParam.materialsTypeId = parks[standId].id
         commitParam.companyId = "1"
-        var  map=HashMap<String,String>()
+        var map = HashMap<String, String>()
         map["Authorization"] = "1239461961037942784"
         noHttpRx.postHttpJson(
             map,
             "农资列表",
-            BaseUrl.BASE_URL2+ BaseUrl.STOCK_LIST,
+            BaseUrl.BASE_URL2 + BaseUrl.STOCK_LIST,
             commitParam.toJson(commitParam),
             onDialogGetListener
         )
     }
 
-    fun getProduct(page:String,productName:String): Unit {
-        val commitParam= CommitParam()
+    fun getProduct(page: String, productName: String): Unit {
+        val commitParam = CommitParam()
         commitParam.companyId = "1"
         commitParam.productName = productName
         commitParam.page = page
         commitParam.pageSize = "10"
-        var  map=HashMap<String,String>()
+        var map = HashMap<String, String>()
         map["Authorization"] = "1239461961037942784"
         noHttpRx.postHttpJson(
             map,
             "产品列表",
-            BaseUrl.BASE_URL3+ BaseUrl.PRODUCT_LIST,
+            BaseUrl.BASE_URL3 + BaseUrl.PRODUCT_LIST,
             commitParam.toJson(commitParam),
             onDialogGetListener
         )
     }
 
+    fun getWeather(ip: String?): Unit {
+        val commitParam = CommitParam()
+        commitParam.ip = ip
+        var map = HashMap<String, String>()
+        map["Authorization"] = "1239461961037942784"
+        noHttpRx.postHttpJson(
+            map,
+            "天气",
+            BaseUrl.BASE_URL2 + BaseUrl.WEATHER,
+            commitParam.toJson(commitParam),
+            onDialogGetListener
+        )
+    }
+    fun getIp(): Unit {
+        noHttpRx.getHttp(
+            BaseUrl.GET_IP
+        )
+    }
+
+    //ip地址
+    fun getIp(context: Context): String? {
+        when (NetUtil.getNetWorkState(context)) {
+            NetUtil.NETWORK_NONE -> {
+                ToastUtil(context.getString(R.string.no_net))
+                return null
+            }
+            NetUtil.NETWORK_MOBILE -> {
+                return NetWorkUtils.getLocalIpAddress()
+            }
+            NetUtil.NETWORK_WIFI -> {
+                return NetWorkUtils.getLocalIpAddress(context)
+            }
+            else -> {
+            }
+        }
+        return null
+    }
 }

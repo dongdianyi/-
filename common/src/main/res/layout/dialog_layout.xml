@@ -12,17 +12,17 @@
         android:layout_height="@dimen/mm_48"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/close_blue_iv" />
+        app:srcCompat="@drawable/close_blue_iv" />
 
     <View
         android:id="@+id/view8"
         android:layout_width="0mm"
         android:layout_height="0mm"
-        android:background="@mipmap/exit_iv"
+        android:background="@drawable/exit_iv"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView46"
+        app:layout_constraintEnd_toEndOf="@+id/close_iv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView46" />
+        app:layout_constraintTop_toBottomOf="@+id/close_iv" />
 
     <TextView
         android:id="@+id/textView129"
@@ -51,9 +51,13 @@
     <Button
         android:id="@+id/sure_button"
         android:layout_width="wrap_content"
+        android:paddingStart="@dimen/mm_100"
+        android:paddingEnd="@dimen/mm_100"
+        android:paddingTop="@dimen/mm_20"
+        android:paddingBottom="@dimen/mm_20"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/mm_40"
-        android:background="@mipmap/sure_bg"
+        android:background="@drawable/cycle_green"
         android:text="@string/sure"
         android:textColor="@color/white"
         android:textSize="@dimen/mm_30"

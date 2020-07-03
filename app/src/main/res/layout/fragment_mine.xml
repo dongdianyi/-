@@ -388,6 +388,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0mm"
                 android:layout_height="0mm"
+                android:id="@+id/feedback"
                 app:layout_constraintBottom_toBottomOf="@+id/divider13"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -428,6 +429,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0mm"
+                android:id="@+id/about"
                 android:layout_height="0mm"
                 app:layout_constraintBottom_toBottomOf="@+id/divider14"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -473,6 +475,7 @@
                 android:layout_width="0mm"
                 android:layout_height="0mm"
                 app:layout_constraintBottom_toBottomOf="@+id/divider15"
+                android:id="@+id/problem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/divider14">
@@ -514,6 +517,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0mm"
                 android:layout_height="0mm"
+                android:id="@+id/setting"
                 app:layout_constraintBottom_toBottomOf="@+id/divider16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -559,6 +563,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/divider17"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/update"
                 app:layout_constraintTop_toTopOf="@id/divider16">
 
                 <ImageView

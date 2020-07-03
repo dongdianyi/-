@@ -37,6 +37,12 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
         pwd_constraint.setOnClickListener {
             viewModel.toUpdatePwd(it)
         }
+        setting.setOnClickListener {
+            viewModel.toSetting(it)
+        }
+        problem.setOnClickListener {
+            viewModel.toProblem(it)
+        }
     }
 
 }

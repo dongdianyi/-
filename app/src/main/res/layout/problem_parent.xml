@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:padding="@dimen/mm_20">
+
+    <com.example.common.myview.TextDrawable
+        android:id="@+id/textDrawable25"
+        android:layout_width="0mm"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/mm_20"
+        android:textSize="@dimen/mm_23"
+        app:layout_constraintEnd_toStartOf="@+id/imageView46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftDrawable="@mipmap/problem_icon"
+        app:leftDrawableHeight="@dimen/mm_30"
+        app:leftDrawableWidth="@dimen/mm_30" />
+
+    <ImageView
+        android:id="@+id/imageView46"
+        android:layout_width="@dimen/mm_15"
+        android:layout_height="@dimen/mm_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/more_iv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

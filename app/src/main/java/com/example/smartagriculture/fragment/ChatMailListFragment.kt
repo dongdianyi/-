@@ -6,14 +6,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.base.BaseFragment
+import com.example.common.bean.BeanList
 import com.example.common.setNbOnItemClickListener
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.ChatAdapter
 import com.example.smartagriculture.databinding.FragmentChatMailListBinding
 import com.example.common.data.Identification
+import com.example.common.model.NoHttpRx
 import com.example.smartagriculture.viewmodel.ChatViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_chat_mail_list.*
 
 /**
@@ -21,9 +24,10 @@ import kotlinx.android.synthetic.main.fragment_chat_mail_list.*
  */
 class ChatMailListFragment : BaseFragment<ChatViewModel, FragmentChatMailListBinding>() {
 
+    lateinit var title: String
+    lateinit var chatAdapter: ChatAdapter
 
-
-    companion object{
+    companion object {
         fun newInstance(title: String?, flag: Int): ChatMailListFragment? {
             val fragment = ChatMailListFragment()
             val bundle = Bundle()
@@ -43,11 +47,12 @@ class ChatMailListFragment : BaseFragment<ChatViewModel, FragmentChatMailListBin
     override fun initData() {
 
         viewModel = ViewModelProvider(requireActivity()).get(ChatViewModel::class.java)
-        val chatAdapter =
-            ChatAdapter(requireContext(),R.layout.chat_item, Identification.CHATMAILLIST)
+        title = arguments?.getString("title").toString()
+        viewModel.noHttpRx= NoHttpRx(this)
+
+        chatAdapter =
+            ChatAdapter(requireContext(), R.layout.chat_item, Identification.CHATMAILLIST)
         mLRecycleViewAdapter = LRecyclerViewAdapter(chatAdapter)
-        val dataList = listOf<String>("一个小可爱", "两个小可爱", "章丘大鱼合作社")
-        chatAdapter.setDataList(dataList)
         chatmaillist_recycler.adapter = mLRecycleViewAdapter
 
         val divider: DividerDecoration = DividerDecoration.Builder(requireContext())
@@ -57,6 +62,13 @@ class ChatMailListFragment : BaseFragment<ChatViewModel, FragmentChatMailListBin
         chatmaillist_recycler.addItemDecoration(divider)
         chatmaillist_recycler.layoutManager = LinearLayoutManager(requireContext())
 
+        if (getString(R.string.maillist) ==title) {
+            viewModel.getMailList("1244451714554269696","")
+            search_tv.setHint(R.string.search_maillist)
+        } else {
+            viewModel.getMailListGroup("1244451714554269696","")
+            search_tv.setHint(R.string.search_chat)
+        }
     }
 
     override fun setListener() {
@@ -64,6 +76,22 @@ class ChatMailListFragment : BaseFragment<ChatViewModel, FragmentChatMailListBin
         mLRecycleViewAdapter.setNbOnItemClickListener { view, position ->
             viewModel.MailtoChatDetails(view)
         }
+    }
+    override fun toData(flag: String?, `object`: String?) {
+        super.toData(flag, `object`)
+        when (flag) {
+            "通讯录" -> {
+                var beanList= Gson().fromJson(`object`, BeanList::class.java)
+                chatAdapter.setDataList(beanList.data)
+            }
+            "群聊" ->{
+                var beanList= Gson().fromJson(`object`, BeanList::class.java)
+                chatAdapter.setDataList(beanList.data)
+            }
+            else -> {
+            }
+        }
+
     }
 
 }

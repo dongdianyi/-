@@ -17,6 +17,7 @@ class CommitParam : Serializable {
     var parkType:String?=null
     var parkId  :String?=null
     var query:String?=null
+    var massifName:String?=null
     var type:String?=null
     var parentId:String?=null
     var number:String?=null
@@ -24,6 +25,9 @@ class CommitParam : Serializable {
     var materialsTypeId:String?=null
     var productName:String?=null
     var informationId:String?=null
+    var userId:String?=null
+    var name:String?=null
+    var ip:String?=null
 
 
     fun toJson(commitParam: CommitParam): String {

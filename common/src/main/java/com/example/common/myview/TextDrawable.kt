@@ -60,6 +60,7 @@ class TextDrawable : AppCompatTextView {
                 R.styleable.TextDrawable_leftDrawableHeight,
                 dip2px(context, 20f)
             )
+
         }
         if (drawableRight != null) {
             rightWidth = typedArray.getDimensionPixelOffset(

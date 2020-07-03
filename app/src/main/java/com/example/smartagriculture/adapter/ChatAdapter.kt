@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.common.bean.BeanDataList
 import com.example.smartagriculture.R
 import com.example.smartagriculture.bean.CreatChat
 import com.example.common.data.Identification
@@ -44,12 +45,13 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
                 }
             }
             Identification.CHATMAILLIST -> {
+                var beanDataList=mDataList[position]as BeanDataList
                 val textView39 = holder.getView<TextView>(R.id.textView39)
                 val textView40 = holder.getView<TextView>(R.id.textView40)
                 val textView41 = holder.getView<TextView>(R.id.textView41)
                 textView40.visibility = View.GONE
                 textView41.visibility = View.GONE
-                textView39.text = mDataList[position].toString()
+                textView39.text = beanDataList.userName
             }
             Identification.ADDCHAT -> {
                 val textView39 = holder.getView<TextView>(R.id.textView39)

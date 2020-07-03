@@ -13,7 +13,12 @@
         android:background="@color/white"
         tools:context=".fragment.MailListFragment">
 
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
         <View
             android:id="@+id/view2"
             android:layout_width="0mm"
@@ -33,76 +38,29 @@
             app:layout_constraintStart_toStartOf="@+id/guideline39"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline39"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline40"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95" />
-
 
         <com.androidkun.xtablayout.XTabLayout
             android:id="@+id/task_tab"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/mm_48"
             android:layout_gravity="bottom"
-            app:layout_constraintEnd_toEndOf="@id/guideline40"
-            app:layout_constraintStart_toStartOf="@id/guideline39"
-            app:layout_constraintTop_toTopOf="@id/view2"
             app:layout_constraintBottom_toBottomOf="@id/view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view2"
             app:xTabSelectedTextColor="@color/blue"
             app:xTabTextSize="@dimen/mm_14" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="0mm"
-            android:layout_height="@dimen/mm_100"
-            android:layout_marginTop="@dimen/mm_150"
-            android:background="@drawable/cycle_white_shadow"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/mm_5"
-            app:layout_constraintEnd_toEndOf="@id/guideline40"
-            app:layout_constraintStart_toStartOf="@id/guideline39"
-            app:layout_constraintTop_toTopOf="@id/view2">
-
-            <ImageView
-                android:id="@+id/search_iv"
-                android:layout_width="@dimen/mm_30"
-                android:layout_height="@dimen/mm_30"
-                android:layout_marginStart="@dimen/mm_10"
-                android:contentDescription="@string/search_description"
-                app:srcCompat="@mipmap/search_iv_black" />
-
-            <EditText
-                android:id="@+id/search_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/mm_10"
-                android:textCursorDrawable="@drawable/textcursor"
-                android:hint="@string/search_maillist"
-                android:background="@null"
-                android:textColor="@color/title_gray"
-                android:textSize="@dimen/mm_28" />
-        </LinearLayout>
-
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="0mm"
             android:layout_height="0mm"
+            android:layout_marginTop="@dimen/mm_150"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+            app:layout_constraintTop_toTopOf="@+id/view2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.17" />
+            app:layout_constraintGuide_percent="0.11" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline59"
@@ -60,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8"
+                android:textColor="@color/title_color"
                 android:includeFontPadding="false"
                 android:textSize="@dimen/mm_60"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,8 +70,9 @@
                 android:id="@+id/textView98"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="℃"
                 android:textSize="@dimen/mm_21"
+                android:textColor="@color/title_color"
                 app:layout_constraintStart_toEndOf="@+id/textView94"
                 app:layout_constraintTop_toTopOf="@+id/textView94" />
 
@@ -78,6 +80,7 @@
                 android:id="@+id/textView100"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/title_color"
                 android:text="hahah"
                 android:layout_marginStart="@dimen/mm_48"
                 android:textSize="@dimen/mm_21"

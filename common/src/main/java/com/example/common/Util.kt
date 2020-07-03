@@ -1,10 +1,13 @@
 package com.example.common
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.ConnectivityManager
+import android.net.wifi.WifiManager
 import android.util.Base64
 import android.util.Log
 import android.view.Gravity
@@ -14,7 +17,17 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import com.example.common.base.BaseApplication
+import com.example.common.bean.Bean
+import com.example.common.data.BaseUrl
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.net.*
+import java.util.*
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 
 open class ToastUtil<T>(message: T) {
@@ -93,6 +106,7 @@ fun LRecyclerViewAdapter.setNbOnItemClickListener(
         action(view, position)
     }
 }
+
 /**
  * 将sp值转换为px值，保证文字大小不变
  *
@@ -102,7 +116,7 @@ fun LRecyclerViewAdapter.setNbOnItemClickListener(
  * @return
  */
 fun spToPx(context: Context, spValue: Int): Int {
-    var fontScale= context.resources.displayMetrics.scaledDensity
+    var fontScale = context.resources.displayMetrics.scaledDensity
     return (spValue * fontScale + 0.5).toInt()
 }
 
@@ -110,6 +124,7 @@ fun dip2px(context: Context, dpValue: Float): Int {
     val scale: Float = context.getResources().getDisplayMetrics().density
     return (dpValue * scale + 0.5f).toInt()
 }
+
 /**
  * 隐藏软键盘
  */
@@ -117,7 +132,6 @@ fun hideSoftKeyboard(activity: Activity?) {
     activity?.let { act ->
         val view = act.currentFocus
         view?.let {
-            LogUtil("软键盘","软键盘")
             val inputMethodManager =
                 act.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(
@@ -213,4 +227,119 @@ fun stringToBitmap(string: String): Bitmap? {
      *bitmap转为drawable
      */
 //    BitmapDrawable(getResources(), bitmap)
+}
+
+object NetUtil {
+    /**
+     * 没有连接网络
+     */
+    const val NETWORK_NONE = -1
+
+    /**
+     * 移动网络
+     */
+    const val NETWORK_MOBILE = 0
+
+    /**
+     * 无线网络
+     */
+    const val NETWORK_WIFI = 1
+
+    fun getNetWorkState(context: Context): Int {
+
+        // 得到连接管理器对象
+        val connectivityManager = context
+            .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager
+            .activeNetworkInfo
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected) {
+            if (activeNetworkInfo.type == ConnectivityManager.TYPE_WIFI) {
+                return NETWORK_WIFI
+            } else if (activeNetworkInfo.type == ConnectivityManager.TYPE_MOBILE) {
+                return NETWORK_MOBILE
+            }
+        } else {
+            return NETWORK_NONE
+        }
+        return NETWORK_NONE
+    }
+}
+
+object NetWorkUtils {
+    /**
+     * 检查网络是否可用
+     *
+     * @param paramContext
+     * @return
+     */
+    @SuppressLint("WrongConstant")
+    fun checkEnable(paramContext: Context): Boolean {
+        val i = false
+        val localNetworkInfo = (paramContext
+            .getSystemService("connectivity") as ConnectivityManager).activeNetworkInfo
+        return localNetworkInfo != null && localNetworkInfo.isAvailable
+    }
+
+    /**
+     * 将ip的整数形式转换成ip形式
+     *
+     * @param ipInt
+     * @return
+     */
+    fun int2ip(ipInt: Int): String {
+        val sb = StringBuilder()
+        sb.append(ipInt and 0xFF).append(".")
+        sb.append(ipInt shr 8 and 0xFF).append(".")
+        sb.append(ipInt shr 16 and 0xFF).append(".")
+        sb.append(ipInt shr 24 and 0xFF)
+        return sb.toString()
+    }
+
+    /**
+     * 获取当前ip地址
+     *
+     * @param context
+     * @return
+     */
+    fun getLocalIpAddress(context: Context): String {
+        return try {
+            val wifiManager = context.applicationContext
+                .getSystemService(Context.WIFI_SERVICE) as WifiManager
+            val wifiInfo = wifiManager.connectionInfo
+            val i = wifiInfo.ipAddress
+            int2ip(i)
+        } catch (ex: java.lang.Exception) {
+            """ 获取IP出错鸟!!!!请保证是WIFI,或者请重新打开网络!
+${ex.message}"""
+        }
+        // return null;
+    }
+
+    //GPRS连接下的ip
+    fun getLocalIpAddress(): String? {
+        try {
+            val en: Enumeration<NetworkInterface> = NetworkInterface.getNetworkInterfaces()
+            while (en.hasMoreElements()) {
+                val intf: NetworkInterface = en.nextElement()
+                val enumIpAddr: Enumeration<InetAddress> = intf.inetAddresses
+                while (enumIpAddr.hasMoreElements()) {
+                    val inetAddress: InetAddress = enumIpAddr.nextElement()
+                    if (!inetAddress.isLoopbackAddress) {
+                        return inetAddress.hostAddress.toString()
+                    }
+                }
+            }
+        } catch (ex: SocketException) {
+            LogUtil("WifiPreference IpAddress", ex.toString())
+        }
+        return null
+    }
+}
+
+fun replaceBlank( str:String):String {
+    var dest = "";
+    val p = Pattern.compile("\t|\r|\n")
+    val m = p.matcher(str)
+    dest = m.replaceAll("")
+    return dest
 }

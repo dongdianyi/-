@@ -131,7 +131,7 @@
                 android:layout_height="@dimen/mm_48"
                 android:layout_marginStart="@dimen/mm_8"
                 android:contentDescription="@string/weather_description"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
+                app:srcCompat="@drawable/ic_yun" />
 
             <TextView
                 android:id="@+id/weather_name"
@@ -330,7 +330,7 @@
             android:orientation="horizontal"
             android:paddingLeft="@dimen/mm_10"
             android:paddingRight="@dimen/mm_10"
-            android:gravity="center_vertical"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@id/linearLayout"
             app:layout_constraintEnd_toEndOf="@id/linearLayout"
             app:layout_constraintTop_toTopOf="@id/linearLayout">

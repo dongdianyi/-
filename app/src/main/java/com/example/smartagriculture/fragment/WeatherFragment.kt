@@ -1,31 +1,21 @@
 package com.example.smartagriculture.fragment
 
-import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.os.Handler
-import android.os.Message
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.base.BaseFragment
+import com.example.common.bean.IP
+import com.example.common.model.NoHttpRx
+import com.example.common.replaceBlank
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.WeatherAdapter
 import com.example.smartagriculture.bean.MyWeatherData
 import com.example.smartagriculture.databinding.FragmentWeatherBinding
-import com.example.smartagriculture.util.LocationUtils.cityName
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.DataViewModel
 import kotlinx.android.synthetic.main.fragment_weather.*
 import kotlinx.android.synthetic.main.title_item.*
-import org.json.JSONArray
-import org.json.JSONObject
-import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.MalformedURLException
-import java.net.URL
 
 
 /**
@@ -36,14 +26,14 @@ class WeatherFragment : BaseFragment<DataViewModel, FragmentWeatherBinding>() {
 
     var height:Int=0
     var width:Int=0
-    var tupian_hour = 60
-    val result =""
-
+    var result: String? = null
+    var ip: IP? = null
         override fun initLayout(): Int {
         return R.layout.fragment_weather
     }
 
     override fun initView(view: View) {
+        viewModel=ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
         textView.text=getString(R.string.weather_description)
     }
 
@@ -61,6 +51,8 @@ class WeatherFragment : BaseFragment<DataViewModel, FragmentWeatherBinding>() {
             var weatherAdapter = WeatherAdapter(requireContext(),R.layout.beta_weather,datas,height/2-100,width/3,8,-8)
             weather_recycler.adapter =weatherAdapter
         }
+        viewModel.noHttpRx= NoHttpRx(this)
+        viewModel.getIp()
 
     }
 
@@ -69,4 +61,16 @@ class WeatherFragment : BaseFragment<DataViewModel, FragmentWeatherBinding>() {
             nav().navigateUp()
         }
     }
+
+    override fun toData(flag: String?, `object`: String?) {
+        super.toData(flag, `object`)
+        when (flag) {
+            "ip" -> {
+                viewModel.getWeather(`object`?.let { replaceBlank(it) })
+            }
+            else -> {
+            }
+        }
+    }
+
 }
