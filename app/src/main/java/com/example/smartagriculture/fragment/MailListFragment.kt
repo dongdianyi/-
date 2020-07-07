@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.androidkun.xtablayout.XTabLayout
@@ -23,7 +24,7 @@ class MailListFragment : BaseFragment<ChatViewModel, FragmentMailListBinding>() 
         return R.layout.fragment_mail_list
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel=ViewModelProvider(requireActivity()).get(ChatViewModel::class.java)
         mTitles = mutableListOf<String>(getString(R.string.maillist), getString(R.string.chat_group))
         val mLabVpAdapter = LabVpAdapter(childFragmentManager, mTitles,"", Identification.CHAT)
@@ -34,7 +35,7 @@ class MailListFragment : BaseFragment<ChatViewModel, FragmentMailListBinding>() 
         }
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
     }
     override fun setListener() {
         task_tab.run {

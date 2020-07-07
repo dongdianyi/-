@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -42,7 +43,7 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
         return R.layout.fragment_stock
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
         textView.text = getString(R.string.stock_manage)
         viewModel.parks =
@@ -65,7 +66,7 @@ class StockFragment : BaseDropDownFragment<DataViewModel, FragmentStockBinding>(
 
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
 
         var manager = GridLayoutManager(requireContext(), 3)
         stock_recycler.layoutManager = manager

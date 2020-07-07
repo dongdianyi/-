@@ -30,7 +30,6 @@
                 android:text="打卡记录"
                 android:textColor="@color/green"
                 android:textSize="@dimen/mm_23"
-                app:layout_constraintBottom_toTopOf="@+id/divider18"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:leftDrawable="@mipmap/attendance_iv" />
@@ -44,10 +43,8 @@
                 android:text="2020/6/22"
                 android:textColor="@color/title_gray"
                 android:textSize="@dimen/mm_23"
-                app:layout_constraintBottom_toTopOf="@+id/divider18"
                 app:layout_constraintStart_toEndOf="@+id/textDrawable12"
-                app:layout_constraintTop_toTopOf="parent"
-                app:rightDrawable="@mipmap/pull_blue" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView65"

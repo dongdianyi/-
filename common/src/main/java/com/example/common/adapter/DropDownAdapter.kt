@@ -7,11 +7,14 @@
  */
 package com.example.common.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.common.R
+import com.example.common.base.BaseApplication
 import com.example.common.myview.TextDrawable
 
 /**
@@ -47,9 +50,13 @@ open class DropDownAdapter(
         RecyclerView.ViewHolder(itemView) {
         private val standTitleTV: TextDrawable =
             itemView.findViewById<View>(R.id.textDrawable6) as TextDrawable
+        private val textView27: TextView =
+            itemView.findViewById<TextView>(R.id.textView27)
 
+        @SuppressLint("SetTextI18n")
         fun bind(position: Int) {
             standTitleTV.text = actionViewDelegate.getStandTitle(position)
+            textView27.text = "地块："+actionViewDelegate.getStandPark(position)
             itemView.isSelected = actionViewDelegate.selectedStand == position
             standTitleTV.isEnabled = actionViewDelegate.selectedStand==position
         }
@@ -71,6 +78,7 @@ open class DropDownAdapter(
     interface ViewActions {
         fun collapseDropDown()
         fun getStandTitle(standId: Int): String?
+        fun getStandPark(standId: Int): String?
         fun getStandStatus(standId: Int): String?
         var selectedStand: Int
     }

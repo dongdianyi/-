@@ -41,11 +41,11 @@ class NoticeFragment : BaseFragment<DataViewModel, FragmentNoticeBinding>() {
         return R.layout.fragment_notice
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState:Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
         noticeAdapter =
             HomeAdapter(requireContext(), R.layout.warning_item, Identification.NOTICE)
         mLRecycleViewAdapter = LRecyclerViewAdapter(noticeAdapter)

@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -34,12 +35,12 @@ class ProblemFragment : BaseFragment<MineViewModel,FragmentProblemBinding>() {
         return R.layout.fragment_problem
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel=ViewModelProvider(requireActivity()).get(MineViewModel::class.java)
         textView.text=getString(R.string.problem)
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
 
         problemAdapter= CommentExpandAdapter(requireContext(),problem_recycler)
         mLRecyclerViewAdapter = LRecyclerViewAdapter(problemAdapter)

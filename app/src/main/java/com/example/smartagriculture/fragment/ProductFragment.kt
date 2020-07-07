@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
@@ -34,12 +35,12 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
         return R.layout.fragment_product
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
         textView.text = getString(R.string.product_manage)
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
         productAdapter =
             HomeAdapter(requireContext(), R.layout.product_item, Identification.PRODUCT)
         mLRecycleViewAdapter = LRecyclerViewAdapter(productAdapter)

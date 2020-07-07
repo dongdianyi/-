@@ -16,6 +16,7 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
     ListBaseAdapter<Any?>(context) {
     private var layoutId = 0
     private var id = 0
+    lateinit var beanDataList: BeanDataList
 
     init {
         this.layoutId = layoutId
@@ -30,22 +31,27 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
 
         when (id) {
             Identification.CHAT -> {
+                var dataList = mDataList[position] as BeanDataList
                 val textView39 = holder.getView<TextView>(R.id.textView39)
-                textView39.text = mDataList[position].toString()
+                val textView40 = holder.getView<TextView>(R.id.textView40)
+                val textView41 = holder.getView<TextView>(R.id.textView41)
+                textView39.text = dataList.sendname
+                textView40.text = dataList.chatContent
+                textView41.text = dataList.chatTime
             }
             Identification.CHATDETAILS -> {
                 val textView43 = holder.getView<TextView>(R.id.textView43)
                 val textView44 = holder.getView<TextView>(R.id.textView44)
                 if (position % 2 == 0) {
                     textView43.text = mDataList[position].toString()
-                    textView44.text="hahahh"
+                    textView44.text = "hahahh"
                 } else {
-                    textView43.text="hehheh"
+                    textView43.text = "hehheh"
                     textView44.text = mDataList[position].toString()
                 }
             }
             Identification.CHATMAILLIST -> {
-                var beanDataList=mDataList[position]as BeanDataList
+                var beanDataList = mDataList[position] as BeanDataList
                 val textView39 = holder.getView<TextView>(R.id.textView39)
                 val textView40 = holder.getView<TextView>(R.id.textView40)
                 val textView41 = holder.getView<TextView>(R.id.textView41)
@@ -61,9 +67,9 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
                 textView40.visibility = View.GONE
                 textView41.visibility = View.GONE
                 imageView14.visibility = View.VISIBLE
-                val creatChat: CreatChat = mDataList[position] as CreatChat
-                textView39.text = creatChat.message
-                imageView14.isEnabled = creatChat.isChoose
+                beanDataList = mDataList[position] as BeanDataList
+                textView39.text = beanDataList.userName
+                imageView14.isEnabled = beanDataList.isChoose
             }
             else -> {
 
@@ -74,9 +80,8 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
     }
 
     fun multipleChoose(position: Int): Unit {
-
-        (mDataList[position] as CreatChat).isChoose =
-            (mDataList[position] as CreatChat).isChoose != true
+        (mDataList[position] as BeanDataList).isChoose =
+            (mDataList[position] as BeanDataList).isChoose != true
         notifyDataSetChanged()
     }
 }

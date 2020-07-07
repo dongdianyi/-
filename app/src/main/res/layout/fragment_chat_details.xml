@@ -89,6 +89,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include4" />
 
+        <ImageView
+            android:id="@+id/imageView49"
+            android:layout_width="@dimen/mm_60"
+            android:layout_height="@dimen/mm_60"
+            android:padding="@dimen/mm_15"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintBottom_toBottomOf="@+id/include4"
+            app:layout_constraintEnd_toEndOf="@+id/include4"
+            app:layout_constraintStart_toStartOf="@+id/include4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/group_iv" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

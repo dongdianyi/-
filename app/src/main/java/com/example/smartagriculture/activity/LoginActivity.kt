@@ -2,28 +2,34 @@ package com.example.smartagriculture.activity
 
 import android.Manifest
 import android.content.Intent
-import android.widget.Toast
+import android.text.TextUtils
+import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
-import com.example.common.LogUtil
+import com.example.common.*
 import com.example.common.base.BaseActivity
-import com.example.common.ToastUtil
+import com.example.common.bean.Bean
+import com.example.common.model.NoHttpRx
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityLoginBinding
 import com.example.smartagriculture.viewmodel.MainViewModel
+import com.google.gson.Gson
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>(){
+class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>() {
 
     override fun initLayout(): Int {
         return R.layout.activity_login
     }
 
     override fun initView() {
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-//        dataBinding.data = viewModel
-//        dataBinding.lifecycleOwner = this
-
+        viewModel = ViewModelProvider(
+            this,
+            SavedStateViewModelFactory(application, this)
+        ).get(MainViewModel::class.java)
+        dataBinding.data = viewModel
+        dataBinding.lifecycleOwner = this
+        viewModel.init()
     }
 
     override fun initData() {
@@ -33,10 +39,10 @@ class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>(){
                 Manifest.permission.READ_EXTERNAL_STORAGE
             )
             .explainReasonBeforeRequest()
-                .onExplainRequestReason { deniedList ->
-                    showRequestReasonDialog(deniedList, "即将申请的权限是程序必须依赖的权限", "我已明白")
+            .onExplainRequestReason { deniedList ->
+                showRequestReasonDialog(deniedList, "即将申请的权限是程序必须依赖的权限", "我已明白")
 //                    showRequestReasonDialog(filteredList, "摄像头权限是程序必须依赖的权限", "我已明白", "取消")
-                }
+            }
 //            .onExplainRequestReason { deniedList, beforeRequest ->
 //                val filteredList = deniedList.filter {
 //                    it == Manifest.permission.CAMERA
@@ -59,7 +65,7 @@ class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>(){
 //            }
             .onForwardToSettings { deniedList ->
                 //监听那些被用户永久拒绝的权限
-               LogUtil("永久拒绝的权限", deniedList)
+                LogUtil("永久拒绝的权限", deniedList)
 
                 showForwardToSettingsDialog(deniedList, "您需要去应用程序设置当中手动开启权限", "我已明白")
             }
@@ -70,21 +76,49 @@ class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>(){
 
                 }
                 if (allGranted) {
-
-                    Toast.makeText(this, "所有申请的权限都已通过", Toast.LENGTH_SHORT).show()
-                    textView126.setOnClickListener {
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                        finish()
+                    textView126.clickNoRepeat {
+                        if (TextUtils.isEmpty(editText4.text)) {
+                            ToastUtil("请输入用户名/手机号")
+                            return@clickNoRepeat
+                        }
+                        if (TextUtils.isEmpty(editText5.text)) {
+                            ToastUtil("请输入密码")
+                            return@clickNoRepeat
+                        }
+                        viewModel.noHttpRx = NoHttpRx(this)
+                        viewModel.login(
+                            editText4.text.toString(),
+                            MD5Util.md5(Base64Utils.encodeToString(editText5.text.toString()))
+                        )
                     }
 
                 } else {
-
-                    Toast.makeText(this, "您拒绝了如下权限：$deniedList", Toast.LENGTH_SHORT).show()
-
+                    ToastUtil("您拒绝了如下权限：$deniedList")
                 }
 
 
             }
 
+    }
+
+    override fun toData(flag: String?, `object`: String?) {
+        super.toData(flag, `object`)
+        when (flag) {
+            "登录" -> {
+                val bean= Gson().fromJson(`object`, Bean::class.java)
+                viewModel.save(editText4.text.toString(), editText5.text.toString(),bean.data.usermsg.telephone,bean.data.userid,bean.data.companyid)
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                finish()
+            }
+            else -> {
+            }
+        }
+    }
+
+    override fun fail(isNetWork: Boolean, flag: String?, t: Throwable?) {
+        super.fail(isNetWork, flag, t)
+        if (t != null) {
+            ToastUtil(t.message)
+        }
     }
 }

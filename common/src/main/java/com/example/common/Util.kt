@@ -201,7 +201,6 @@ fun getPop(
     )
     dialogCircle.setCancelable(isCancel)
     dialogCircle.window!!.setWindowAnimations(style)
-    dialogCircle.show()
     return dialogCircle
 }
 

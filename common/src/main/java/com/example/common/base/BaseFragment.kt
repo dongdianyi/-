@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager.widget.ViewPager
 import com.androidkun.xtablayout.XTabLayout
 import com.example.common.R
@@ -27,6 +28,10 @@ import com.liqi.nohttputils.interfa.OnDialogGetListener
 @Suppress("UNCHECKED_CAST")
 abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() ,
      IView ,OnDialogGetListener{
+
+
+    //是否第一次加载
+    private var isFirst: Boolean = true
 
     lateinit var mTitles: MutableList<String>
     lateinit var mTitleWarning: MutableList<BeanDataList>
@@ -49,14 +54,15 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         noHttpRx= NoHttpRx(this)
-        initView(view)
+        initView(savedInstanceState)
+        onVisible()
         initData()
         setListener()
     }
 
     abstract fun initLayout(): Int
-    abstract fun initView(view: View)
-    abstract fun initData()
+    abstract fun initView(savedInstanceState:Bundle?)
+    open fun initData(){}
     open fun setListener() {
     }
 
@@ -100,6 +106,11 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        onVisible()
+
+    }
     override fun onPause() {
         super.onPause()
         hideSoftKeyboard(requireActivity())
@@ -120,4 +131,17 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
         return mDialog as Dialog
     }
 
+    /**
+     * 是否需要懒加载
+     */
+    private fun onVisible() {
+        if (lifecycle.currentState == Lifecycle.State.STARTED && isFirst) {
+            lazyLoadData()
+            isFirst = false
+        }
+    }
+    /**
+     * 懒加载
+     */
+    abstract fun lazyLoadData()
 }

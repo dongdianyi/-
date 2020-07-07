@@ -1,6 +1,6 @@
 package com.example.smartagriculture.fragment
 
-import android.view.View
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentAddProductBinding
@@ -18,11 +18,11 @@ class AddProductFragment : BaseDropDownFragment<DataViewModel, FragmentAddProduc
         return R.layout.fragment_add_product
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         textView.text=getString(R.string.product_manage)
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
     }
 
     override fun setListener() {

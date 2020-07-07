@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -29,7 +30,7 @@ class WarningMessageFragment : BaseFragment<WarnMessageViewModel, FragmentWarnin
         return R.layout.fragment_warning_message
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(WarnMessageViewModel::class.java)
         dataBinding.data = viewModel
         parkId = arguments?.getString("parkId").toString()
@@ -41,7 +42,7 @@ class WarningMessageFragment : BaseFragment<WarnMessageViewModel, FragmentWarnin
     }
 
 
-    override fun initData() {
+    override fun lazyLoadData() {
     }
 
     override fun setListener() {

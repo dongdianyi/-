@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,7 +27,7 @@ class LeaveRecordFragment : BaseFragment<AttendanceViewModel, FragmentLeaveRecor
         return R.layout.fragment_leave_record
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(AttendanceViewModel::class.java)
         title = arguments?.getInt("title")
         if (Identification.ATTENDANCE_PEASANT_LEAVE==title) {
@@ -40,7 +41,7 @@ class LeaveRecordFragment : BaseFragment<AttendanceViewModel, FragmentLeaveRecor
         }
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
         attendanceAdapter =
             AttendanceAdapter(
                 requireContext(),

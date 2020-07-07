@@ -3,6 +3,7 @@ package com.example.smartagriculture.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Handler
+import android.text.TextUtils
 import androidx.lifecycle.ViewModelProvider
 import com.example.common.base.BaseActivity
 import com.example.common.LogUtil
@@ -17,7 +18,7 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
 
     private lateinit var mHandlerMessage: Handler
     private var count = 3
-
+    private var userId:String?=null
      init {
         mHandlerMessage =
             Handler(Handler.Callback { msg ->
@@ -28,7 +29,11 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
                         count--
                         mHandlerMessage.sendEmptyMessageDelayed(Identification.WHATNUM, 1000)
                     } else {
-                        startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+                        if (TextUtils.isEmpty(userId)) {
+                            startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+                        }else{
+                            startActivity(Intent(this@StartActivity, MainActivity::class.java))
+                        }
                         finish()
                     }
                 }
@@ -42,6 +47,8 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
 
     override fun initView() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.init()
+        userId= viewModel.getUserId().value
         mHandlerMessage.sendEmptyMessageDelayed(Identification.WHATNUM, 1000)
     }
 
@@ -50,7 +57,11 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
         textView34.clickNoRepeat {
             textView34.isEnabled=false
             mHandlerMessage.removeCallbacksAndMessages(null)
-            startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+            if (TextUtils.isEmpty(userId)) {
+                startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+            }else{
+                startActivity(Intent(this@StartActivity, MainActivity::class.java))
+            }
             finish()
         }
     }

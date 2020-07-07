@@ -16,5 +16,9 @@
     <color name="line_color">#DFDFDF</color>
     <color name="blue_line">#32B16C</color>
     <color name="red">#FF0000</color>
-    <color name="orange">#F2A51C</color>
+    <color name="orange2">#F19149</color>
+    <color name="orange">#F8B551</color>
+    <color name="violet">#6F81FF</color>
+    <color name="weather_highLineColor">#F54779</color>
+    <color name="weather_lowLineColor">#9100E4</color>
 </resources>

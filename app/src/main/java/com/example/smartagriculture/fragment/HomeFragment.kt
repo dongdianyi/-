@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
@@ -55,7 +56,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         return R.layout.fragment_home
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         parkList= mutableListOf<BeanDataList>()
         parkAdapter =
@@ -89,7 +90,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
         ARouter.getInstance().inject(this)  // Start auto inject.
         time_tv.text=viewModel.getDate()
         viewModel.noHttpRx = NoHttpRx(this)
@@ -184,10 +185,10 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
                 addRadioButton(keys)
             }
             "天气" -> {
-                var bean=Gson().fromJson(data,Bean::class.java)
+                val bean=Gson().fromJson(data,Bean::class.java)
                 weather_tv.text=bean.data.list[0].tem
                 weather_name.text=bean.data.list[0].wea
-                bean.data.list[0].wea_img
+                weather_iv.setImageBitmap(stringToBitmap(bean.data.detail.wea_img1))
             }
             "ip" -> {
                 viewModel.getWeather(data?.let { replaceBlank(it) })

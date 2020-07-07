@@ -4,21 +4,22 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import android.content.Context.LOCATION_SERVICE
 import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.webkit.WebView
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.SavedStateHandle
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.common.LogUtil
 import com.example.common.ToastUtil
 import com.example.common.base.BaseApplication
-import com.example.common.base.BaseViewModel
 import com.example.common.data.BaseField
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
@@ -34,11 +35,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class MainViewModel(application: Application) : BaseViewModel(application) {
+class MainViewModel(
+    application: Application, savedStateHandle: SavedStateHandle
+) : BaseShpViewModel(application, savedStateHandle) {
     var position: Int = 1
     lateinit var rootView: View
     var flag: Int = DEFAULT
     lateinit var bestLocation: Location
+
+
 
     fun showDialog(activity: Activity, flag: Int) {
 
@@ -65,10 +70,8 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         }
 
         rootView.radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            LogUtil("走了吗", "setOnCheckedChangeListener")
             when (checkedId) {
                 R.id.radioButton -> {
-                    LogUtil("走了吗", "zoulema")
                     position = 1
                 }
                 R.id.radioButton2 -> {
@@ -90,7 +93,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
             when (flag) {
                 SCREEN -> {
                     query = position.toString()
-                    getParks(standId, query,"")
+                    getParks(standId, query, "")
                 }
                 STOCK -> {
                     if (rootView.radioGroup.checkedRadioButtonId == R.id.radioButton) {
@@ -111,6 +114,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         }
         dialogCircle =
             getPop(activity, rootView, 1, 3, Gravity.BOTTOM, R.style.BottomDialog_Animation, false)
+        dialogCircle.show()
     }
 
 
@@ -156,10 +160,10 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         nav(view).navigate(R.id.action_mainFragment_to_noticeFragment)
     }
 
-    fun toSearch(view: View,flag: Int) {
-        var bundle=Bundle()
-        bundle.putInt("flag",flag)
-        nav(view).navigate(R.id.action_mainFragment_to_searchFragment,bundle)
+    fun toSearch(view: View, flag: Int) {
+        var bundle = Bundle()
+        bundle.putInt("flag", flag)
+        nav(view).navigate(R.id.action_mainFragment_to_searchFragment, bundle)
     }
 
     fun toWeather(view: View) {
@@ -174,10 +178,26 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         var commitParam = CommitParam()
         commitParam.companyId = "1"
         var map = hashMapOf<String, String>()
+        map[getApplication<Application>().resources.getString(R.string.token)] = getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "园区类型",
             BaseUrl.BASE_URL + BaseUrl.PARK_TYPE_URL,
+            commitParam.toJson(commitParam),
+            onDialogGetListener
+        )
+    }
+
+    fun login(username: String, password: String) {
+        var commitParam = CommitParam()
+        commitParam.username = username
+        commitParam.password = password
+        var map = hashMapOf<String, String>()
+        map[getApplication<Application>().resources.getString(R.string.token)] = getUserId().value.toString()
+        noHttpRx.postHttpJson(
+            map,
+            "登录",
+            BaseUrl.BASE_URL + BaseUrl.LOGIN,
             commitParam.toJson(commitParam),
             onDialogGetListener
         )
@@ -228,7 +248,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         val mLocationManager =
             BaseApplication.application?.getSystemService(LOCATION_SERVICE) as LocationManager
         val providers = mLocationManager.getProviders(true)
-        bestLocation= Location("")
+        bestLocation = Location("")
         for (provider in providers) {
             bestLocation = mLocationManager.getLastKnownLocation(provider) ?: continue
         }
@@ -241,7 +261,9 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
 
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")// HH:mm:ss
 //获取当前时间
-        val date =Date(System.currentTimeMillis());
+        val date = Date(System.currentTimeMillis());
         return simpleDateFormat.format(date)
     }
+
+
 }

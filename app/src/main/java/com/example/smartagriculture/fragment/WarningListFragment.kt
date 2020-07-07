@@ -46,7 +46,7 @@ class WarningListFragment : BaseFragment<WarnMessageViewModel, FragmentWarningLi
         return R.layout.fragment_warning_list
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState:Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(WarnMessageViewModel::class.java)
         dataBinding.data=viewModel
         beanDataList= arguments?.getSerializable("title") as BeanDataList
@@ -72,7 +72,7 @@ class WarningListFragment : BaseFragment<WarnMessageViewModel, FragmentWarningLi
 
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
     }
 
     override fun setListener() {

@@ -21,14 +21,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.22" />
+            app:layout_constraintGuide_percent="0.25" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.28" />
+            app:layout_constraintGuide_percent="0.30" />
 
         <View
             android:layout_width="0mm"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1" />
+            app:layout_constraintGuide_percent="0.12" />
 
         <ImageView
             android:id="@+id/logo_iv"
@@ -61,7 +61,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mm_5"
+            android:layout_marginStart="@dimen/mm_10"
             android:text="@string/logo_description"
             android:textColor="@color/white"
             android:textSize="@dimen/mm_35"
@@ -112,6 +112,7 @@
             android:id="@+id/weather_linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mm_10"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@id/guideline7"
@@ -139,10 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/mm_5"
                 android:textColor="@color/white"
-                android:textSize="@dimen/mm_30"
-                app:layout_constraintBottom_toTopOf="@+id/guideline7"
-                app:layout_constraintStart_toEndOf="@+id/weather_iv"
-                app:layout_constraintTop_toTopOf="@+id/guideline6" />
+                android:textSize="@dimen/mm_25" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
@@ -150,12 +148,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.17" />
+            app:layout_constraintGuide_percent="0.20" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/notice_constraint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/guideline7"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintTop_toTopOf="@+id/guideline6">
 
@@ -186,8 +185,8 @@
                 android:id="@+id/notice_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@drawable/cycle_orange"
+                android:gravity="center"
                 android:minWidth="@dimen/mm_30"
                 android:textColor="@color/white"
                 android:textSize="@dimen/mm_17"
@@ -203,6 +202,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/mm_10"
+            app:layout_constraintBottom_toBottomOf="@id/guideline7"
             app:layout_constraintEnd_toStartOf="@+id/notice_constraint"
             app:layout_constraintTop_toTopOf="@+id/guideline6">
 
@@ -327,10 +327,10 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/mm_100"
             android:layout_marginEnd="@dimen/mm_30"
+            android:gravity="center"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/mm_10"
             android:paddingRight="@dimen/mm_10"
-            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@id/linearLayout"
             app:layout_constraintEnd_toEndOf="@id/linearLayout"
             app:layout_constraintTop_toTopOf="@id/linearLayout">

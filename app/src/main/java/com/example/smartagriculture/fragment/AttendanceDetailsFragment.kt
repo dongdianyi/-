@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,11 +27,8 @@ class AttendanceDetailsFragment : BaseFragment<AttendanceViewModel, FragmentAtte
         return R.layout.fragment_attendance_details
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel=ViewModelProvider(requireActivity()).get(AttendanceViewModel::class.java)
-    }
-
-    override fun initData() {
         attendanceAdapter =
             AttendanceAdapter(requireContext(), R.layout.attendance_item,
                 Identification.ATTENDANCE_PEASANT_CLOCK)
@@ -45,6 +43,10 @@ class AttendanceDetailsFragment : BaseFragment<AttendanceViewModel, FragmentAtte
             .build()
         attendance_recycle.addItemDecoration(divider)
         attendance_recycle.layoutManager = LinearLayoutManager(requireContext())
+
+    }
+
+    override fun lazyLoadData() {
 
     }
 

@@ -8,23 +8,29 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.SavedStateHandle
 import com.example.common.*
 import com.example.common.adapter.DropDownAdapter
 import com.example.common.bean.ParkType
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
 import com.example.common.data.Identification
+import com.example.common.data.Identification.Companion.ONE
 import com.example.common.model.NoHttpRx
 import com.example.common.myview.DropDownView
 import com.example.common.myview.TextDrawable
 import com.liqi.nohttputils.interfa.OnDialogGetListener
 
 
-open class BaseViewModel(application: Application) : AndroidViewModel(application) {
+open class BaseViewModel(
+    application: Application
+) : AndroidViewModel(application) {
+
     lateinit var dialogCircle: DialogCircle
     lateinit var parks: MutableList<ParkType>
     var onDialogGetListener: OnDialogGetListener? = null
-    var query = "1"
+    var query = ONE
     lateinit var noHttpRx: NoHttpRx
     var standId = 0
 
@@ -42,7 +48,7 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
                 0,
                 false
             )
-
+        dialogCircle.show()
         var sureButton = rootView.findViewById<Button>(R.id.sure_button)
         var closeIv = rootView.findViewById<ImageView>(R.id.close_iv)
         sureButton.setOnClickListener {
@@ -99,6 +105,10 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
                 override fun getStandTitle(standId: Int): String? {
                     return parks[standId].parkName
 
+                }
+
+                override fun getStandPark(standId: Int): String? {
+                    return parks[standId].smassifCount.toString()
                 }
 
                 override fun getStandStatus(standId: Int): String? {
@@ -203,6 +213,7 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
             onDialogGetListener
         )
     }
+
     fun getIp(): Unit {
         noHttpRx.getHttp(
             BaseUrl.GET_IP

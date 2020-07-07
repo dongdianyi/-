@@ -41,14 +41,9 @@ class ChatMailListFragment : BaseFragment<ChatViewModel, FragmentChatMailListBin
         return R.layout.fragment_chat_mail_list
     }
 
-    override fun initView(view: View) {
-    }
-
-    override fun initData() {
-
+    override fun initView(savedInstanceState:Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(ChatViewModel::class.java)
         title = arguments?.getString("title").toString()
-        viewModel.noHttpRx= NoHttpRx(this)
 
         chatAdapter =
             ChatAdapter(requireContext(), R.layout.chat_item, Identification.CHATMAILLIST)
@@ -61,6 +56,7 @@ class ChatMailListFragment : BaseFragment<ChatViewModel, FragmentChatMailListBin
             .build()
         chatmaillist_recycler.addItemDecoration(divider)
         chatmaillist_recycler.layoutManager = LinearLayoutManager(requireContext())
+        viewModel.noHttpRx= NoHttpRx(this)
 
         if (getString(R.string.maillist) ==title) {
             viewModel.getMailList("1244451714554269696","")
@@ -69,6 +65,11 @@ class ChatMailListFragment : BaseFragment<ChatViewModel, FragmentChatMailListBin
             viewModel.getMailListGroup("1244451714554269696","")
             search_tv.setHint(R.string.search_chat)
         }
+    }
+
+    override fun lazyLoadData() {
+
+
     }
 
     override fun setListener() {

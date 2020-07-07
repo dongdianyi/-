@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.common.base.BaseFragment
@@ -19,11 +20,11 @@ class RevisedInformationFragment :
         return R.layout.fragment_revised_information
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         textView.text=getString(R.string.information)
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
     }
     override fun setListener() {
         back.setOnClickListener {

@@ -1,6 +1,7 @@
 package com.example.smartagriculture.fragment
 
 import android.graphics.Color
+import android.os.Bundle
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -24,7 +25,6 @@ import com.example.smartagriculture.adapter.ParkAdapter
 import com.example.smartagriculture.databinding.FragmentSearchBinding
 import com.example.smartagriculture.util.nav
 import com.example.smartagriculture.viewmodel.MainViewModel
-import com.example.smartagriculture.viewmodel.SearchViewModel
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.google.gson.Gson
@@ -46,13 +46,13 @@ class SearchFragment : BaseFragment<MainViewModel, FragmentSearchBinding>() {
         return R.layout.fragment_search
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel=ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         textView.text=resources.getText(R.string.search)
         flag= arguments?.getInt("flag") ?: DEFAULT
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
         when (flag) {
             PARK -> {
                 search_tv.hint=getString(R.string.search_park)

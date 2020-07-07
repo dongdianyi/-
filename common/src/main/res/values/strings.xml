@@ -1,8 +1,6 @@
 <resources>
     <string name="load">加载中…</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <string name="home">首页</string>
@@ -10,6 +8,16 @@
     <string name="attendance">考勤</string>
     <string name="distribution">分布</string>
     <string name="mine">我的</string>
+
+
+    <string name="LOGIN_NAME">login_name</string>
+    <string name="LOGIN_PWD">login_pwd</string>
+    <string name="LOGIN_PHONE">login_phone</string>
+    <string name="USERID">userid</string>
+    <string name="COMPANYID">companyid</string>
+    <string name="SHP_NAME">smart_agriculture</string>
+
+
 
     <string name="top_bg_description" >首页上部图片</string>
     <string name="logo_description">智慧农业平台</string>
@@ -55,6 +63,14 @@
     <string name="all_day">全部</string>
     <string name="search_park">请输入搜索地块</string>
     <string name="maillist">个人</string>
+    <string name="group_person">群成员</string>
     <string name="chat_group">群聊</string>
     <string name="no_net">当前无网络</string>
+    <string name="chat_dialog_title">群名称:</string>
+    <string name="create">创建</string>
+    <string name="weather_city">城市：%1$s</string>
+    <string name="today">今天</string>
+    <string name="tomorrow">明天</string>
+    <string name="after_tomorrow">后天</string>
+    <string name="token">Authorization</string>
 </resources>

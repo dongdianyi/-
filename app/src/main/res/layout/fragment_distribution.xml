@@ -59,14 +59,14 @@
             app:layout_constraintTop_toTopOf="@+id/guideline31" />
 
 
-<!--        <com.tianditu.android.maps.MapView-->
-<!--            android:id="@+id/distribution_mapview"-->
-<!--            android:layout_width="0mm"-->
-<!--            android:layout_height="0mm"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/view" />-->
+        <com.amap.api.maps.MapView
+            android:id="@+id/map"
+            android:layout_width="0mm"
+            android:layout_height="0mm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

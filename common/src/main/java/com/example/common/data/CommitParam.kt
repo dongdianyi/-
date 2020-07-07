@@ -2,6 +2,7 @@ package com.example.common.data
 
 import com.google.gson.Gson
 import java.io.Serializable
+import java.util.*
 
 
 /**
@@ -26,8 +27,14 @@ class CommitParam : Serializable {
     var productName:String?=null
     var informationId:String?=null
     var userId:String?=null
+    lateinit var userIds:MutableList<Map<String,String>>
     var name:String?=null
     var ip:String?=null
+    var chatUser:String?=null
+    var category:String?=null
+    var groupid:String?=null
+    var username:String?=null
+    var password:String?=null
 
 
     fun toJson(commitParam: CommitParam): String {

@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.SavedStateViewModelFactory
@@ -40,13 +41,9 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() ,CancelA
         return R.layout.fragment_main
     }
 
-    override fun initView(view:View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity(),SavedStateViewModelFactory(requireActivity().application,this)).get(MainViewModel::class.java)
         dataBinding.data = viewModel
-    }
-
-    override fun initData() {
-
         //初始化viewpager2
         dataBinding.mainViewpager.init(this,fragments,false).run {
             offscreenPageLimit = fragments.size
@@ -71,6 +68,9 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() ,CancelA
 
 
         }
+    }
+
+    override fun lazyLoadData() {
     }
 
 }

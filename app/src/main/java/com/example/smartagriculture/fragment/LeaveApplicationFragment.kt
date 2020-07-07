@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import com.example.common.base.BaseFragment
@@ -20,10 +21,10 @@ class LeaveApplicationFragment : BaseFragment<AttendanceViewModel, FragmentLeave
         return R.layout.fragment_leave_application
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
     }
 
     override fun setListener() {

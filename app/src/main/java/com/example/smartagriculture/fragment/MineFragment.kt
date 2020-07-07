@@ -1,9 +1,11 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.common.base.BaseFragment
+import com.example.common.model.NoHttpRx
 
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentMineBinding
@@ -19,12 +21,13 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
         return R.layout.fragment_mine
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel=ViewModelProvider(requireActivity()).get(MineViewModel::class.java)
     }
 
-    override fun initData() {
-
+    override fun lazyLoadData() {
+        viewModel.noHttpRx= NoHttpRx(this)
+        viewModel.getInformation()
     }
 
     override fun setListener() {
@@ -45,4 +48,7 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
         }
     }
 
+    override fun toData(flag: String?, `object`: String?) {
+        super.toData(flag, `object`)
+    }
 }

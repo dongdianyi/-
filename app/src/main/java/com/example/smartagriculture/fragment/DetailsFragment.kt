@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -34,7 +35,7 @@ class DetailsFragment : BaseFragment<DataViewModel, FragmentDetailsBinding>() {
         return R.layout.fragment_details
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(DataViewModel::class.java)
         ids = arguments?.getInt("id") ?: ids
         flag = arguments?.getInt("flag") ?: flag
@@ -45,7 +46,7 @@ class DetailsFragment : BaseFragment<DataViewModel, FragmentDetailsBinding>() {
 
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
         when (flag) {
             WARNINGLIST -> {
                 if (ids != -1) {

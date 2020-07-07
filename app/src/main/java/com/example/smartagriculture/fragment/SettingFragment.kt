@@ -1,6 +1,7 @@
 package com.example.smartagriculture.fragment
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -25,12 +26,12 @@ class SettingFragment : BaseFragment<MineViewModel, FragmentSettingBinding>() {
         return R.layout.fragment_setting
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel=ViewModelProvider(requireActivity()).get(MineViewModel::class.java)
     }
 
     @SuppressLint("SetTextI18n")
-    override fun initData() {
+    override fun lazyLoadData() {
         textView.text=getString(R.string.setting)
         textView123.text="版本："+AppUtils.getAppName(BaseApplication.context)+"  "+AppUtils.getVersionName(BaseApplication.context)
     }

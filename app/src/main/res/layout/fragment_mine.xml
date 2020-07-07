@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.17" />
+            app:layout_constraintGuide_percent="0.11" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline44"
@@ -70,7 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline44" />
 
-
+<!--
         <TextView
             android:id="@+id/time_tv"
             android:layout_width="wrap_content"
@@ -156,7 +156,7 @@
                 app:layout_constraintStart_toStartOf="@+id/notice_iv"
                 app:layout_constraintTop_toTopOf="@+id/notice_iv"
                 tools:text="23" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"

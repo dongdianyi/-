@@ -104,11 +104,24 @@
     <fragment
         android:id="@+id/chatDetailsFragment"
         android:name="com.example.smartagriculture.fragment.ChatDetailsFragment"
-        android:label="ChatDetailsFragment" />
+        android:label="ChatDetailsFragment" >
+        <action
+            android:id="@+id/action_chatDetailsFragment_to_groupPersonFragment"
+            app:destination="@id/groupPersonFragment" />
+        <action
+            android:id="@+id/action_chatDetailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/createChatFragment"
         android:name="com.example.smartagriculture.fragment.CreateChatFragment"
-        android:label="CreateChatFragment" />
+        android:label="CreateChatFragment" >
+        <action
+            android:id="@+id/action_createChatFragment_to_chatDetailsFragment"
+            app:destination="@id/chatDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mailListFragment"
         android:name="com.example.smartagriculture.fragment.MailListFragment"
@@ -165,4 +178,8 @@
         android:id="@+id/problemFragment"
         android:name="com.example.smartagriculture.fragment.ProblemFragment"
         android:label="ProblemFragment" />
+    <fragment
+        android:id="@+id/groupPersonFragment"
+        android:name="com.example.smartagriculture.fragment.GroupPersonFragment"
+        android:label="GroupPersonFragment" />
 </navigation>

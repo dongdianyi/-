@@ -1,5 +1,6 @@
 package com.example.smartagriculture.fragment
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -29,12 +30,12 @@ class AttendanceSelectFragment :
         return R.layout.fragment_attendance_select
     }
 
-    override fun initView(view: View) {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(AttendanceViewModel::class.java)
         textView.text=getString(R.string.select_details)
     }
 
-    override fun initData() {
+    override fun lazyLoadData() {
         attendanceAdapter =
             AttendanceAdapter(
                 requireContext(),

@@ -1,8 +1,6 @@
 package com.example.common.bean
 
 import java.io.Serializable
-import java.io.StringReader
-
 
 data class Bean(
     val code: String,
@@ -30,12 +28,25 @@ data class BeanData(
     val warntime: String,
     val warntype: String,
     val title: String,
+    val groupName: String,
+    val groupId: Int,
     val id: Int,
     val count: Int,
     val rows: List<Row>,
     val detail: Detail,
-    val list: List<Weather>
+    val list: List<Weather>,
+    val userid: String,
+    val companyid: String,
+    val usermsg: UserMsg
 
+
+
+)
+
+data class UserMsg (
+    val telephone:String?,
+    val userName:String?,
+    val photo:String?
 )
 
 data class BeanList(
@@ -82,7 +93,14 @@ data class BeanDataList(
     val statu: String,
     val question: String,
     val answer: String,
-    val userName: String
+    val userName: String,
+    val category: String,
+    val chatContent: String,
+    val chatTime: String,
+    val chatUser: String,
+    val sendname: String,
+    val userId: String,
+    var isChoose: Boolean =false
 
 
 
@@ -183,7 +201,8 @@ data class Detail(
     val humidity: String,
     val pressure: String,
     val tem: String,
-    val win_speed: String
+    val win_speed: String,
+    val wea_img1: String
 )
 
 data class Weather (

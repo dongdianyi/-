@@ -14,12 +14,16 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        dataBinding.enabled true
 
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
             }
+        }
+
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","x86_64"
         }
     }
 
@@ -29,6 +33,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding.enabled true
+
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
@@ -76,5 +82,11 @@ dependencies {
 
     //天气
     implementation 'com.github.cjhandroid:WeatherView:v1.0.0'
+
+
+    //高德
+    implementation 'com.amap.api:3dmap:latest.integration'
+    //定位
+    implementation 'com.amap.api:location:latest.integration'
 
 }

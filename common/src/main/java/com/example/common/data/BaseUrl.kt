@@ -10,6 +10,8 @@ companion object{
 
     const val BASE_URL3="http://192.168.1.17:8888"
 
+    const val BASE_URL4="http://192.168.1.17:8807"
+
     //公网ip
     const val GET_IP = "http://www.3322.org/dyndns/getip"
 
@@ -60,6 +62,30 @@ companion object{
     const val MAINLIST_GROUP="/sys/v1/chat/chatgrouplist"
 
     //个人聊天记录带最后一条记录
-    const val CHATRECORD="/sys/v1/chat/chatmessageperson"
+    const val CHATMESSAGE="/sys/v1/chat/chatmessageperson"
+
+    //聊天记录
+    const val CHATRECORD="/sys/v1/chat/getChatRecord"
+
+    //创建群聊
+    const val CREATECHAT="/sys/v1/chat/groupadd"
+
+    //群成员
+    const val GROUPPERSON="/sys/v1/chat/grouppersonhave"
+
+    //修改群
+    const val UPDATEGROUP="/sys/v1/chat/groupupdate"
+
+    //聊天数据发送
+    const val CHATSOCKET="ws://192.168.2.136:8807/app/v1/socketchat/"
+
+    //登录
+    const val LOGIN="/sys/v1/pclogin"
+
+    //修改密码
+    const val UPDATEPWD="/pc/v1/updatepassword"
+
+    //个人资料
+    const val INGORMATION="/pc/v1/agte/information"
 }
 }

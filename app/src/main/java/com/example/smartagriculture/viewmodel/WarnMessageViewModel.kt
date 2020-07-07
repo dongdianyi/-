@@ -2,13 +2,16 @@ package com.example.smartagriculture.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import com.example.common.base.BaseViewModel
 import com.example.common.bean.BeanDataList
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
 import com.example.common.model.NoHttpRx
 
-class WarnMessageViewModel(application: Application) : BaseViewModel(application) {
+class WarnMessageViewModel(application: Application,
+                           savedStateHandle: SavedStateHandle
+) : BaseViewModel(application) {
 
 
     var total= MutableLiveData<Int>()

@@ -84,7 +84,7 @@ public class NoHttpRx implements IModelBiz {
                             JSONObject jsonObject = new JSONObject(s);
                             if (TextUtils.isEmpty(s) || s.equals("") || s.trim().equals("")) {
                                 iView.fail(false, flag, new Throwable("亲！取得数据为空"));
-                            } else if ("200".equals(jsonObject.getString("code"))) {
+                            } else if ("200".equals(jsonObject.getString("code"))||"20000".equals(jsonObject.getString("code"))) {
                                 iView.toData(flag, s);
                             } else {
                                 iView.fail(false, flag, new Throwable(jsonObject.getString("msg")));
@@ -123,7 +123,7 @@ public class NoHttpRx implements IModelBiz {
                             JSONObject jsonObject = new JSONObject(s);
                             if (TextUtils.isEmpty(s) || s.equals("") || s.trim().equals("")) {
                                 iView.fail(false, flag, new Throwable("亲！取得数据为空"));
-                            } else if ("200".equals(jsonObject.getString("code"))) {
+                            } else if ("200".equals(jsonObject.getString("code"))||"20000".equals(jsonObject.getString("code"))) {
                                 iView.toData(flag, s);
                             } else {
                                 iView.fail(false, flag, new Throwable(jsonObject.getString("msg")));
@@ -199,7 +199,7 @@ public class NoHttpRx implements IModelBiz {
                             JSONObject jsonObject = new JSONObject(s);
                             if (TextUtils.isEmpty(s) || s.equals("") || s.trim().equals("")) {
                                 iView.fail(false, flag, new Throwable("亲！取得数据为空"));
-                            } else if ("200".equals(jsonObject.getString("code"))) {
+                            } else if ("200".equals(jsonObject.getString("code"))||"20000".equals(jsonObject.getString("code"))) {
                                 iView.toData(flag, s);
                             } else {
                                 iView.fail(false, flag, new Throwable(jsonObject.getString("msg")));
