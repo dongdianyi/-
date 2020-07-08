@@ -13,6 +13,7 @@
         android:paddingTop="@dimen/mm_5"
         android:paddingEnd="@dimen/mm_10"
         android:paddingBottom="@dimen/mm_5"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/mm_23"
         app:layout_constraintBottom_toBottomOf="parent"

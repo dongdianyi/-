@@ -59,4 +59,6 @@
     <string name="input_loginname">请输入您的用户名/手机号</string>
     <string name="input_loginpwd">请输入您的密码</string>
     <string name="company">版权@山东科翔软件科有限公司</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="sure_clear_cache">确定清除缓存？</string>
 </resources>

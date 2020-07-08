@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+<variable
+    name="data"
+    type="com.example.smartagriculture.viewmodel.MineViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,7 +80,7 @@
                 android:layout_width="0mm"
                 android:layout_height="0mm"
                 android:gravity="center_vertical"
-                android:text="清除缓存"
+                android:text="@string/clear_cache"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/mm_30"
                 app:layout_constraintBottom_toTopOf="@+id/divider39"
@@ -93,6 +95,18 @@
                 android:src="@mipmap/more_iv"
                 app:layout_constraintBottom_toBottomOf="@+id/textView125"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider38" />
+            <TextView
+                android:id="@+id/textView137"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/textView125"
+                android:textColor="@color/title_gray"
+                android:layout_marginEnd="@dimen/mm_20"
+                android:textSize="@dimen/mm_23"
+                android:text="@{data.getCache}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/imageView44"
                 app:layout_constraintTop_toBottomOf="@+id/divider38" />
 
             <View
@@ -126,7 +140,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/textView128"
                 app:layout_constraintEnd_toEndOf="@+id/textView128"
                 app:layout_constraintTop_toBottomOf="@+id/divider39" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+              </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline72"

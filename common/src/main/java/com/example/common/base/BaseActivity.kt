@@ -15,7 +15,8 @@ import com.jaeger.library.StatusBarUtil
 import com.liqi.nohttputils.interfa.OnDialogGetListener
 import me.jessyan.autosize.AutoSizeCompat
 
-abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompatActivity(),IView ,OnDialogGetListener{
+abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompatActivity(), IView,
+    OnDialogGetListener {
 
     lateinit var viewModel: VM
     lateinit var dataBinding: DB
@@ -24,15 +25,16 @@ abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideTopUIMenu()
-        if (initLayout() !=0) {
+        if (initLayout() != 0) {
             dataBinding = DataBindingUtil.setContentView(this, initLayout())
             initView()
             initData()
         }
     }
-    abstract fun initLayout():Int
+
+    abstract fun initLayout(): Int
     abstract fun initView()
-    abstract fun  initData()
+    abstract fun initData()
 
     /**
      * 沉浸式导航栏
@@ -72,6 +74,7 @@ abstract class BaseActivity <VM : BaseViewModel, DB : ViewDataBinding>: AppCompa
 
     override fun fail(isNetWork: Boolean, flag: String?, t: Throwable?) {
     }
+
     override fun getDialog(): Dialog {
         if (null == mDialog) {
             mDialog = CustomDialog(

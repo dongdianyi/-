@@ -53,8 +53,8 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        noHttpRx= NoHttpRx(this)
         initView(savedInstanceState)
+        noHttpRx= NoHttpRx(this)
         onVisible()
         initData()
         setListener()

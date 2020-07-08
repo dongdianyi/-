@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
@@ -34,30 +35,6 @@ open class BaseViewModel(
     lateinit var noHttpRx: NoHttpRx
     var standId = 0
 
-
-    fun showDialogBase(activity: Activity, flag: Int, layout: Int): Unit {
-        val rootView =
-            View.inflate(activity, layout, null)
-        dialogCircle =
-            getPop(
-                activity,
-                rootView,
-                2,
-                3,
-                Gravity.CENTER,
-                0,
-                false
-            )
-        dialogCircle.show()
-        var sureButton = rootView.findViewById<Button>(R.id.sure_button)
-        var closeIv = rootView.findViewById<ImageView>(R.id.close_iv)
-        sureButton.setOnClickListener {
-            dialogCircle.dismiss()
-        }
-        closeIv.setOnClickListener {
-            dialogCircle.dismiss()
-        }
-    }
 
     lateinit var adapter: DropDownAdapter
     var selectedStandId = 0
@@ -238,4 +215,5 @@ open class BaseViewModel(
         }
         return null
     }
+
 }

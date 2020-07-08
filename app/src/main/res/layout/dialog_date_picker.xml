@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/mm_10">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/mm_10"
+            android:text="@string/cancle"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/mm_23"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0mm"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/selete_time"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/mm_23"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/mm_10"
+            android:text="@string/sure"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/mm_23"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/mm_2"
+        android:background="@color/line_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/mm_16">
+
+        <com.example.smartagriculture.util.DatePickerView
+            android:id="@+id/mmv_year"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_300"
+            android:layout_weight="3" />
+
+        <TextView
+            android:id="@+id/tv_year_unit"
+            android:layout_width="0mm"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/year"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/mm_23" />
+
+        <com.example.smartagriculture.util.DatePickerView
+            android:id="@+id/mmv_month"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_300"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/tv_month_unit"
+            android:layout_width="0mm"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/month"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/mm_23" />
+
+        <com.example.smartagriculture.util.DatePickerView
+            android:id="@+id/mmv_day"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_300"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/tv_day_unit"
+            android:layout_width="0mm"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/day"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/mm_23" />
+
+        <com.example.smartagriculture.util.DatePickerView
+            android:id="@+id/mmv_hour"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_300"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/tv_hour_unit"
+            android:layout_width="0mm"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/hour"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/mm_23" />
+
+        <com.example.smartagriculture.util.DatePickerView
+            android:id="@+id/mmv_minute"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_300"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/tv_minute_unit"
+            android:layout_width="0mm"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/min"
+            android:textColor="@color/title_gray"
+            android:textSize="@dimen/mm_23" />
+
+    </LinearLayout>
+
+</LinearLayout>

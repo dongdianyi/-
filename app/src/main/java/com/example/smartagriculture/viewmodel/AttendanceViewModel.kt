@@ -8,6 +8,7 @@ import com.example.common.base.BaseViewModel
 import com.example.smartagriculture.R
 import com.example.smartagriculture.util.nav
 
+
 class AttendanceViewModel(application: Application,
                           savedStateHandle: SavedStateHandle
 ) : BaseViewModel(application) {
@@ -26,4 +27,7 @@ class AttendanceViewModel(application: Application,
     fun toSelect(view:View): Unit {
         nav(view).navigate(R.id.action_mainFragment_to_attendanceSelectFragment)
     }
+
+
+
 }

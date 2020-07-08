@@ -3,6 +3,7 @@ package com.example.smartagriculture.activity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.common.base.BaseActivity
+import com.example.common.model.NoHttpRx
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityMainBinding
 import com.example.smartagriculture.util.AndroidBug5497Workaround
@@ -24,9 +25,17 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     override fun initData() {
         AndroidBug5497Workaround.assistActivity(this)
         viewModel.getLocation(this)
+        viewModel.noHttpRx= NoHttpRx(this)
+        viewModel.getAppRole()
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return Navigation.findNavController(this, R.id.main_navigation).navigateUp()
+    }
+
+    override fun toData(flag: String?, `object`: String?) {
+        super.toData(flag, `object`)
+
     }
 }

@@ -28,6 +28,8 @@ class SettingFragment : BaseFragment<MineViewModel, FragmentSettingBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         viewModel=ViewModelProvider(requireActivity()).get(MineViewModel::class.java)
+        dataBinding.data=viewModel
+        dataBinding.lifecycleOwner=this
     }
 
     @SuppressLint("SetTextI18n")
@@ -37,8 +39,11 @@ class SettingFragment : BaseFragment<MineViewModel, FragmentSettingBinding>() {
     }
 
     override fun setListener() {
+        textView125.setOnClickListener {
+            viewModel.showDialogBase(requireActivity(),getString(R.string.clear_cache),getString(R.string.sure_clear_cache),R.layout.dialog_layout)
+        }
         textView128.setOnClickListener {
-            viewModel.showDialogBase(requireActivity(),EXIT,R.layout.dialog_layout)
+            viewModel.showDialogBase(requireActivity(),getString(R.string.exit),getString(R.string.sure_exit),R.layout.dialog_layout)
         }
         back.setOnClickListener {
             nav().navigateUp()

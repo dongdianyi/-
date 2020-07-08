@@ -2,6 +2,7 @@ package com.example.common.model;
 
 import android.text.TextUtils;
 
+import com.example.common.R;
 import com.example.common.data.BaseUrl;
 import com.example.common.view.IView;
 import com.liqi.nohttputils.RxNoHttpUtils;
@@ -27,7 +28,7 @@ public class NoHttpRx implements IModelBiz {
 
     //get请求
     @Override
-    public void getHttp(String header, final String flag, String url, Map mapParameter, OnDialogGetListener onDialogGetListener) {
+    public void getHttp(Map header, final String flag, String url, Map mapParameter, final OnDialogGetListener onDialogGetListener) {
         RxNoHttpUtils.rxNohttpRequest()
                 .get()
                 .url(BaseUrl.BASE_URL + url)
@@ -80,6 +81,9 @@ public class NoHttpRx implements IModelBiz {
                 .builder(String.class, new OnIsRequestListener<String>() {
                     @Override
                     public void onNext(String s) {
+                        if (null != onDialogGetListener && onDialogGetListener.getDialog() != null) {
+                            onDialogGetListener.getDialog().dismiss();
+                        }
                         try {
                             JSONObject jsonObject = new JSONObject(s);
                             if (TextUtils.isEmpty(s) || s.equals("") || s.trim().equals("")) {
@@ -99,6 +103,9 @@ public class NoHttpRx implements IModelBiz {
 
                     @Override
                     public void onError(Throwable throwable) {
+                        if (null != onDialogGetListener && onDialogGetListener.getDialog() != null) {
+                            onDialogGetListener.getDialog().dismiss();
+                        }
                         iView.fail(false, flag, throwable);
                     }
                 })
@@ -106,7 +113,7 @@ public class NoHttpRx implements IModelBiz {
     }
 
     @Override
-    public void getHttp(String header, final String flag, String url, final OnDialogGetListener onDialogGetListener) {
+    public void getHttp(Map header, final String flag, String url, final OnDialogGetListener onDialogGetListener) {
         RxNoHttpUtils.rxNohttpRequest()
                 .get()
                 .url(BaseUrl.BASE_URL + url)

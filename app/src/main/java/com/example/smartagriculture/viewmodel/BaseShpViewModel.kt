@@ -4,7 +4,9 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
+import com.example.common.R
 import com.example.common.base.BaseViewModel
+import com.example.common.data.CommitParam
 
 open class BaseShpViewModel(
     application: Application,
@@ -23,7 +25,7 @@ open class BaseShpViewModel(
         getApplication<Application>().resources.getString(com.example.common.R.string.COMPANYID)
     var shpName =
         getApplication<Application>().resources.getString(com.example.common.R.string.SHP_NAME)
-
+    lateinit var map: Map<String,String>
     fun init(): Unit {
         if (!savedStateHandle.contains(userId)) {
             load()
@@ -55,6 +57,9 @@ open class BaseShpViewModel(
     fun getUserId(): LiveData<String> {
         return savedStateHandle.getLiveData(userId)
     }
+//    fun getUserId(): LiveData<String> {
+//        return savedStateHandle.getLiveData(userId)
+//    }
 
     fun save(name: String?, pwd: String,  phone: String?, userid: String, companyid: String) {
         savedStateHandle.set(loginName, name)
@@ -75,6 +80,10 @@ open class BaseShpViewModel(
         editor.putString(companyId, companyid)
         editor.apply()
     }
-
+    fun setHeader(): Unit {
+        map = hashMapOf<String, String>()
+        (map as HashMap<String, String>)[getApplication<Application>().resources.getString(R.string.token)] = getUserId().value.toString()
+        (map as HashMap<String, String>)[getApplication<Application>().resources.getString(R.string.cookie)] = getUserId().value.toString()
+    }
 
 }

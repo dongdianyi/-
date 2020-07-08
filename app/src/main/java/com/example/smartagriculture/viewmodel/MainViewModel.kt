@@ -28,6 +28,8 @@ import com.example.common.data.Identification.Companion.SCREEN
 import com.example.common.data.Identification.Companion.STOCK
 import com.example.common.getPop
 import com.example.smartagriculture.R
+import com.example.smartagriculture.db.Massif
+import com.example.smartagriculture.db.MassifRepository
 import com.example.smartagriculture.util.nav
 import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.park_dialog.view.*
@@ -43,6 +45,31 @@ class MainViewModel(
     var flag: Int = DEFAULT
     lateinit var bestLocation: Location
 
+    lateinit var massifRepository: MassifRepository
+
+    fun initMassif(): Unit {
+        massifRepository = MassifRepository(getApplication())
+    }
+
+    fun getAllMassif(): LiveData<MutableList<Massif>>? {
+        return massifRepository.getListLiveData()
+    }
+
+    fun insert(vararg massif: Massif): Unit {
+        massifRepository.insert(*massif)
+    }
+
+    fun update(vararg massif: Massif): Unit {
+        massifRepository.update(*massif)
+    }
+
+    fun delete(vararg massif: Massif): Unit {
+        massifRepository.delete(*massif)
+    }
+
+    fun clear(): Unit {
+        massifRepository.clear()
+    }
 
 
     fun showDialog(activity: Activity, flag: Int) {
@@ -171,14 +198,18 @@ class MainViewModel(
     }
 
     fun getNotice() {
-        noHttpRx.getHttp("token", "系统通知", BaseUrl.NOTICE_NUM, onDialogGetListener)
+        var map = hashMapOf<String, String>()
+        map[getApplication<Application>().resources.getString(R.string.token)] =
+            getUserId().value.toString()
+        noHttpRx.getHttp(map, "系统通知", BaseUrl.NOTICE_NUM, onDialogGetListener)
     }
 
     fun getParkType() {
         var commitParam = CommitParam()
         commitParam.companyId = "1"
         var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] = getUserId().value.toString()
+        map[getApplication<Application>().resources.getString(R.string.token)] =
+            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "园区类型",
@@ -193,7 +224,8 @@ class MainViewModel(
         commitParam.username = username
         commitParam.password = password
         var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] = getUserId().value.toString()
+        map[getApplication<Application>().resources.getString(R.string.token)] =
+            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "登录",
@@ -201,6 +233,13 @@ class MainViewModel(
             commitParam.toJson(commitParam),
             onDialogGetListener
         )
+    }
+
+    fun getAppRole() {
+        var map = hashMapOf<String, String>()
+        map[getApplication<Application>().resources.getString(R.string.token)] =
+            getUserId().value.toString()
+        noHttpRx.getHttp(map, "考勤权限", BaseUrl.GETAPPROLE, onDialogGetListener)
     }
 
     fun getLocation(activity: FragmentActivity): Unit {

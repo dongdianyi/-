@@ -149,7 +149,6 @@ class ChatViewModel(
         var map = hashMapOf<String, String>()
         map[getApplication<Application>().resources.getString(R.string.token)] =
             getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "修改群",

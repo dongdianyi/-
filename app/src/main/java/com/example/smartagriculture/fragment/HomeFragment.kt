@@ -94,7 +94,6 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         ARouter.getInstance().inject(this)  // Start auto inject.
         time_tv.text=viewModel.getDate()
         viewModel.noHttpRx = NoHttpRx(this)
-        viewModel.onDialogGetListener = this
         viewModel.getParkType()
         viewModel.getIp()
     }

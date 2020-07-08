@@ -87,5 +87,8 @@ companion object{
 
     //个人资料
     const val INGORMATION="/pc/v1/agte/information"
+
+    //获取app考勤权限
+    const val GETAPPROLE="/bus/v1/app/api/attendance/getAppRole"
 }
 }
