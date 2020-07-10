@@ -93,41 +93,4 @@ public class CommentExpandAdapter extends ExpandableRecyclerAdapter<CommentItem>
 
     }
 
-    public ArrayList<CommentItem> getSampleItems() {
-        ArrayList<CommentItem> items = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            items.add(new CommentItem("Friends"));
-            items.add(new CommentItem("有心课堂的创始人...", "Stay"));
-            items.add(new CommentItem("听说他自定义view本事强", "谷歌的小弟"));
-            items.add(new CommentItem("听说他优化性能本事强", "Star"));
-            items.add(new CommentItem("踏实、谦虚、勤奋、上进...", "will"));
-        }
-
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Smith"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Doe"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Hall"));
-        items.add(new CommentItem("Associates"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Jones"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Smith"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Hall"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Lake"));
-        items.add(new CommentItem("Colleagues"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Jones"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Smith"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Hall"));
-        items.add(new CommentItem("Có thể thoải mái mở rộng 1 class, nhưng không được sửa đổi bên trong class đó \n" +
-                "(open for extension but closed for modification)", "Lake"));
-
-        return items;
-    }
 }

@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.common.LogUtil
 import com.liqi.nohttputils.RxNoHttpUtils
 import com.liqi.nohttputils.nohttp.NoHttpInit
+import com.yanzhenjie.nohttp.OkHttpNetwork
 import me.jessyan.autosize.AutoSize
 import me.jessyan.autosize.AutoSizeConfig
 import me.jessyan.autosize.onAdaptListener

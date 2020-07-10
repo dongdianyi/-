@@ -4,7 +4,6 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
-import android.content.Context
 import android.content.Context.LOCATION_SERVICE
 import android.location.Location
 import android.location.LocationManager
@@ -20,6 +19,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.common.LogUtil
 import com.example.common.ToastUtil
 import com.example.common.base.BaseApplication
+import com.example.common.clickNoRepeat
 import com.example.common.data.BaseField
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
@@ -71,7 +71,6 @@ class MainViewModel(
         massifRepository.clear()
     }
 
-
     fun showDialog(activity: Activity, flag: Int) {
 
         rootView =
@@ -111,10 +110,10 @@ class MainViewModel(
                 }
             }
         }
-        rootView.cancel_button.setOnClickListener {
+        rootView.cancel_button.clickNoRepeat {
             dismissDialog()
         }
-        rootView.sure_button.setOnClickListener {
+        rootView.sure_button.clickNoRepeat {
             dismissDialog()
             sureBtnClick()
             when (flag) {
@@ -140,7 +139,17 @@ class MainViewModel(
             }
         }
         dialogCircle =
-            getPop(activity, rootView, 1, 3, Gravity.BOTTOM, R.style.BottomDialog_Animation, false)
+            getPop(
+                activity,
+                rootView,
+                1,
+                3,
+                Gravity.BOTTOM,
+                R.style.BottomDialog_Animation,
+                false,
+                0,
+                0
+            )
         dialogCircle.show()
     }
 
@@ -198,18 +207,12 @@ class MainViewModel(
     }
 
     fun getNotice() {
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.getHttp(map, "系统通知", BaseUrl.NOTICE_NUM, onDialogGetListener)
     }
 
     fun getParkType() {
         var commitParam = CommitParam()
         commitParam.companyId = "1"
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "园区类型",
@@ -223,9 +226,6 @@ class MainViewModel(
         var commitParam = CommitParam()
         commitParam.username = username
         commitParam.password = password
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "登录",
@@ -236,9 +236,6 @@ class MainViewModel(
     }
 
     fun getAppRole() {
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.getHttp(map, "考勤权限", BaseUrl.GETAPPROLE, onDialogGetListener)
     }
 

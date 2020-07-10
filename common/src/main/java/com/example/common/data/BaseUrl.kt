@@ -8,7 +8,7 @@ companion object{
 
     const val BASE_URL2="http://192.168.2.182:8888"
 
-    const val BASE_URL3="http://192.168.1.17:8888"
+    const val BASE_URL3="http://192.168.2.140:8855"
 
     const val BASE_URL4="http://192.168.1.17:8807"
 
@@ -86,9 +86,15 @@ companion object{
     const val UPDATEPWD="/pc/v1/updatepassword"
 
     //个人资料
-    const val INGORMATION="/pc/v1/agte/information"
+    const val INGORMATION="/sys/v1/agte/information"
 
     //获取app考勤权限
     const val GETAPPROLE="/bus/v1/app/api/attendance/getAppRole"
+
+    //获取打卡状态
+    const val GETPUNCHRECORD="/bus/v1/app/api/attendance/getPunchRecordState"
+
+    //打卡提交
+    const val PUNCHRECORD="/bus/v1/app/api/attendance/punchRecord"
 }
 }

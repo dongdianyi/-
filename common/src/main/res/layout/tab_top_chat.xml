@@ -16,7 +16,7 @@
         android:gravity="center"
         android:paddingEnd="@dimen/mm_10"
         android:paddingBottom="@dimen/mm_5"
-        android:textColor="@color/blue"
+        android:textColor="@color/white"
         android:textSize="@dimen/mm_30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

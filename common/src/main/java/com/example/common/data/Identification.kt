@@ -26,6 +26,8 @@ interface Identification {
 
         //交流
         const val CHAT=3
+        //群成员
+        const val GROUP_PERSON=31
         //交流详情
         const val CHATDETAILS=4
         //通讯录

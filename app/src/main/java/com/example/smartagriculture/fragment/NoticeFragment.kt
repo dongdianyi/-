@@ -9,6 +9,7 @@ import com.example.common.base.BaseApplication
 import com.example.common.base.BaseFragment
 import com.example.common.bean.Bean
 import com.example.common.bean.BeanList
+import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.HomeAdapter
 import com.example.smartagriculture.databinding.FragmentNoticeBinding
@@ -65,7 +66,7 @@ class NoticeFragment : BaseFragment<DataViewModel, FragmentNoticeBinding>() {
 
 
     override fun setListener() {
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
         mLRecycleViewAdapter.setNbOnItemClickListener { view, position ->

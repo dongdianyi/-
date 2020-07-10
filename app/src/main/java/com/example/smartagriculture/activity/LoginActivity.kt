@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.common.*
 import com.example.common.base.BaseActivity
 import com.example.common.bean.Bean
+import com.example.common.data.BaseUrl
 import com.example.common.model.NoHttpRx
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.ActivityLoginBinding
@@ -29,7 +30,7 @@ class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>() {
         ).get(MainViewModel::class.java)
         dataBinding.data = viewModel
         dataBinding.lifecycleOwner = this
-        viewModel.init()
+        viewModel.noHttpRx = NoHttpRx(this)
     }
 
     override fun initData() {
@@ -106,7 +107,7 @@ class LoginActivity : BaseActivity<MainViewModel, ActivityLoginBinding>() {
         when (flag) {
             "登录" -> {
                 val bean= Gson().fromJson(`object`, Bean::class.java)
-                viewModel.save(editText4.text.toString(), editText5.text.toString(),bean.data.usermsg.telephone,bean.data.userid,bean.data.companyid)
+                viewModel.save(editText4.text.toString(), editText5.text.toString(),bean.data.usermsg.telephone,bean.data.userid,bean.data.companyid,bean.data.Cookie)
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
             }

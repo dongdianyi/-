@@ -8,6 +8,7 @@ import com.androidkun.xtablayout.XTabLayout
 import com.androidkun.xtablayout.XTabLayout.OnTabSelectedListener
 import com.example.common.base.BaseFragment
 import com.example.common.bean.BeanList
+import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.LabVpAdapter
 import com.example.smartagriculture.databinding.FragmentWarningMessageBinding
@@ -75,7 +76,7 @@ class WarningMessageFragment : BaseFragment<WarnMessageViewModel, FragmentWarnin
 
                 override fun onTabReselected(tab: XTabLayout.Tab) {}
             })
-            back.setOnClickListener {
+            back.clickNoRepeat {
                 nav().navigateUp()
 
             }

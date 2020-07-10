@@ -34,7 +34,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline48"
             android:layout_width="wrap_content"
@@ -57,9 +56,9 @@
             android:text="@string/leave_application"
             android:textColor="@color/white"
             android:textSize="@dimen/mm_35"
+            app:layout_constraintBottom_toBottomOf="@id/view4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/view4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.4" />
 
@@ -96,7 +95,9 @@
                 android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:leftDrawable="@mipmap/required_iv" />
+                app:leftDrawable="@mipmap/required_iv"
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable15"
@@ -112,7 +113,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDrawable14"
-                app:rightDrawable="@mipmap/pull_blue" />
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20"
+                app:rightDrawable="@mipmap/pull_black" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable16"
@@ -125,7 +128,9 @@
                 android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textDrawable15"
-                app:leftDrawable="@mipmap/required_iv" />
+                app:leftDrawable="@mipmap/required_iv"
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable17"
@@ -141,7 +146,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDrawable16"
-                app:rightDrawable="@mipmap/pull_blue" />
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20"
+                app:rightDrawable="@mipmap/pull_black" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable18"
@@ -154,7 +161,9 @@
                 android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textDrawable17"
-                app:leftDrawable="@mipmap/required_iv" />
+                app:leftDrawable="@mipmap/required_iv"
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable19"
@@ -170,7 +179,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDrawable18"
-                app:rightDrawable="@mipmap/pull_blue" />
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20"
+                app:rightDrawable="@mipmap/pull_black" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable20"
@@ -183,7 +194,9 @@
                 android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textDrawable19"
-                app:leftDrawable="@mipmap/required_iv" />
+                app:leftDrawable="@mipmap/required_iv"
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable21"
@@ -199,7 +212,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDrawable20"
-                app:rightDrawable="@mipmap/pull_blue" />
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20"
+                app:rightDrawable="@mipmap/pull_black" />
 
             <com.example.common.myview.TextDrawable
                 android:id="@+id/textDrawable22"
@@ -212,7 +227,9 @@
                 android:textSize="@dimen/mm_23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textDrawable21"
-                app:leftDrawable="@mipmap/required_iv" />
+                app:leftDrawable="@mipmap/required_iv"
+                app:leftDrawableHeight="@dimen/mm_20"
+                app:leftDrawableWidth="@dimen/mm_20" />
 
             <EditText
                 android:id="@+id/textDrawable23"
@@ -232,7 +249,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDrawable22"
-                app:rightDrawable="@mipmap/pull_blue"
+                app:rightDrawable="@mipmap/pull_black"
                 tools:ignore="RtlHardcoded" />
 
             <TextView

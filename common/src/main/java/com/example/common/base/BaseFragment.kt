@@ -35,7 +35,7 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment
 
     lateinit var mTitles: MutableList<String>
     lateinit var mTitleWarning: MutableList<BeanDataList>
-    private var mDialog: Dialog? = null
+    var mDialog: Dialog? = null
     lateinit var noHttpRx:NoHttpRx
 
     lateinit var viewModel: VM

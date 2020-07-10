@@ -17,16 +17,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import com.example.common.base.BaseApplication
-import com.example.common.bean.Bean
-import com.example.common.data.BaseUrl
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.InputStream
-import java.io.InputStreamReader
 import java.net.*
 import java.util.*
-import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 
@@ -189,12 +182,14 @@ fun getPop(
     heightValue: Int,
     gravity: Int,
     style: Int,
-    isCancel: Boolean
+    isCancel: Boolean,
+    i: Int,
+    i1: Int
 ): DialogCircle {
     val dialogCircle = DialogCircle(
         context,
-        BaseApplication.getWidth() / widthValue,
-        BaseApplication.getHeight() / heightValue,
+        BaseApplication.getWidth() / widthValue+i1,
+        BaseApplication.getHeight() / heightValue+i,
         view,
         R.style.dialog,
         gravity

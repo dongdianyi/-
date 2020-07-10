@@ -5,9 +5,11 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.common.bean.BeanDataList
+import com.example.common.bean.Have
 import com.example.smartagriculture.R
 import com.example.smartagriculture.bean.CreatChat
 import com.example.common.data.Identification
+import com.example.common.replaceBlank
 
 /**
  * Created by ddy
@@ -36,7 +38,7 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
                 val textView40 = holder.getView<TextView>(R.id.textView40)
                 val textView41 = holder.getView<TextView>(R.id.textView41)
                 textView39.text = dataList.sendname
-                textView40.text = dataList.chatContent
+                textView40.text = replaceBlank(dataList.chatContent)
                 textView41.text = dataList.chatTime
             }
             Identification.CHATDETAILS -> {
@@ -52,6 +54,15 @@ class ChatAdapter(context: Context?, layoutId: Int, id: Int) :
             }
             Identification.CHATMAILLIST -> {
                 var beanDataList = mDataList[position] as BeanDataList
+                val textView39 = holder.getView<TextView>(R.id.textView39)
+                val textView40 = holder.getView<TextView>(R.id.textView40)
+                val textView41 = holder.getView<TextView>(R.id.textView41)
+                textView40.visibility = View.GONE
+                textView41.visibility = View.GONE
+                textView39.text = beanDataList.userName
+            }
+            Identification.GROUP_PERSON -> {
+                var beanDataList = mDataList[position] as Have
                 val textView39 = holder.getView<TextView>(R.id.textView39)
                 val textView40 = holder.getView<TextView>(R.id.textView40)
                 val textView41 = holder.getView<TextView>(R.id.textView41)

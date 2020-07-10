@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.androidkun.xtablayout.XTabLayout
 import com.example.common.base.BaseFragment
 import com.example.common.bean.BeanList
+import com.example.common.clickNoRepeat
 import com.example.common.hideSoftKeyboard
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.LabVpAdapter
@@ -50,7 +51,7 @@ class MailListFragment : BaseFragment<ChatViewModel, FragmentMailListBinding>() 
 
                 override fun onTabReselected(tab: XTabLayout.Tab) {}
             })
-            back.setOnClickListener {
+            back.clickNoRepeat {
                 hideSoftKeyboard(requireActivity())
                 nav().navigateUp()
 

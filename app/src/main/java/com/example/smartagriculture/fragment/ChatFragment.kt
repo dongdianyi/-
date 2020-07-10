@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.amap.api.mapcore.util.it
+import com.example.common.LogUtil
 import com.example.common.base.BaseFragment
 import com.example.common.bean.BeanDataList
 import com.example.common.bean.BeanList
+import com.example.common.clickNoRepeat
 import com.example.common.setNbOnItemClickListener
 
 import com.example.smartagriculture.R
@@ -51,7 +54,7 @@ class ChatFragment : BaseFragment<ChatViewModel, FragmentChatBinding>() {
 
     override fun lazyLoadData() {
         viewModel.noHttpRx= NoHttpRx(this)
-        viewModel.chatList("1244451714554269696","1")
+        viewModel.chatList("1")
     }
 
     override fun setListener() {
@@ -62,12 +65,12 @@ class ChatFragment : BaseFragment<ChatViewModel, FragmentChatBinding>() {
             var bundle=Bundle()
             bundle.putString("chatUser",list[position].chatUser)
             bundle.putString("category",list[position].category)
-            viewModel.toChatDetails(view)
+            viewModel.toChatDetails(view,bundle)
         }
-        maillist_iv.setOnClickListener {
+        maillist_iv.clickNoRepeat {
             viewModel.toMailList(it)
         }
-        add_friend_iv.setOnClickListener {
+        add_friend_iv.clickNoRepeat {
             viewModel.toCreateChat(it)
         }
     }

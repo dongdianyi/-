@@ -181,5 +181,9 @@
     <fragment
         android:id="@+id/groupPersonFragment"
         android:name="com.example.smartagriculture.fragment.GroupPersonFragment"
-        android:label="GroupPersonFragment" />
+        android:label="GroupPersonFragment" >
+        <action
+            android:id="@+id/action_groupPersonFragment_to_chatDetailsFragment"
+            app:destination="@id/chatDetailsFragment" />
+    </fragment>
 </navigation>

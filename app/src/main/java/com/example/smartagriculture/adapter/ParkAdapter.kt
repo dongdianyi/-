@@ -297,10 +297,10 @@ class ParkAdapter(context: Context?, layoutId: Int) :
         }
 
 
-        relativeLayout.setOnClickListener {
+        relativeLayout.clickNoRepeat {
             onWarningMessageListener?.invoke(relativeLayout, data.parkId, Identification.WARNING)
         }
-        relativeLayout2.setOnClickListener {
+        relativeLayout2.clickNoRepeat {
             onWarningMessageListener?.invoke(relativeLayout, data.parkId, Identification.MONITOR)
         }
 

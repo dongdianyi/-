@@ -26,7 +26,6 @@ class DistributionFragment : BaseFragment<DistributionViewModel, FragmentDistrib
     override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(requireActivity()).get(DistributionViewModel::class.java)
         map.onCreate(savedInstanceState) // 此方法须覆写，虚拟机需要在很多情况下保存地图绘制的当前状态。
-
     }
 
     override fun lazyLoadData() {

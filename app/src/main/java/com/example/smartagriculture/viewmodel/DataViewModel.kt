@@ -3,7 +3,6 @@ package com.example.smartagriculture.viewmodel
 import android.app.Application
 import android.view.View
 import androidx.lifecycle.SavedStateHandle
-import com.example.common.base.BaseViewModel
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
 import com.example.common.data.Identification.Companion.STOCK_PARENT
@@ -23,9 +22,6 @@ class DataViewModel(
     fun getWarnListDetails(id: Int): Unit {
         var commitParam = CommitParam()
         commitParam.id = id
-        var map = HashMap<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "预警详情",
@@ -40,9 +36,6 @@ class DataViewModel(
         commitParam.type = type
         commitParam.pageNum = pageNum
         commitParam.pageSize = "10"
-        var map = HashMap<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "通知",
@@ -55,10 +48,6 @@ class DataViewModel(
     fun getNoticeRead(informationId: String): Unit {
         var commitParam = CommitParam()
         commitParam.informationId = informationId
-        var map = HashMap<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "通知已读",
@@ -72,10 +61,6 @@ class DataViewModel(
         val commitParam = CommitParam()
         commitParam.type = STOCK_TYPE
         commitParam.parentId = STOCK_PARENT
-        var map = HashMap<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "物资类型",

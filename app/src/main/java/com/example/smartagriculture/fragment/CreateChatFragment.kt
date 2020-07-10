@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.common.ToastUtil
 import com.example.common.base.BaseFragment
 import com.example.common.bean.Bean
 import com.example.common.bean.BeanDataList
@@ -19,6 +17,7 @@ import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.ChatAdapter
 import com.example.smartagriculture.databinding.FragmentCreateChatBinding
 import com.example.common.data.Identification
+import com.example.common.data.Identification.Companion.THREE
 import com.example.common.getPop
 import com.example.common.model.NoHttpRx
 import com.example.smartagriculture.util.nav
@@ -36,6 +35,7 @@ class CreateChatFragment : BaseFragment<ChatViewModel, FragmentCreateChatBinding
     private lateinit var rootView:View
     private lateinit var array:MutableList<Map<String,String>>
     lateinit var bean:Bean
+    lateinit var chatUser:String
     override fun initLayout(): Int {
         return R.layout.fragment_create_chat
     }
@@ -58,12 +58,12 @@ class CreateChatFragment : BaseFragment<ChatViewModel, FragmentCreateChatBinding
         create_chat.addItemDecoration(divider)
         create_chat.layoutManager = LinearLayoutManager(requireContext())
         viewModel.dialogCircle =
-            getPop(activity, rootView, 2, 3, Gravity.CENTER, 0, false)
+            getPop(activity, rootView, 2, 3, Gravity.CENTER, 0, false, 0,100)
     }
 
     override fun lazyLoadData() {
         viewModel.noHttpRx= NoHttpRx(this)
-        viewModel.getMailList("1244451714554269696","")
+        viewModel.getMailList("")
 
     }
 
@@ -80,13 +80,13 @@ class CreateChatFragment : BaseFragment<ChatViewModel, FragmentCreateChatBinding
                     i++
                 }
             }
-            viewModel.createChat("1244451714554269696", array)
+            viewModel.createChat( array)
         }
-        rootView.textView136.setOnClickListener {
+        rootView.textView136.clickNoRepeat {
 
             viewModel.upDateGroup(bean.data.groupId)
         }
-        rootView.imageView48.setOnClickListener {
+        rootView.imageView48.clickNoRepeat {
             if (viewModel.dialogCircle.isShowing) {
                 viewModel.dialogCircle.dismiss()
             }
@@ -95,7 +95,7 @@ class CreateChatFragment : BaseFragment<ChatViewModel, FragmentCreateChatBinding
         mLRecycleViewAdapter.setOnItemClickListener { view, position ->
             chatAdapter.multipleChoose(position)
         }
-        back.setOnClickListener {
+        back.clickNoRepeat {
             hideSoftKeyboard(requireActivity())
             nav().navigateUp()
         }
@@ -111,12 +111,16 @@ class CreateChatFragment : BaseFragment<ChatViewModel, FragmentCreateChatBinding
             }
             "创建群"->{
                 bean=Gson().fromJson(`object`,Bean::class.java)
+                chatUser=bean.data.groupId.toString()
                 viewModel.dialogCircle.show()
                 rootView.editText6.setText(bean.data.groupName)
             }
             "修改群"->{
                 viewModel.dialogCircle.dismiss()
-                nav().navigate(R.id.action_createChatFragment_to_chatDetailsFragment)
+                val bundle=Bundle()
+                bundle.putString("category",THREE)
+                bundle.putString("chatUser",chatUser)
+                nav().navigate(R.id.action_createChatFragment_to_chatDetailsFragment,bundle)
             }
             else -> {
             }

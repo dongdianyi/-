@@ -126,7 +126,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/divider21"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:rightDrawable="@mipmap/pull_blue" />
+                app:rightDrawable="@mipmap/pull_black" />
 
             <com.github.jdsjlzx.recyclerview.LRecyclerView
                 app:layout_constraintTop_toBottomOf="@id/divider21"

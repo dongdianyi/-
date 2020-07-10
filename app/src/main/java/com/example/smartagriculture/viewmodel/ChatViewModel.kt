@@ -4,23 +4,21 @@ import android.app.Application
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.SavedStateHandle
-import com.example.common.base.BaseViewModel
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
 import com.example.smartagriculture.R
 import com.example.smartagriculture.util.nav
-import java.util.*
 
 class ChatViewModel(
     application: Application, savedStateHandle: SavedStateHandle
 ) : BaseShpViewModel(application, savedStateHandle) {
 
-    fun toChatDetails(view: View) {
-        nav(view).navigate(R.id.action_mainFragment_to_chatDetailsFragment)
+    fun toChatDetails(view: View,bundle: Bundle) {
+        nav(view).navigate(R.id.action_groupPersonFragment_to_chatDetailsFragment,bundle)
     }
 
-    fun MailtoChatDetails(view: View) {
-        nav(view).navigate(R.id.action_mailListFragment_to_chatDetailsFragment)
+    fun MailtoChatDetails(view: View,bundle: Bundle) {
+        nav(view).navigate(R.id.action_mailListFragment_to_chatDetailsFragment,bundle)
     }
 
     fun toMailList(view: View) {
@@ -40,13 +38,10 @@ class ChatViewModel(
 
     }
 
-    fun getMailList(userId: String, name: String): Unit {
+    fun getMailList(name: String): Unit {
         var commitParam = CommitParam()
-        commitParam.userId = userId
+        commitParam.userId = getUserId().value.toString()
         commitParam.name = name
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "通讯录",
@@ -56,14 +51,10 @@ class ChatViewModel(
         )
     }
 
-    fun getMailListGroup(userId: String, name: String): Unit {
+    fun getMailListGroup( name: String): Unit {
         var commitParam = CommitParam()
-        commitParam.userId = userId
+        commitParam.userId =getUserId().value.toString()
         commitParam.name = name
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "群聊",
@@ -73,14 +64,10 @@ class ChatViewModel(
         )
     }
 
-    fun chatList(userId: String, type: String): Unit {
+    fun chatList(type: String): Unit {
         var commitParam = CommitParam()
-        commitParam.userId = userId
+        commitParam.userId = getUserId().value.toString()
         commitParam.type = type
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "聊天列表",
@@ -90,17 +77,13 @@ class ChatViewModel(
         )
     }
 
-    fun chatRecord(userId: String, chatUser: String, category: String, page: String): Unit {
+    fun chatRecord( chatUser: String, category: String, page: String): Unit {
         var commitParam = CommitParam()
-        commitParam.userId = userId
+        commitParam.userId = getUserId().value.toString()
         commitParam.chatUser = chatUser
         commitParam.category = category
         commitParam.page = page
         commitParam.pageSize = "10"
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "聊天记录",
@@ -110,14 +93,10 @@ class ChatViewModel(
         )
     }
 
-    fun createChat(userId: String, userIds: MutableList<Map<String, String>>): Unit {
+    fun createChat(userIds: MutableList<Map<String, String>>): Unit {
         var commitParam = CommitParam()
-        commitParam.userId = userId
+        commitParam.userId = getUserId().value.toString()
         commitParam.userIds = userIds
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "创建群",
@@ -130,10 +109,6 @@ class ChatViewModel(
     fun getGroupPerson(groupid: String): Unit {
         var commitParam = CommitParam()
         commitParam.groupid = groupid
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
-
         noHttpRx.postHttpJson(
             map,
             "群成员",
@@ -146,9 +121,6 @@ class ChatViewModel(
     fun upDateGroup(id: Int): Unit {
         var commitParam = CommitParam()
         commitParam.id = id
-        var map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "修改群",

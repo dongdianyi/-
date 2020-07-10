@@ -80,7 +80,7 @@ class SearchFragment : BaseFragment<MainViewModel, FragmentSearchBinding>() {
                 tv.setBackgroundResource(R.drawable.cycle_gray)
                 tv.layoutParams = layoutParams
                 flowlayout.addView(tv, layoutParams)
-                tv.setOnClickListener {
+                tv.clickNoRepeat {
                     search_tv.setText(tv.text)
                     viewModel.getParks(DEFAULT, ONE, search_tv.text.toString())
                 }
@@ -115,11 +115,11 @@ class SearchFragment : BaseFragment<MainViewModel, FragmentSearchBinding>() {
     override fun setListener() {
         search_recycler.setPullRefreshEnabled(false)
         search_recycler.setLoadMoreEnabled(false)
-        back.setOnClickListener {
+        back.clickNoRepeat {
             hideSoftKeyboard(requireActivity())
             nav().navigateUp()
         }
-        imageView15.setOnClickListener {
+        imageView15.clickNoRepeat {
             search_tv.setText("")
             search_recycler.visibility = GONE
         }
@@ -128,9 +128,7 @@ class SearchFragment : BaseFragment<MainViewModel, FragmentSearchBinding>() {
             val massifList = viewModel.getAllMassif()?.value
             viewModel.insert(massif)
             if (null != massifList && massifList.size > 20) {
-                val massif2 = Massif(massifList[massifList.size - 1].content)
-                LogUtil("content", massif2.content + "id" + massif2.id)
-                viewModel.delete(massif2)
+                viewModel.delete(massifList[massifList.size - 1])
             }
             viewModel.getParks(DEFAULT, ONE, search_tv.text.toString())
         }

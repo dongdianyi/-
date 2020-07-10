@@ -1,9 +1,11 @@
 package com.example.smartagriculture.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Message
 import android.text.TextUtils
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,8 +13,10 @@ import com.example.common.*
 import com.example.common.base.BaseFragment
 import com.example.common.data.BaseUrl
 import com.example.common.data.Identification
+import com.example.common.data.Identification.Companion.ONE
 import com.example.common.model.NoHttpRx
 import com.example.smartagriculture.R
+import com.example.smartagriculture.activity.LoginActivity
 import com.example.smartagriculture.adapter.ChatAdapter
 import com.example.smartagriculture.databinding.FragmentChatDetailsBinding
 import com.example.smartagriculture.util.nav
@@ -68,7 +72,7 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
         //初始化webSocket
         initSocketClient()
         viewModel.noHttpRx= NoHttpRx(this)
-        viewModel.chatRecord("1244451714554269696",chatUser,category,"1")
+        viewModel.chatRecord(chatUser,category,"1")
 
     }
 
@@ -85,20 +89,34 @@ class ChatDetailsFragment : BaseFragment<ChatViewModel, FragmentChatDetailsBindi
         chatdetails_recycler.setPullRefreshEnabled(false)
         chatdetails_recycler.setLoadMoreEnabled(false)
         setSoftKeyBoardListener()
-        imageView49.setOnClickListener {
+        imageView49.clickNoRepeat {
             viewModel.toGroupPerson(it,chatUser)
         }
-        send.setOnClickListener {
+        send.clickNoRepeat {
             if (null == editText_msg.text || TextUtils.isEmpty(editText_msg.text)) {
                 ToastUtil("聊天内容不能为空")
-                return@setOnClickListener
+                return@clickNoRepeat
             }
             editText_msg.text = null
         }
-        back.setOnClickListener {
+        back.clickNoRepeat {
             hideSoftKeyboard(requireActivity())
-            nav().navigate(R.id.action_chatDetailsFragment_to_mainFragment)
+            val bundle=Bundle()
+            bundle.putString("bottomId",ONE)
+            nav().navigate(R.id.action_chatDetailsFragment_to_mainFragment,bundle)
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this, object :
+            OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                hideSoftKeyboard(requireActivity())
+                val bundle=Bundle()
+                bundle.putString("bottomId",ONE)
+                nav().navigate(R.id.action_chatDetailsFragment_to_mainFragment,bundle)
+            }
+
+        })
+
     }
 
     /**

@@ -2,6 +2,7 @@ package com.example.smartagriculture.util;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -17,6 +18,9 @@ public class ClearCache {
         long cacheSize = getFolderSize(context.getCacheDir());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             cacheSize += getFolderSize(context.getExternalCacheDir());
+            cacheSize += getFolderSize(new File("data/data/"+context.getPackageName()+"/files"));
+            cacheSize += getFolderSize(new File("data/data/"+context.getPackageName()+"/databases"));
+            cacheSize += getFolderSize(new File("data/data/"+context.getPackageName()+"/app_webview"));
         }
         return getFormatSize(cacheSize);
     }
@@ -29,7 +33,61 @@ public class ClearCache {
         deleteDir(context.getCacheDir());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             deleteDir(context.getExternalCacheDir());
+            deleteDir(new File("data/data/"+context.getPackageName()+"/files"));
+            deleteDir(new File("data/data/"+context.getPackageName()+"/databases"));
+            deleteDir(new File("data/data/"+context.getPackageName()+"/app_webview"));
         }
+    }
+
+    /**
+     * * 清除本应用内部缓存(/data/data/com.xxx.xxx/cache) * *
+     *
+     * @param context
+     */
+    public static void cleanInternalCache(Context context) {
+
+        deleteDir(context.getCacheDir());
+    }
+    /**
+     * * 清除本应用所有数据库(/data/data/com.xxx.xxx/databases) * *
+     *
+     * @param context
+     */
+    public static void cleanDatabases(Context context) {
+
+        deleteDir(new File("/data/data/"
+                + context.getPackageName() + "/databases"));
+    }
+
+    /**
+     * * 清除本应用SharedPreference(/data/data/com.xxx.xxx/shared_prefs) *
+     *
+     * @param context
+     */
+    public static void cleanSharedPreference(Context context) {
+        Log.e("是不会发生悲剧发生",context.getPackageName());
+        deleteDir(new File("data/data/"
+                + context.getPackageName() + "/shared_prefs"));
+    }
+
+    /**
+     * * 清除本应用所有的数据 * *
+     *
+     * @param context
+     * @param filepath
+     */
+    public static void cleanApplicationData(Context context, String... filepath) {
+
+        cleanInternalCache(context);
+        clearAllCache(context);
+        cleanDatabases(context);
+        cleanSharedPreference(context);
+
+        if (filepath == null) {
+
+            return;
+        }
+
     }
 
     private static boolean deleteDir(File dir) {

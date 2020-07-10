@@ -8,11 +8,18 @@ import com.example.common.view.IView;
 import com.liqi.nohttputils.RxNoHttpUtils;
 import com.liqi.nohttputils.interfa.OnDialogGetListener;
 import com.liqi.nohttputils.interfa.OnIsRequestListener;
+import com.yanzhenjie.nohttp.OkHttpNetwork;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -116,6 +123,7 @@ public class NoHttpRx implements IModelBiz {
     public void getHttp(Map header, final String flag, String url, final OnDialogGetListener onDialogGetListener) {
         RxNoHttpUtils.rxNohttpRequest()
                 .get()
+                .addHeader(header)
                 .url(BaseUrl.BASE_URL + url)
                 .setOnDialogGetListener(onDialogGetListener)//请求加载框
                 .setQueue(false)
@@ -228,5 +236,86 @@ public class NoHttpRx implements IModelBiz {
                 })
 
                 .requestRxNoHttp();
+    }
+
+
+
+    public static HashMap<String, String> getHttpHeaderResponse(String url) {
+        HashMap<String, String> result = new HashMap<String, String>();
+        URL urlO = null;
+        HttpURLConnection http = null;
+        try {
+            urlO = new URL(url);
+            http = (HttpURLConnection) urlO.openConnection();
+            http.addRequestProperty("Cache-Control", "no-cache");
+            http.addRequestProperty("Connection", "keep-alive");
+            http.setConnectTimeout(5 * 1000);
+            http.setReadTimeout(10 * 1000);
+            http.connect();
+            int code = http.getResponseCode();
+            if (code == HttpURLConnection.HTTP_OK) {
+                Map<String, List<String>> responseHeader = http
+                        .getHeaderFields();
+                Set<String> keySet = responseHeader.keySet();
+                Iterator<String> iterator = keySet.iterator();
+                while (iterator.hasNext()) {
+                    String key = (String) iterator.next();
+                    if (null != key) {
+                        List<String> valueList = responseHeader.get(key);
+                        for (String value : valueList) {
+                            result.put(key, value);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        } finally {
+            if (null != http) {
+                http.disconnect();
+            }
+        }
+        return result;
+    }
+    public static String getHttpHeaderResponse(String url, String headerName) {
+        String result = null;
+        URL urlO = null;
+        HttpURLConnection http = null;
+        try {
+            urlO = new URL(url);
+            http = (HttpURLConnection) urlO.openConnection();
+            http.addRequestProperty("Cache-Control", "no-cache");
+            http.addRequestProperty("Connection", "keep-alive");
+            http.setConnectTimeout(5 * 1000);
+            http.setReadTimeout(10 * 1000);
+            http.connect();
+            int code = http.getResponseCode();
+            if (code == HttpURLConnection.HTTP_OK) {
+                Map<String, List<String>> responseHeader = http
+                        .getHeaderFields();
+                Set<String> keySet = responseHeader.keySet();
+                Iterator<String> iterator = keySet.iterator();
+                while (iterator.hasNext()) {
+                    String key = (String) iterator.next();
+                    if (null != key && key.trim().length() > 0) {
+                        if (headerName.equals(key)) {
+                            List<String> valueList = responseHeader
+                                    .get(key);
+                            for (String value : valueList) {
+                                result = value;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        } finally {
+            if (null != http) {
+                http.disconnect();
+            }
+        }
+        return result;
     }
 }

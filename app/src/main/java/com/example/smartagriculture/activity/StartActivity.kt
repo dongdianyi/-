@@ -47,7 +47,6 @@ class StartActivity : BaseActivity<MainViewModel, ActivityStartBinding>() {
 
     override fun initView() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.init()
         userId= viewModel.getUserId().value
         mHandlerMessage.sendEmptyMessageDelayed(Identification.WHATNUM, 1000)
     }

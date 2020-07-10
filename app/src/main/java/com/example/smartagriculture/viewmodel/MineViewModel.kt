@@ -3,24 +3,24 @@ package com.example.smartagriculture.viewmodel
 import android.app.Activity
 import android.app.Application
 import android.content.Intent
+import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
-import com.example.common.LogUtil
-import com.example.common.base.BaseViewModel
+import com.example.common.ToastUtil
+import com.example.common.clickNoRepeat
 import com.example.common.data.BaseUrl
 import com.example.common.data.CommitParam
 import com.example.common.getPop
 import com.example.smartagriculture.R
 import com.example.smartagriculture.activity.LoginActivity
-import com.example.smartagriculture.activity.MainActivity
 import com.example.smartagriculture.util.ClearCache
 import com.example.smartagriculture.util.nav
+import java.util.*
 
 class MineViewModel(
     application: Application, savedStateHandle: SavedStateHandle
@@ -41,12 +41,15 @@ class MineViewModel(
         nav(view).navigate(R.id.action_mainFragment_to_updatePwdFragment)
     }
 
-    fun toSetting(view: View): Unit {
-        nav(view).navigate(R.id.action_mainFragment_to_settingFragment)
+    fun toSetting(view: View,bundle: Bundle): Unit {
+        nav(view).navigate(R.id.action_mainFragment_to_settingFragment,bundle)
     }
 
     fun toProblem(view: View): Unit {
         nav(view).navigate(R.id.action_mainFragment_to_problemFragment)
+    }
+    fun toUpdate(view: View): Unit {
+        ToastUtil("已是最新版本")
     }
 
     fun showDialogBase(activity: Activity, title: String, content: String, layout: Int): Unit {
@@ -57,10 +60,12 @@ class MineViewModel(
                 activity,
                 rootView,
                 2,
-                2,
+                3,
                 Gravity.CENTER,
                 0,
-                false
+                false,
+                100,
+                0
             )
         dialogCircle.show()
         val sureButton = rootView.findViewById<Button>(com.example.common.R.id.sure_button)
@@ -69,28 +74,31 @@ class MineViewModel(
         val textView130 = rootView.findViewById<TextView>(com.example.common.R.id.textView130)
         textView129.text = title
         textView130.text = content
-        sureButton.setOnClickListener {
+        sureButton.clickNoRepeat {
             when (title) {
                 "退出登录" -> {
+                    ClearCache.cleanApplicationData(Objects.requireNonNull(getApplication()))
                     activity.startActivity(Intent(activity, LoginActivity::class.java))
                     activity.finish()
                 }
                 "清除缓存" -> {
-                    ClearCache.clearAllCache(getApplication())
+                    ClearCache.clearAllCache(Objects.requireNonNull(getApplication()))
+                    cacheSize.value =
+                        "0K"
                 }
                 else -> {
                 }
             }
             dialogCircle.dismiss()
         }
-        closeIv.setOnClickListener {
+        closeIv.clickNoRepeat {
             dialogCircle.dismiss()
         }
     }
 
     fun getCache(): MutableLiveData<String> {
-        cacheSize=MutableLiveData()
-        cacheSize .value= ClearCache.getTotalCacheSize(getApplication())
+        cacheSize = MutableLiveData()
+        cacheSize.value = ClearCache.getTotalCacheSize(Objects.requireNonNull(getApplication()))
         return cacheSize
     }
 
@@ -98,9 +106,6 @@ class MineViewModel(
         val commitParam = CommitParam()
         commitParam.page = page
         commitParam.pageSize = "10"
-        val map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "常见问题",
@@ -112,9 +117,6 @@ class MineViewModel(
 
     fun getInformation(): Unit {
         val commitParam = CommitParam()
-        val map = hashMapOf<String, String>()
-        map[getApplication<Application>().resources.getString(R.string.token)] =
-            getUserId().value.toString()
         noHttpRx.postHttpJson(
             map,
             "个人资料",

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.base.BaseFragment
 import com.example.common.bean.Bean
 import com.example.common.bean.IP
+import com.example.common.clickNoRepeat
 import com.example.common.model.NoHttpRx
 import com.example.common.replaceBlank
 import com.example.smartagriculture.R
@@ -58,7 +59,7 @@ class WeatherFragment : BaseFragment<DataViewModel, FragmentWeatherBinding>() {
     }
 
     override fun setListener() {
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
     }

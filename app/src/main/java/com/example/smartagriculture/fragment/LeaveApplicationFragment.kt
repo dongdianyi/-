@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import com.example.common.base.BaseFragment
+import com.example.common.clickNoRepeat
 
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentLeaveApplicationBinding
@@ -28,7 +29,7 @@ class LeaveApplicationFragment : BaseFragment<AttendanceViewModel, FragmentLeave
     }
 
     override fun setListener() {
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
     }

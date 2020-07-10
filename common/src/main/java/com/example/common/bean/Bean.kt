@@ -37,10 +37,22 @@ data class BeanData(
     val list: List<Weather>,
     val userid: String,
     val companyid: String,
-    val usermsg: UserMsg
+    val usermsg: UserMsg,
+    val Cookie: String,
+    val type: Int,
+    val btnContent:String,
+    val msg:String,
+    val mobile:String,
+    val photo:String,
+    val userName:String,
+    val have:List<Have>
 
 
 
+)
+data class Have(
+    val userName: String,
+    val userid: String
 )
 
 data class UserMsg (
@@ -82,7 +94,7 @@ data class BeanDataList(
     val crop: String,
     val position: String,
     val traceState: Int,
-    val id: Int,
+    val id: Long,
     val label: String,
     val parentid: String,
     val name: String,
@@ -92,7 +104,8 @@ data class BeanDataList(
     val content: String,
     val statu: String,
     val question: String,
-    val answer: String,
+    val answer: String?,
+    val remarks: String?,
     val userName: String,
     val category: String,
     val chatContent: String,

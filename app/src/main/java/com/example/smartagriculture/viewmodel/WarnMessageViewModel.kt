@@ -33,7 +33,7 @@ class WarnMessageViewModel(application: Application,
     fun getWarnList( beanDataList: BeanDataList,parkId:String): Unit {
         var commitParam= CommitParam()
         commitParam.parkId = parkId
-        commitParam.warntype = beanDataList.id
+        commitParam.warntype = beanDataList.id.toInt()
         commitParam.page = "1"
         commitParam.pageSize = "10"
         var  map=HashMap<String,String>()

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RadioGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -94,6 +95,7 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
         ARouter.getInstance().inject(this)  // Start auto inject.
         time_tv.text=viewModel.getDate()
         viewModel.noHttpRx = NoHttpRx(this)
+        viewModel.onDialogGetListener = this
         viewModel.getParkType()
         viewModel.getIp()
     }
@@ -105,20 +107,20 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
     override fun setListener() {
         home_recycler.setPullRefreshEnabled(false)
         home_recycler.setLoadMoreEnabled(false)
-        search_linear.setOnClickListener {
+        search_linear.clickNoRepeat {
             viewModel.toSearch(it,Identification.PARK)
         }
-        screen.setOnClickListener {
+        screen.clickNoRepeat {
             viewModel.showDialog(requireActivity(), SCREEN)
         }
-        stock_constraint.setOnClickListener {
+        stock_constraint.clickNoRepeat {
             viewModel.showDialog(requireActivity(), STOCK)
         }
-        notice_constraint.setOnClickListener {
+        notice_constraint.clickNoRepeat {
             viewModel.toNotice(it)
         }
 
-        monitor_btn.setOnClickListener {
+        monitor_btn.clickNoRepeat {
 //          1. 应用内简单的跳转(通过URL跳转在'进阶用法'中)
             ARouter.getInstance().build(BaseField.MONITOR_PATH).navigation()
 //          2. 跳转并携带参数
@@ -127,17 +129,17 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
 //                .withString("key3", "888")
 //                .navigation()
         }
-        housekeeper_btn.setOnClickListener {
+        housekeeper_btn.clickNoRepeat {
             ARouter.getInstance().build(BaseField.HOUSEKEEPER_PATH).navigation()
         }
-        report_from_btn.setOnClickListener {
+        report_from_btn.clickNoRepeat {
             ARouter.getInstance().build(BaseField.REPORT_FORM_PATH).navigation()
         }
-        retrospect_btn.setOnClickListener {
+        retrospect_btn.clickNoRepeat {
             ARouter.getInstance().build(BaseField.RETROSPECT_PATH).navigation()
         }
 
-        weather_linear.setOnClickListener {
+        weather_linear.clickNoRepeat {
             viewModel.toWeather(it)
         }
 
@@ -173,7 +175,9 @@ class HomeFragment : BaseDropDownFragment<MainViewModel, FragmentHomeBinding>() 
                 parkList.clear()
                 parkList .addAll(park.data)
                 parkAdapter.setDataList(park.data)
-                home_recycler.adapter=mLRecycleViewAdapter
+                if (home_recycler!=null) {
+                    home_recycler.adapter=mLRecycleViewAdapter
+                }
             }
             "园区类型" -> {
                 jsonObject = JSONObject(data)

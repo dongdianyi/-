@@ -2,6 +2,7 @@ package com.example.smartagriculture.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentAddProductBinding
 import com.example.smartagriculture.util.nav
@@ -26,7 +27,7 @@ class AddProductFragment : BaseDropDownFragment<DataViewModel, FragmentAddProduc
     }
 
     override fun setListener() {
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
     }

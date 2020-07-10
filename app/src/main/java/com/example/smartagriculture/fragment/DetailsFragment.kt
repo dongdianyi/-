@@ -9,6 +9,7 @@ import com.example.common.base.BaseFragment
 import com.example.common.bean.Bean
 import com.example.common.bean.BeanList
 import com.example.common.bean.DataX
+import com.example.common.clickNoRepeat
 import com.example.common.data.Identification
 import com.example.common.data.Identification.Companion.DEFAULT
 import com.example.common.data.Identification.Companion.NOTICE
@@ -70,7 +71,7 @@ class DetailsFragment : BaseFragment<DataViewModel, FragmentDetailsBinding>() {
     }
 
     override fun setListener() {
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
     }

@@ -3,43 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg">
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.22" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
-
-    <View
-        android:id="@+id/view4"
-        android:layout_width="0mm"
-        android:layout_height="0mm"
-        android:background="@mipmap/top_bg"
-        app:layout_constraintBottom_toTopOf="@+id/guideline37"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView62"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/attendance"
-        android:textColor="@color/white"
-        android:textSize="@dimen/mm_35"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline38" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline48"
@@ -62,7 +27,7 @@
         android:layout_marginTop="@dimen/mm_20"
         app:layout_constraintEnd_toStartOf="@+id/guideline49"
         app:layout_constraintStart_toStartOf="@+id/guideline48"
-        app:layout_constraintTop_toBottomOf="@+id/textView62">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView95"
@@ -126,11 +91,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/approval_constraint"
             android:layout_width="0mm"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/mm_30"
             android:paddingBottom="@dimen/mm_30"
-            android:id="@+id/approval_constraint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/divider22"
             app:layout_constraintStart_toStartOf="parent"
@@ -175,9 +140,9 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/approved_constraint"
             android:layout_width="0mm"
             android:layout_height="wrap_content"
-            android:id="@+id/approved_constraint"
             android:paddingTop="@dimen/mm_30"
             android:paddingBottom="@dimen/mm_30"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -210,15 +175,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.github.jdsjlzx.recyclerview.LRecyclerView
-        android:id="@+id/attendance_manager_recycler"
-        android:layout_width="0mm"
-        android:layout_height="0mm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guideline49"
-        app:layout_constraintStart_toStartOf="@id/guideline48"
-        app:layout_constraintTop_toBottomOf="@id/view5" />
-
     <TextView
         android:id="@+id/textView93"
         android:layout_width="wrap_content"
@@ -226,8 +182,8 @@
         android:layout_marginStart="@dimen/mm_20"
         android:background="@drawable/cycle_orange"
         android:paddingStart="@dimen/mm_20"
-        android:paddingEnd="@dimen/mm_20"
         android:paddingTop="@dimen/mm_10"
+        android:paddingEnd="@dimen/mm_20"
         android:paddingBottom="@dimen/mm_10"
         android:text="查询"
         android:textColor="@color/white"

@@ -63,6 +63,7 @@ class CustomDialog(context: Context?, theme: Int) : Dialog(context!!, theme) {
     }
 
     override fun show() {
+        isDismiss = false
         mHandlerTime.sendEmptyMessageDelayed(dismissTime, 500)
     }
 

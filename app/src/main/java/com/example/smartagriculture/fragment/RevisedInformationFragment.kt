@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.common.base.BaseFragment
+import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.smartagriculture.databinding.FragmentRevisedInformationBinding
 import com.example.smartagriculture.util.nav
@@ -27,7 +28,7 @@ class RevisedInformationFragment :
     override fun lazyLoadData() {
     }
     override fun setListener() {
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
     }

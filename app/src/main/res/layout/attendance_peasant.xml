@@ -2,43 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
-
-    <View
-        android:id="@+id/view4"
-        android:layout_width="0mm"
-        android:layout_height="0mm"
-        android:background="@mipmap/top_bg"
-        app:layout_constraintBottom_toTopOf="@+id/guideline37"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView62"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/attendance"
-        android:textColor="@color/white"
-        android:textSize="@dimen/mm_35"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline38" />
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline48"
@@ -63,7 +27,7 @@
         android:padding="@dimen/mm_40"
         app:layout_constraintEnd_toStartOf="@+id/guideline49"
         app:layout_constraintStart_toStartOf="@+id/guideline48"
-        app:layout_constraintTop_toBottomOf="@id/textView62">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <com.example.common.myview.TextDrawable
@@ -106,19 +70,31 @@
                 android:textSize="@dimen/mm_30" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textView138"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mm_10"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/mm_23"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout14" />
+
         <com.example.common.myview.TextDrawable
             android:id="@+id/textDrawable11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/mm_20"
             android:drawablePadding="@dimen/mm_20"
-            android:text="山东济南"
             android:textColor="@color/title_color"
             android:textSize="@dimen/mm_25"
             app:layout_constraintEnd_toEndOf="@id/view5"
             app:layout_constraintStart_toStartOf="@id/view5"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout14"
+            app:layout_constraintTop_toBottomOf="@+id/textView138"
             app:leftDrawable="@mipmap/attendance_address" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -129,6 +105,7 @@
         android:background="@drawable/cycle_white_shadow"
         android:paddingStart="@dimen/mm_40"
         android:paddingEnd="@dimen/mm_40"
+        android:paddingBottom="@dimen/mm_40"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline49"
         app:layout_constraintHorizontal_bias="0.0"
@@ -136,18 +113,41 @@
         app:layout_constraintTop_toBottomOf="@+id/view5"
         app:layout_constraintVertical_bias="0.0">
 
+        <View
+            android:id="@+id/divider18"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_2"
+            android:layout_marginTop="@dimen/mm_120"
+            android:background="@color/line_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider20"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_2"
+            android:layout_marginTop="@dimen/mm_87"
+            android:background="@color/line_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/divider18" />
+
         <com.example.common.myview.TextDrawable
             android:id="@+id/textDrawable12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/mm_20"
+            android:gravity="center"
             android:text="打卡记录"
             android:textColor="@color/green"
             android:textSize="@dimen/mm_23"
-            app:layout_constraintBottom_toTopOf="@+id/divider18"
+            app:layout_constraintBottom_toTopOf="@+id/divider20"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:leftDrawable="@mipmap/attendance_iv" />
+            app:layout_constraintTop_toTopOf="@id/divider18"
+            app:leftDrawable="@mipmap/attendance_iv"
+            app:leftDrawableHeight="@dimen/mm_20"
+            app:leftDrawableWidth="@dimen/mm_20" />
 
         <com.example.common.myview.TextDrawable
             android:id="@+id/textDrawable13"
@@ -155,15 +155,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/mm_20"
             android:drawablePadding="@dimen/mm_20"
+            android:gravity="center"
             android:text="2020/6/22"
             android:textColor="@color/title_gray"
             android:textSize="@dimen/mm_23"
-            app:layout_constraintBottom_toTopOf="@+id/divider18"
+            app:layout_constraintBottom_toTopOf="@+id/divider20"
             app:layout_constraintStart_toEndOf="@+id/textDrawable12"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/divider18"
+            app:rightDrawable="@mipmap/pull_black"
             app:rightDrawableHeight="@dimen/mm_20"
-            app:rightDrawableWidth="@dimen/mm_20"
-            app:rightDrawable="@mipmap/pull_black" />
+            app:rightDrawableWidth="@dimen/mm_20" />
 
         <TextView
             android:id="@+id/textView65"
@@ -177,9 +178,9 @@
             android:text="查询详情"
             android:textColor="@color/white"
             android:textSize="@dimen/mm_23"
-            app:layout_constraintBottom_toTopOf="@+id/divider18"
+            app:layout_constraintBottom_toTopOf="@+id/divider20"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/divider18" />
 
         <TextView
             android:id="@+id/textView66"
@@ -190,17 +191,8 @@
             android:textColor="@color/title_gray"
             android:textSize="@dimen/mm_23"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider18" />
+            app:layout_constraintTop_toBottomOf="@+id/divider20" />
 
-        <View
-            android:id="@+id/divider18"
-            android:layout_width="0mm"
-            android:layout_height="@dimen/mm_2"
-            android:layout_marginTop="@dimen/mm_87"
-            android:background="@color/line_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView67"
@@ -267,45 +259,75 @@
             app:layout_constraintStart_toEndOf="@+id/textView69"
             app:layout_constraintTop_toBottomOf="@+id/textView68" />
 
-        <View
-            android:id="@+id/divider19"
-            android:layout_width="0mm"
-            android:layout_height="@dimen/mm_2"
-            android:layout_marginTop="@dimen/mm_40"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView70" />
-
         <TextView
             android:id="@+id/textView71"
-            android:layout_width="@dimen/mm_200"
-            android:layout_height="@dimen/mm_60"
-            android:background="@mipmap/cancle_bg"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_48"
+            android:background="@mipmap/sure_bg"
             android:gravity="center"
+            android:paddingStart="@dimen/mm_10"
+            android:paddingEnd="@dimen/mm_10"
             android:text="请假申请"
             android:textColor="@color/white"
             android:textSize="@dimen/mm_25"
-            app:layout_constraintBottom_toBottomOf="@+id/textView72"
-            app:layout_constraintEnd_toStartOf="@+id/textView72"
+            app:layout_constraintBottom_toTopOf="@+id/divider18"
+            app:layout_constraintEnd_toStartOf="@+id/textView73"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView72" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView72"
-            android:layout_width="@dimen/mm_200"
-            android:layout_height="@dimen/mm_60"
-            android:layout_margin="@dimen/mm_40"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_48"
+            android:layout_marginStart="@dimen/mm_20"
             android:background="@mipmap/sure_bg"
             android:gravity="center"
+            android:paddingStart="@dimen/mm_10"
+            android:paddingEnd="@dimen/mm_10"
+            android:text="出差申请"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mm_25"
+            app:layout_constraintBottom_toBottomOf="@+id/textView73"
+            app:layout_constraintEnd_toStartOf="@+id/textView74"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView73"
+            app:layout_constraintTop_toTopOf="@+id/textView73" />
+
+        <TextView
+            android:id="@+id/textView73"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_48"
+            android:layout_marginStart="@dimen/mm_20"
+            android:background="@mipmap/cancle_bg"
+            android:gravity="center"
+            android:paddingStart="@dimen/mm_10"
+            android:paddingEnd="@dimen/mm_10"
             android:text="请假记录"
             android:textColor="@color/white"
             android:textSize="@dimen/mm_25"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView71"
+            app:layout_constraintEnd_toStartOf="@+id/textView72"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView71"
-            app:layout_constraintTop_toBottomOf="@+id/divider19" />
+            app:layout_constraintTop_toTopOf="@+id/textView71" />
+
+        <TextView
+            android:id="@+id/textView74"
+            android:layout_width="0mm"
+            android:layout_height="@dimen/mm_48"
+            android:layout_marginStart="@dimen/mm_20"
+            android:background="@mipmap/cancle_bg"
+            android:gravity="center"
+            android:paddingStart="@dimen/mm_10"
+            android:paddingEnd="@dimen/mm_10"
+            android:text="出差记录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mm_25"
+            app:layout_constraintBottom_toBottomOf="@+id/textView72"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView72"
+            app:layout_constraintTop_toTopOf="@+id/textView72" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

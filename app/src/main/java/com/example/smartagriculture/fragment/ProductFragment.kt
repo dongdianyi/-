@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.common.adapter.DropDownAdapter
 import com.example.common.bean.Bean
+import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.HomeAdapter
 import com.example.smartagriculture.databinding.FragmentProductBinding
@@ -58,7 +59,7 @@ class ProductFragment : BaseDropDownFragment<DataViewModel, FragmentProductBindi
 
     override fun setListener() {
         product_recycler.setPullRefreshEnabled(false)
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
     }

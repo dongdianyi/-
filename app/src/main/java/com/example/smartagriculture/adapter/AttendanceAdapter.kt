@@ -3,6 +3,8 @@ package com.example.smartagriculture.adapter
 import android.content.Context
 import android.view.View
 import android.widget.TextView
+import com.amap.api.mapcore.util.it
+import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.common.data.Identification
 
@@ -45,16 +47,17 @@ class AttendanceAdapter(context: Context?, layoutId: Int, id: Int) :
                 val textView88 = holder.getView<TextView>(R.id.textView88)
                 val textView65 = holder.getView<TextView>(R.id.textView65)
                 textView88.text = mDataList[position].toString()
-                textView65.setOnClickListener {
-                    onAttendanceListener?.invoke(it, position,
+                textView65.clickNoRepeat {
+                    onAttendanceListener?.invoke(
+                        it, position,
                         Identification.ATTENDANCE_MANAGER_SELECT)
                 }
             }
             Identification.ATTENDANCE_MANAGER_APPROVAL ->{}
             Identification.ATTENDANCE_MANAGER_APPROVED ->{}
             Identification.ATTENDANCE_MANAGER_SELECT ->{
-                val textView39 = holder.getView<TextView>(R.id.textView39)
-                textView39.text = mDataList[position].toString()
+                val name = holder.getView<TextView>(R.id.name)
+                name.text = mDataList[position].toString()
             }
             else -> {
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.base.BaseFragment
+import com.example.common.clickNoRepeat
 import com.example.smartagriculture.R
 import com.example.smartagriculture.adapter.AttendanceAdapter
 import com.example.smartagriculture.databinding.FragmentAttendanceSelectBinding
@@ -60,7 +61,7 @@ class AttendanceSelectFragment :
     }
 
     override fun setListener() {
-        back.setOnClickListener {
+        back.clickNoRepeat {
             nav().navigateUp()
         }
     }
