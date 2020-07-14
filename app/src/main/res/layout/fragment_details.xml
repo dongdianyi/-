@@ -34,7 +34,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0mm"
             android:layout_height="0mm"
-            android:layout_marginTop="@dimen/mm_200"
+            android:layout_marginTop="@dimen/mm_150"
             android:layout_marginBottom="@dimen/mm_100"
             android:background="@drawable/cycle_white"
             android:padding="@dimen/mm_40"

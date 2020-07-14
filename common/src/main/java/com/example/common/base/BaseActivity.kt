@@ -1,6 +1,8 @@
 package com.example.common.base
 
+import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
@@ -22,8 +24,10 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompa
     lateinit var dataBinding: DB
 
     private var mDialog: Dialog? = null
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;//竖屏
         hideTopUIMenu()
         if (initLayout() != 0) {
             dataBinding = DataBindingUtil.setContentView(this, initLayout())

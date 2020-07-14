@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:padding="@dimen/mm_20"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cycle_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/mm_20"
+            android:gravity="center"
+            android:id="@+id/photograph_tv"
+            android:text="@string/photograph"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/mm_28" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mm_2"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/mm_20"
+            android:gravity="center"
+            android:id="@+id/photo_tv"
+            android:text="@string/album"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/mm_28" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:background="@drawable/cycle_white"
+        android:gravity="center"
+        android:id="@+id/cancel_tv"
+        android:padding="@dimen/mm_20"
+        android:text="@string/cancle"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/mm_28" />
+</LinearLayout>

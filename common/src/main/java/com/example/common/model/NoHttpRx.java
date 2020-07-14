@@ -184,6 +184,7 @@ public class NoHttpRx implements IModelBiz {
     //post请求
     @Override
     public void postHttp(final String flag, String url, Map mapParameter, OnDialogGetListener onDialogGetListener) {
+
     }
 
     //post请求

@@ -47,22 +47,16 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
             viewModel.toUpdatePwd(it)
         }
         setting.clickNoRepeat {
-            val bundle=Bundle()
-            bundle.putString("title",getString(R.string.setting))
-            viewModel.toSetting(it,bundle)
+            viewModel.toSetting(it)
         }
         problem.clickNoRepeat {
             viewModel.toProblem(it)
         }
         feedback.clickNoRepeat {
-            val bundle=Bundle()
-            bundle.putString("title",getString(R.string.feedback))
-            viewModel.toSetting(it,bundle)
+            viewModel.toFeedBack(it)
         }
         about.clickNoRepeat {
-            val bundle=Bundle()
-            bundle.putString("title",getString(R.string.about))
-            viewModel.toSetting(it,bundle)
+            viewModel.toAbout(it)
         }
         update.clickNoRepeat {
             viewModel.toUpdate(it)

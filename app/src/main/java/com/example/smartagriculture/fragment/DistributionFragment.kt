@@ -32,7 +32,7 @@ class DistributionFragment : BaseFragment<DistributionViewModel, FragmentDistrib
 
         //初始化地图控制器对象
         val aMap: AMap = map.map
-
+        aMap.uiSettings.isZoomControlsEnabled=false
         myLocationStyle =
             MyLocationStyle() //初始化定位蓝点样式类
 

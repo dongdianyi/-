@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="data"
+            type="com.example.smartagriculture.viewmodel.MineViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -209,6 +212,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/mm_40"
+                    android:text="@{data.setSex}"
                     android:textColor="@color/title_gray"
                     android:textSize="@dimen/mm_30"
                     app:layout_constraintBottom_toBottomOf="@+id/textView107"

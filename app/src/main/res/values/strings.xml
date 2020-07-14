@@ -61,4 +61,8 @@
     <string name="company">版权@山东科翔软件科有限公司</string>
     <string name="clear_cache">清除缓存</string>
     <string name="sure_clear_cache">确定清除缓存？</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="photograph">拍照</string>
+    <string name="album">相册</string>
 </resources>

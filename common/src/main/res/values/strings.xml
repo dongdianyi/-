@@ -83,4 +83,6 @@
     <string name="hour">时</string>
     <string name="min">分</string>
     <string name="phone_num">手机号：%s</string>
+    <string name="input_feedback">请填写您的意见</string>
+    <string name="submit">立刻提交</string>
 </resources>

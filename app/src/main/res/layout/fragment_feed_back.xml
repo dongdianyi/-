@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".fragment.FeedBackFragment">
+
+        <include
+            android:id="@+id/include11"
+            layout="@layout/title_item" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline71"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.11" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline73"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0mm"
+            android:layout_height="0mm"
+            android:background="@drawable/cycle_white"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="@dimen/mm_40"
+            app:layout_constraintBottom_toTopOf="@+id/guideline71"
+            app:layout_constraintEnd_toStartOf="@+id/guideline73"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline72"
+            app:layout_constraintTop_toTopOf="@+id/guideline70"
+            app:layout_constraintVertical_bias="0.0">
+
+            <com.example.common.myview.TextDrawable
+                android:id="@+id/textDrawable26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/mm_10"
+                android:text="@string/input_feedback"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/mm_30"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:leftDrawable="@mipmap/home_item_iv"
+                app:leftDrawableWidth="@dimen/mm_5" />
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="0mm"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mm_40"
+                android:background="@drawable/cycle_gray_line"
+                android:gravity="start"
+                android:hint="@string/input_feedback"
+                android:inputType="textPersonName"
+                android:minHeight="@dimen/mm_300"
+                android:padding="@dimen/mm_40"
+                android:textCursorDrawable="@drawable/textcursor"
+                android:textSize="@dimen/mm_28"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDrawable26" />
+
+            <TextView
+                android:id="@+id/textView120"
+                android:layout_width="0mm"
+                android:layout_height="@dimen/mm_100"
+                android:layout_marginTop="@dimen/mm_95"
+                android:background="@drawable/cycle_orange"
+                android:gravity="center"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/mm_35"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText7" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

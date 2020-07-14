@@ -65,6 +65,12 @@
         <action
             android:id="@+id/action_mainFragment_to_problemFragment"
             app:destination="@id/problemFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_feedBackFragment"
+            app:destination="@id/feedBackFragment" />
     </fragment>
     <fragment
         android:id="@+id/warningMessageFragment"
@@ -186,4 +192,12 @@
             android:id="@+id/action_groupPersonFragment_to_chatDetailsFragment"
             app:destination="@id/chatDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.smartagriculture.fragment.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/feedBackFragment"
+        android:name="com.example.smartagriculture.fragment.FeedBackFragment"
+        android:label="FeedBackFragment" />
 </navigation>
